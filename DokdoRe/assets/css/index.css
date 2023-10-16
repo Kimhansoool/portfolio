@@ -116,7 +116,7 @@
     width:100%;
     position: relative;
 }
-.content-wrap{
+.main-inner{
     width:900px;
     display:flex;
     flex-direction: column;
@@ -124,20 +124,20 @@
     align-items: center;
     text-align: center;
 }
-.content-wrap .slogan{
+.cmain-inner .slogan{
     margin-top:-10px;
 }
-.content-wrap .slogan .slogan-title{
+.main-inner .slogan .slogan-title{
     width:490px;
 }
-.content-wrap .slogan .slogan-tx{
+.main-inner .slogan .slogan-tx{
     color:#fff;
     font-size:1.125rem;
     font-weight:300;
     padding-top:46px;
     line-height:1.8;
 }
-.content-wrap .btn{
+.main-inner .btn{
     width:200px;
     height:70px;
     border:3px solid #fff;
@@ -145,7 +145,7 @@
     margin-top:90px;
     line-height: 70px;
 }
-.content-wrap .btn::after{
+.main-inner .btn::after{
     content:"";
     background:url(../img/icon/icon_arrow.svg) no-repeat center center;
     width:12px;
@@ -177,4 +177,63 @@
     margin-top:10px;
 }
 /* e.main */
+/* s.content */
+.content-container{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.content-container .content-wrap{
+    display: flex;
+    margin-top:120px;
+    box-sizing: border-box;
+    padding:0 60px;
+    width:100%;
+    box-sizing: border-box;
 
+}
+.content-container .content-wrap .sec-left{
+    width:50%;
+    height:440px;
+    padding:80px 70px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    background:url(../img/img_dokdo.png) no-repeat right bottom;
+    background-color:#f7f7f7;
+}
+.content-container .content-wrap .sec-left .title{
+    font-size:1.75rem;
+    margin-bottom:30px;
+}
+.content-container .content-wrap .sec-left p{
+    font-size:1rem;
+    line-height: 1.6;
+    color:#505050;
+    margin-bottom:80px;
+}
+.content-container .content-wrap .sec-left .btn{
+    display: inline-block;
+    text-align: center;
+    line-height: 56px;
+    width:160px;
+    height:56px;
+    border:3px solid #09847F;
+    border-radius: 50px;
+    color:#09847F;
+    font-size:0.938rem;
+    font-weight:500;
+}
+.content-container .content-wrap .sec-left .btn::after{
+    content: "";
+    background:url(../img/icon/icon_arrow.svg) no-repeat center center;
+    width:12px;
+    height: 12px;
+    display: inline-block;
+    margin-left:20px;
+    filter: invert(32%) sepia(45%) saturate(6739%) hue-rotate(140deg) brightness(68%) contrast(93%);
+
+}
+.content-container .content-wrap .sec-right{
+    width:50%;
+}
+/* e.content */

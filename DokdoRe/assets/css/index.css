@@ -234,6 +234,20 @@
 
 }
 .content-container .content-wrap .sec-right{
+    box-sizing: border-box;
     width:50%;
+    background-color:aquamarine;
+    padding:80px 70px;
+    height:440px;
+}
+
+.sec-right .title{
+    font-size:26px;
+}
+.sec-right .info-wrap .phone img{
+    background-color: #f7f7f7;
+    border-radius: 50%;
+    width:34px;
+    height: auto;
 }
 /* e.content */

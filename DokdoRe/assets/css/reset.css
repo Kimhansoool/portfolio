@@ -76,6 +76,7 @@ video {
   font-size: 16px;
   vertical-align: baseline;
   background: transparent;
+  box-sizing: border-box;
 }
 
 *{

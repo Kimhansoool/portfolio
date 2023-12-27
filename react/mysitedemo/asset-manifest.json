@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/portfolio/react/mysitedemo/static/js/main.430fb5b1.js",
+    "static/media/img3.jpg": "/portfolio/react/mysitedemo/static/media/img3.6d4b78ebacd7c2e6175d.jpg",
+    "static/media/parallax3.jpg": "/portfolio/react/mysitedemo/static/media/parallax3.e33a5779e8f97b9996b6.jpg",
+    "static/media/parallax1.jpg": "/portfolio/react/mysitedemo/static/media/parallax1.cd1453f3f044352cfe2d.jpg",
+    "static/media/parallax2.jpg": "/portfolio/react/mysitedemo/static/media/parallax2.e9761a29c08eae202a02.jpg",
+    "index.html": "/portfolio/react/mysitedemo/index.html",
+    "main.430fb5b1.js.map": "/portfolio/react/mysitedemo/static/js/main.430fb5b1.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.430fb5b1.js"
+  ]
+}

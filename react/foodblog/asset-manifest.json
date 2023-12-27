@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/portfolio/react/foodblog/static/js/main.6ad7013a.js",
+    "main.js": "/portfolio/react/foodblog/static/js/main.cff95d9b.js",
     "static/media/workshop.jpg": "/portfolio/react/foodblog/static/media/workshop.326b4fa2602a09804c3b.jpg",
     "static/media/gondol.jpg": "/portfolio/react/foodblog/static/media/gondol.20c27b42f86c6b5e2b07.jpg",
     "index.html": "/portfolio/react/foodblog/index.html",
-    "main.6ad7013a.js.map": "/portfolio/react/foodblog/static/js/main.6ad7013a.js.map"
+    "main.cff95d9b.js.map": "/portfolio/react/foodblog/static/js/main.cff95d9b.js.map"
   },
   "entrypoints": [
-    "static/js/main.6ad7013a.js"
+    "static/js/main.cff95d9b.js"
   ]
 }

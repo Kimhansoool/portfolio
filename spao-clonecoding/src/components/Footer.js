@@ -159,7 +159,7 @@ const FooterContainer = styled.div`
 
 const Footer = memo(() => {
   const { footerInfo, subInfo, footerMenu } = dataset.footer;
-  console.log(footerInfo);
+  // console.log(footerInfo);
 
   return (
     <FooterContainer>

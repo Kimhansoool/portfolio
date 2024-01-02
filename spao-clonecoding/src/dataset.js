@@ -5,24 +5,18 @@ const dataset = {
             title: "할인상품",
             url: "#",
             childType: 'A',
-            leftchildren:[
-                {title: "", url: "#"},
-                {title: "", url: "#"},
-                {title: "", url: "#"},
-            ],
-            children: []
+            leftchildren:[],
+            children: [],
+            childBanners: []
         },
         {
             id: "02",
             title: "베스트",
             url: "#",
             childType: 'A',
-            leftchildren:[
-                {title: "", url: "#"},
-                {title: "", url: "#"},
-                {title: "", url: "#"},
-            ],
-            children: []
+            leftchildren:[],
+            children: [],
+            childBanners: []
         },
         {
             id: "03",
@@ -45,9 +39,9 @@ const dataset = {
                {  title: "홈웨어/잠옷", url: "#" }
             ],
             childBanners: [
-            { title: "img1", url: "#" },
-                { title: "img2", url: "#" },
-                { title: "img3", url: "#" }
+                { title: "/img/womanImg1.jpg", url: "#" },
+                { title: "/img/womanImg2.jpg", url: "#" },
+                { title: "/img/womanImg3.jpg", url: "#" }
             ]
         },
         {
@@ -70,9 +64,9 @@ const dataset = {
                {  title: "홈웨어/잠옷", url: "#" }
             ],
             childBanners: [
-                { title: "img1", url: "#" },
-                { title: "img2", url: "#" },
-                { title: "img3", url: "#" }
+                { title: "/img/manImg1.jpg", url: "#" },
+                { title: "/img/manImg2.jpg", url: "#" },
+                { title: "/img/manImg3.jpg", url: "#" }
             ]
         },
         {
@@ -92,9 +86,9 @@ const dataset = {
                {  title: "팬시/뷰티", url: "#" }
             ],
             childBanners: [
-                { title: "img1", url: "#" },
-                { title: "img2", url: "#" },
-                { title: "img3", url: "#" }
+                { title: "/img/CollaborationImg1.jpg", url: "#" },
+                { title: "/img/CollaborationImg2.jpg", url: "#" },
+                { title: "/img/CollaborationImg3.jpg", url: "#" }
             ]
         },
         {
@@ -117,8 +111,8 @@ const dataset = {
                {  title: "악세서리", url: "#" }
             ],
             childBanners: [
-                { title: "img1", url: "#" },
-                { title: "img2", url: "#" }
+                { title: "/img/kidsImg1.jpg", url: "#" },
+                { title: "/img/kidsImg2.jpg", url: "#" }
             ]
         },
         {
@@ -145,9 +139,9 @@ const dataset = {
                {  title: "당첨자 발표", url: "#" },
             ],
             childBanners: [
-                { title: "img1", url: "#" },
-                { title: "img2", url: "#" },
-                { title: "img3", url: "#" }
+                { title: "/img/communityImg1.jpg", url: "#" },
+                { title: "/img/communityImg2.jpg", url: "#" },
+                { title: "/img/communityImg3.jpg", url: "#" }
             ]
         },
     ],

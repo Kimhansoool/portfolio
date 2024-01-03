@@ -105,6 +105,7 @@ const HeaderContainer = styled.nav`
             }
 
             .eachImg{
+              display: flex;
               margin-left:280px;
               height: auto;
 
@@ -173,61 +174,53 @@ const Header = memo(() => {
     <HeaderContainer>
         <a href='#'><img className='logoImg' alt='logoImg' src='img/logo.png'/></a>
         <ul className='mainMenuWrap'>
-          <li className='mainMenuItem' onMouseOver={onMenuItemOver} onMouseOut={onMenuItemOut}>
             {header.map((v, i) =>{
               return(
-                <>
-                  <a href='#' className='link'>{v.title}</a>
-                  {v.leftchildren.length > 1 && (
-                    <div className='subMenuWrap'>
-                      <div className='subMenuInner'>
-                        <ul className='common'>
-                          {header.map((v, i) =>{
-                              return(
-                                v.leftchildren.map((j, k) =>{
-                                  return(
-                                    <li className='subMenuItem' key={k}>
-                                      <a href={j.url}>{j.title}</a>
-                                    </li>
-                                  );
-                                })
-                              );
-                          })}
-                        </ul>
-                        <ul className='each'>
-                        {header.map((v, i) =>{
-                          return(
-                            v.children.map((j, k) =>{
-                              return(
-                                <li key={k} className='subMenuItem'>
-                                  <a href={j.url}>{j.title}</a>
-                                </li>
-                              );
-                            })
-                          );
+                <li key={i} className='mainMenuItem' onMouseOver={onMenuItemOver} onMouseOut={onMenuItemOut}>
+                  <a href={v.url} className='link'>{v.title}</a>
+                  <div className="subMenuWrap">
+                    <div className='subMenuInner'>
+                    {v.leftchildren.length > 0 && (
+                      <ul className='common'>
+                        {v.leftchildren.map((vv, ii) => {
+                          return (
+                            <li key={`${i}-${ii}`} className='subMenuItem'>
+                              <a href={vv.url}>{vv.title}</a>
+                            </li>
+                          )
                         })}
-                        </ul>
-                        <div className='eachImg'>
-                          {header.map((v, i) =>{
-                            return(
-                              v.childBanners.map((j, k) =>{
-                                return(
-                                  <a href={j.href}>
-                                    <img src={j.title} />
-                                  </a>
-                                );
-                              })
-                            );
+                      </ul>
+                    )} 
+
+                    {v.children.length > 0 && (
+                      <ul className='each'>
+                        {v.children.map((vv, ii) => {
+                          return (
+                            <li key={`${i}-${ii}`} className='subMenuItem'>
+                              <a href={vv.url}>{vv.title}</a>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    )} 
+                      {v.childBanners.length > 0 && (
+                        <ul className='eachImg'>
+                          {v.childBanners.map((vv, ii) => {
+                            return (
+                              <li key={`${i}-${ii}`}>
+                                <a href={vv.url}><img src={vv.title} alt='banner' width={50}/></a>
+                              </li>
+                            )
                           })}
-                        </div>
-                      </div>
+                        </ul>
+                      )}
                     </div>
-                  )}
-                </>
+                  </div>
+                </li>
               );
             })}
-          </li>
-          {/* <li className='mainMenuItem'>
+        </ul>
+        {/* <li className='mainMenuItem'>
             <a href='#' className='link'>할인상품</a>
           </li>
           <li className='mainMenuItem'>
@@ -371,7 +364,6 @@ const Header = memo(() => {
           <li className='mainMenuItem'>
             <a href='#' className='link'>매거진</a>
           </li> */}
-        </ul>
     </HeaderContainer>
   );
 });

@@ -11377,6 +11377,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-simple-image-slider@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "react-simple-image-slider@npm:2.4.1"
+  checksum: 111b907f59ae1b5e49aae997a0f84eb5e445b3268275d8a0f4491f509cd59e5c370bead76993df84ca18e7a6a2f2e74ed6f26d3dafcbb4c5c403819cfc1feefe
+  languageName: node
+  linkType: hard
+
 "react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
@@ -12296,6 +12303,7 @@ __metadata:
     react-redux: "npm:^9.0.4"
     react-router-dom: "npm:^6.21.0"
     react-scripts: "npm:5.0.1"
+    react-simple-image-slider: "npm:^2.4.1"
     redux-devtools-extension: "npm:^2.13.9"
     sass: "npm:^1.69.5"
     styled-components: "npm:^6.1.1"

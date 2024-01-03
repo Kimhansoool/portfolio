@@ -8,7 +8,7 @@ const HeaderContainer = styled.nav`
     position: sticky;
     top:40px;
     left:0;
-    background-color: #065;
+    /* background-color: #065; */
     width:100%;
     height:90px;
     z-index: 99999999;
@@ -183,7 +183,6 @@ const Header = memo(() => {
                       <div className='subMenuInner'>
                         <ul className='common'>
                           {header.map((v, i) =>{
-                            if(v.id === "03"){
                               return(
                                 v.leftchildren.map((j, k) =>{
                                   return(
@@ -193,37 +192,32 @@ const Header = memo(() => {
                                   );
                                 })
                               );
-                            }
                           })}
                         </ul>
                         <ul className='each'>
                         {header.map((v, i) =>{
-                          if(v.id === "03"){
-                            return(
-                              v.children.map((j, k) =>{
-                                return(
-                                  <li key={k} className='subMenuItem'>
-                                    <a href={j.url}>{j.title}</a>
-                                  </li>
-                                );
-                              })
-                            );
-                          }
+                          return(
+                            v.children.map((j, k) =>{
+                              return(
+                                <li key={k} className='subMenuItem'>
+                                  <a href={j.url}>{j.title}</a>
+                                </li>
+                              );
+                            })
+                          );
                         })}
                         </ul>
                         <div className='eachImg'>
                           {header.map((v, i) =>{
-                            if(v.id === "03"){
-                              return(
-                                v.childBanners.map((j, k) =>{
-                                  return(
-                                    <a href={j.href}>
-                                      <img src={j.title} />
-                                    </a>
-                                  );
-                                })
-                              );
-                            }
+                            return(
+                              v.childBanners.map((j, k) =>{
+                                return(
+                                  <a href={j.href}>
+                                    <img src={j.title} />
+                                  </a>
+                                );
+                              })
+                            );
                           })}
                         </div>
                       </div>

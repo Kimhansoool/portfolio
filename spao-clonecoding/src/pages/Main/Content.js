@@ -147,6 +147,14 @@ const ContentContainer = styled.div`
 
                         .wish{
                             cursor: pointer;
+                            background-image:url("/img/icon/wish.png");
+                            background-repeat: no-repeat;
+                            width:20px;
+                            height:20px;
+                        }
+
+                        &.active::after{
+                            content: "";
                         }
 
                         .title{
@@ -235,14 +243,21 @@ const HoverMenu = styled.div`
     bottom:-160px;
     right:0;
     width:360px;
-    height:160px;
+    /* height:160px; */
     background-color: #fff;
-    padding:6px 20px;
+    /* padding:6px 20px; */
     overflow: auto;
+    /* border:1px solid #eeeeee; */
+    box-sizing: border-box;
     border:1px solid #eeeeee;
-    display: none;
+    padding:6px 20px;
+    height: 0;
+    opacity: 0;
 
     ul{ 
+        box-sizing: border-box;
+        height: 100%;
+        overflow-y: auto;
 
         li{
             border-bottom: 1px solid #0003;
@@ -251,22 +266,53 @@ const HoverMenu = styled.div`
             font-size:13px;
         }
     }
+
+    &.active {
+        opacity: 1;
+        height: 160px;
+    }
 `;
 
 const Content = memo(() => {
-    const { content, hoverInfo } = dataset;
+    const {weeklyBest, newProduct} = dataset.content;
 
     const onInfoHover = useCallback((e) =>{
         e.preventDefault();
+        const current = e.currentTarget;
+
+        const currentHover = current.parentElement.querySelector('.HoverMenu');
+        console.log(currentHover);
+
+        currentHover.classList.toggle('active');
+        
+    },[]);
+
+    // const onInfoOut = useCallback((e) =>{
+    //     e.preventDefault();
+
+    //     const current = e.currentTarget;
+    //     const currentHover = current.parentElement.querySelector('.HoverMenu');
+    //     currentHover.style.height = '0px';
+    //     currentHover.style.opacity = 0;
+    // }, []);
+
+    const onWish = useCallback((e) =>{
+        e.preventDefault();
 
         const current = e.currentTarget;
-        console.log(current);
 
-        const hoverMenu = document.querySelector('.HoverMenu');
-        console.log(hoverMenu);
+        const heart = current.parentElement.querySelector('.wish');
+        console.log(heart);
 
-        hoverMenu.style.display = "block";
-    } , []);
+        heart.classList.toggle('active');
+
+        if(heart.classList.contains("active")){
+            heart.style.backgroundImage = "url(/img/icon/wishON.png)"
+        } else{
+            heart.style.backgroundImage = "url(/img/icon/wish.png)"
+        }
+ 
+    }, []);
 
   return (
     <ContentContainer>
@@ -279,17 +325,17 @@ const Content = memo(() => {
       </ul>
       <div className='itemWrap'>
         <ul className='itemInner'>
-            {content.map((v, i) =>{
+            {weeklyBest.map((v, i) =>{
                 return(
                     <li key={v.id} className='item'>
                         <div className='imgWrap weeklyBest'>
-                            <img src={v.img} alt='weeklyBest-img' />
+                            <a href='#'><img src={v.img} className='productImg' alt='weeklyBest-img' /></a>
                             <img className='productInfo' onClick={onInfoHover} src='/img/icon/hamburger-menu.png' alt='hamburger-menu' />
                             <HoverMenu className='HoverMenu'>
-                                <ul>
-                                    {hoverInfo.map((v, i) =>{
+                                <ul className='hoverItemWrap'>
+                                    {v.hoverInfo.map((j, k) =>{
                                         return(
-                                            <li key={i}>{v.text}</li>
+                                            <li key={k}>{j.text}</li>
                                         );
                                     })}
                                 </ul>
@@ -298,7 +344,7 @@ const Content = memo(() => {
                         <div className='description'>
                             <div className='productName'>
                                 <span><a href={v.url} className='title'>{v.title}</a></span>
-                                <i className='wish'><img src='/img/icon/wish.png' /></i>
+                                <i className='wish' onClick={onWish}></i>
                             </div>
                             <div className='price'>
                                 <span className='nowPrice'>{v.nowPrice}</span>
@@ -308,7 +354,7 @@ const Content = memo(() => {
                             <div className='colorBox'>
                                 {v.colorChip.map((j, k) => {
                                 return (
-                                    <span className='colorChip' key={k} backgroundColor={j.hexCode}></span>
+                                    <span className='colorChip' key={k} style={{backgroundColor :`${j.hexCode}`}}></span>
                                 );
                                 })}
                             </div>
@@ -324,9 +370,51 @@ const Content = memo(() => {
       <h1 className='mainTitle newProduct'>신상품</h1>
       <div className='itemWrap'>
         <ul className='itemInner'>
-          <li className='item'>
-          </li>
+        {newProduct.map((v, i) =>{
+                return(
+                    <li key={v.id} className='item'>
+                        <div className='imgWrap newProduct'>
+                            <a href='#'><img src={v.img} alt='newProduct-img' /></a>
+                            <img className='productInfo' onClick={onInfoHover} src='/img/icon/hamburger-menu.png' alt='hamburger-menu' />
+                            <HoverMenu className='HoverMenu'>
+                                <ul>
+                                    {v.hoverInfo.map((j, k) =>{
+                                        return(
+                                            <li key={k}>{j.text}</li>
+                                        );
+                                    })}
+                                </ul>
+                            </HoverMenu>
+                       </div>
+                        <div className='description'>
+                            <div className='productName'>
+                                <span><a href={v.url} className='title'>{v.title}</a></span>
+                                <i className='wish' onClick={onWish}></i>
+                            </div>
+                            <div className='price'>
+                                <span className='nowPrice'>{v.nowPrice}</span>
+                                <span className='beforePrice'>{v.beforePrice}</span>
+                                <span className='discountPercent'>{v.discountPercent}</span>
+                            </div>
+                            <div className='colorBox'>
+                                {v.colorChip.map((j, k) => {
+                                return (
+                                    <span className='colorChip' key={k} style={{backgroundColor :`${j.hexCode}`}}></span>
+                                );
+                                })}
+                            </div>
+                            <div className='reviewBox'>
+                                <span className='review'>리뷰{v.review}건</span>
+                            </div>
+                        </div>
+                    </li>
+                );
+            })}
         </ul>
+      </div>
+      <div className='banner'>
+        <a href='#'><img src='/img/banner01.webp' /></a>
+        <a href='#'><img src='/img/banner02.webp' /></a>
       </div>
       {/* <div className='itemWrap'>
         <ul className='itemInner'>

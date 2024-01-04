@@ -15,108 +15,125 @@ const HeaderContainer = styled.nav`
     display: flex;
     align-items: center;
     padding: 0 100px;
-
-    &:hover{
-      .logoImg{
-        filter:brightness(0)  invert(17%) sepia(61%) saturate(5015%) hue-rotate(348deg) brightness(82%) contrast(93%);
-      }
-    }
-    
+    justify-content: space-between;
 
     &:hover{
       background-color: #ffffff;
 
+      .logoImg{
+        filter:brightness(0)  invert(17%) sepia(61%) saturate(5015%) hue-rotate(348deg) brightness(82%) contrast(93%);
+      }
+
+      .iconWrap{
+          a{
+            img{
+              filter: brightness(0);
+            }
+          }
+        }
+
+      .MenuWrap{
+        .mainMenuWrap{
+          .mainMenuItem{
+            .link{
+              color:#000;
+            }
+          }
+        }
+      }
+    }
+    .MenuWrap{
+      display: flex;
+      align-items: center;
+
       .mainMenuWrap{
+        display: flex;
+        margin-left:50px;
+
         .mainMenuItem{
+
           .link{
-            color:#000;
+            font-size:16px;
+            font-weight: 600;
+            color:#fff;
+            margin-right:40px;
+          }
+
+          .subMenuWrap{
+            box-sizing: border-box;
+            position: absolute;
+            width:100%;
+            top:90px;
+            left:0;
+            background-color: #fff;
+            z-index:999999999999;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            max-height:0;
+            transition: max-height 180ms ease-out;
+            /* background-color: #00f; */
+
+            .subMenuInner{
+              max-width:100%;
+              height:max-content;
+              /* background-color: #f60; */
+              box-sizing: border-box;
+              padding:50px 280px 100px 280px;
+              display: flex;
+
+              .common{
+                width:200px;
+
+                .subMenuItem{
+                  margin-right:130px;
+                  margin-bottom:14px;
+                }
+
+                a{
+                  font-size:14px;
+                }
+              }
+
+              .each{
+                border-left:1px solid #eeeeee;
+                height:max-content;
+                width:200px;
+
+                .subMenuItem{
+                  padding-left:40px;
+                  margin-bottom:14px;
+                }
+
+                a{
+                  font-size:14px;
+                  color:#a1a1a1;
+                }
+              }
+
+              .eachImg{
+                display: flex;
+                margin-left:280px;
+                height: auto;
+
+                img{
+                  width:200px;
+                  height:auto;
+                  margin-left:20px;
+                }
+              }
+            }
           }
         }
       }
     }
 
-    .mainMenuWrap{
-
+    .iconWrap{
       display: flex;
-      margin-left:50px;
+      align-items: center;
 
-
-      .mainMenuItem{
-
-        &:hover{
-            .subMenuWrap{
-            }
-          }
-
-
-        .link{
-          font-size:16px;
-          font-weight: 600;
-          color:#fff;
-          margin-right:40px;
-
-        }
-
-        .subMenuWrap{
-          box-sizing: border-box;
-          position: absolute;
-          width:100%;
-          top:90px;
-          left:0;
-          background-color: #fff;
-          z-index:999999999999;
-          display: flex;
-          flex-direction: column;
-          overflow: hidden;
-          max-height:0;
-          transition: max-height 180ms ease-out;
-
-          .subMenuInner{
-            padding:50px 280px 100px 280px;
-            display: flex;
-
-            .common{
-              width:200px;
-
-              .subMenuItem{
-                margin-right:130px;
-                margin-bottom:14px;
-                
-              }
-              a{
-                font-size:14px;
-              }
-            }
-
-            .each{
-              border-left:1px solid #eeeeee;
-              height:max-content;
-              width:200px;
-
-              .subMenuItem{
-                padding-left:40px;
-                margin-bottom:14px;
-
-              }
-              a{
-                font-size:14px;
-                color:#a1a1a1;
-              }
-            }
-
-            .eachImg{
-              display: flex;
-              margin-left:280px;
-              height: auto;
-
-              img{
-                width:200px;
-                height:auto;
-                margin-left:20px;
-              }
-            }
-          }
-        }
+      a{
+        margin-left:30px;
       }
     }
 `;
@@ -154,24 +171,9 @@ const Header = memo(() => {
     sub.style.maxHeight = '0px';
   }, []);
 
-  // {header.map((v, i) =>{
-  //   console.log(v.id);
-  //   if(v.id === "03"){
-  //     return(
-  //       v.leftchildren.map((j, k) =>{
-  //         return(
-  //           <li key={k}>
-  //             {console.log(j)}
-  //             <a href={j.url}>{j.title}</a>
-  //           </li>
-  //         );
-  //       })
-  //     )
-  //   }
-  // })}
-
   return (
     <HeaderContainer>
+      <div className='MenuWrap'>
         <a href='#'><img className='logoImg' alt='logoImg' src='img/logo.png'/></a>
         <ul className='mainMenuWrap'>
             {header.map((v, i) =>{
@@ -219,6 +221,13 @@ const Header = memo(() => {
                 </li>
               );
             })}
+        </ul>
+      </div>
+        <ul className='iconWrap'>
+          <li><a href='#'><img alt='user' src='img/icon/top_user.png' /></a></li>
+          <li><a href='#'><img alt='search' src='img/icon/top_search.png' /></a></li>
+          <li><a href='#'><img alt='wish' src='img/icon/top_wish.png' /></a></li>
+          <li><a href='#'><img alt='cart' src='img/icon/top_cart.png' /></a></li>
         </ul>
         {/* <li className='mainMenuItem'>
             <a href='#' className='link'>할인상품</a>

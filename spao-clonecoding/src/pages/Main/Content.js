@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React, {memo, useCallback} from 'react';
 import styled from 'styled-components';
 import dataset from '../../dataset';
 import {NavLink} from 'react-router-dom';
@@ -229,8 +229,44 @@ const ContentContainer = styled.div`
     }
 `;
 
+const HoverMenu = styled.div`
+    position: absolute;
+    text-align: left;
+    bottom:-160px;
+    right:0;
+    width:360px;
+    height:160px;
+    background-color: #fff;
+    padding:6px 20px;
+    overflow: auto;
+    border:1px solid #eeeeee;
+    display: none;
+
+    ul{ 
+
+        li{
+            border-bottom: 1px solid #0003;
+            padding:14px 0;
+            cursor: pointer;
+            font-size:13px;
+        }
+    }
+`;
+
 const Content = memo(() => {
-    const { content } = dataset;
+    const { content, hoverInfo } = dataset;
+
+    const onInfoHover = useCallback((e) =>{
+        e.preventDefault();
+
+        const current = e.currentTarget;
+        console.log(current);
+
+        const hoverMenu = document.querySelector('.HoverMenu');
+        console.log(hoverMenu);
+
+        hoverMenu.style.display = "block";
+    } , []);
 
   return (
     <ContentContainer>
@@ -248,8 +284,17 @@ const Content = memo(() => {
                     <li key={v.id} className='item'>
                         <div className='imgWrap weeklyBest'>
                             <img src={v.img} alt='weeklyBest-img' />
-                            <img className='productInfo' src='/img/icon/hamburger-menu.png' alt='hamburger-menu' />
-                        </div>
+                            <img className='productInfo' onClick={onInfoHover} src='/img/icon/hamburger-menu.png' alt='hamburger-menu' />
+                            <HoverMenu className='HoverMenu'>
+                                <ul>
+                                    {hoverInfo.map((v, i) =>{
+                                        return(
+                                            <li key={i}>{v.text}</li>
+                                        );
+                                    })}
+                                </ul>
+                            </HoverMenu>
+                       </div>
                         <div className='description'>
                             <div className='productName'>
                                 <span><a href={v.url} className='title'>{v.title}</a></span>

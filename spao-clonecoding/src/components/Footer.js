@@ -193,16 +193,16 @@ const Footer = memo(() => {
           <span>{subInfo.msg}</span>
           <div className='footerLogo'>
             <ul className='emblem'>
-              <li><a href='#'><img src='/img/emblem01.png' /></a></li>
-              <li><a href='#'><img src='/img/emblem02.png' /></a></li>
-              <li><a href='#'><img src='/img/emblem03.png' /></a></li>
+              <li><a href='#'><img src='img/emblem01.png' /></a></li>
+              <li><a href='#'><img src='img/emblem02.png' /></a></li>
+              <li><a href='#'><img src='img/emblem03.png' /></a></li>
             </ul>
             <ul className='snsLogo'>
-              <li><a href='#'><img src='/img/sns/bt_sns_face.png' /></a></li>
-              <li><a href='#'><img src='/img/sns/bt_sns_insta.png' /></a></li>
-              <li><a href='#'><img src='/img/sns/bt_sns_you.png' /></a></li>
-              <li><a href='#'><img src='/img/sns/bt_sns_blog.png' /></a></li>
-              <li><a href='#'><img src='/img/sns/bt_sns_post.png' /></a></li>
+              <li><a href='#'><img src='img/sns/bt_sns_face.png' /></a></li>
+              <li><a href='#'><img src='img/sns/bt_sns_insta.png' /></a></li>
+              <li><a href='#'><img src='img/sns/bt_sns_you.png' /></a></li>
+              <li><a href='#'><img src='img/sns/bt_sns_blog.png' /></a></li>
+              <li><a href='#'><img src='img/sns/bt_sns_post.png' /></a></li>
             </ul>
           </div>
         </div>
@@ -228,10 +228,10 @@ const Footer = memo(() => {
         <div className='copyRight'>
           <span>Copyright ⓒ 스파오닷컴 All Right Reserved.</span>
           <ul>
-            <li><a href='#'><img src='/img/icon/bt_icon_lgec.png' />구매안전(에스크로)서비스</a></li>
-            <li><a href='#'><img src='/img/icon/bt_icon_app01.png' /></a></li>
-            <li><a href='#'><img src='/img/icon/bt_icon_app02.png' />스파오 APP 다운로드</a></li>
-            <li><a href='#'><img src='/img/icon/bt_icon_global.png' />대한민국 | 한국어 <img src='/img/icon/bt_icon_global_arrow.png' className='arrow' /></a></li>
+            <li><a href='#'><img src='img/icon/bt_icon_lgec.png' />구매안전(에스크로)서비스</a></li>
+            <li><a href='#'><img src='img/icon/bt_icon_app01.png' /></a></li>
+            <li><a href='#'><img src='img/icon/bt_icon_app02.png' />스파오 APP 다운로드</a></li>
+            <li><a href='#'><img src='img/icon/bt_icon_global.png' />대한민국 | 한국어 <img src='img/icon/bt_icon_global_arrow.png' className='arrow' /></a></li>
           </ul>
         </div>
       </div>

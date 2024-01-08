@@ -81,9 +81,9 @@ const WeeklyBestKids = memo(() => {
         heart.classList.toggle('active');
 
         if(heart.classList.contains("active")){
-            heart.style.backgroundImage = "url(/img/icon/wishON.png)"
+            heart.style.backgroundImage = "url(img/icon/wishON.png)"
         } else{
-            heart.style.backgroundImage = "url(/img/icon/wish.png)"
+            heart.style.backgroundImage = "url(img/icon/wish.png)"
         }
  
     }, []);
@@ -95,7 +95,7 @@ const WeeklyBestKids = memo(() => {
                     <li key={v.id} className='item'>
                         <div className='imgWrap weeklyBest'>
                             <a href='#'><img src={v.img} className='productImg' alt='weeklyBest-img' /></a>
-                            <img className='productInfo' onClick={onInfoHover} src='/img/icon/hamburger-menu.png' alt='hamburger-menu' />
+                            <img className='productInfo' onClick={onInfoHover} src='img/icon/hamburger-menu.png' alt='hamburger-menu' />
                             <HoverMenu className='HoverMenu'>
                                 <ul className='hoverItemWrap'>
                                     {v.hoverInfo.map((j, k) =>{

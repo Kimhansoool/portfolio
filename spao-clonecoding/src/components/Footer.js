@@ -13,6 +13,7 @@ const FooterContainer = styled.div`
       height:380px;
       display: flex;
       position: relative;
+      justify-content: space-between;
 
       .footerInfo{
         width:50%;
@@ -91,15 +92,26 @@ const FooterContainer = styled.div`
         /* background-color: #f60; */
         width:50%;
 
+        
+
         ul{
-          background-color: #0f0;
+          /* background-color: #0f0; */
           display: flex;
           flex-wrap: wrap;
           text-align: right;
           justify-content: right;
+          height:140px;
+          width:100%;
 
-          li{
+          div{
+            margin-left:50px;
+
+            li{
             font-size:14px;
+            width:160px;
+            /* background-color: #909090; */
+            margin-bottom:20px;
+            } 
           }
         }
       }
@@ -196,11 +208,21 @@ const Footer = memo(() => {
         </div>
         <div className='footerMenu'>
           <ul>
-            {footerMenu.map((v, i) =>{
-              return(
-                <li key={i}>{v.menu}</li>
-              );
-            })}
+            <div>
+              <li><a href='#'>브랜드소개</a></li>
+              <li><a href='#'>개인정보 처리방침</a></li>
+              <li><a href='#'>공지사항</a></li> <br/>
+            </div>
+            <div>
+              <li><a href='#'>오프라인 매장안내</a></li>
+              <li><a href='#'>약관안내</a></li>
+              <li><a href='#'>회원헤택</a></li><br />
+            </div>
+            <div>
+              <li><a href='#'>윤리경영</a></li>
+              <li><a href='#'>채정정보 및 인사제도</a></li>
+              <li><a href='#'>자주묻는질문 FAQ</a></li>
+            </div>
           </ul>
         </div>
         <div className='copyRight'>

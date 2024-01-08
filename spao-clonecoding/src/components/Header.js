@@ -72,12 +72,10 @@ const HeaderContainer = styled.nav`
             overflow: hidden;
             max-height:0;
             transition: max-height 180ms ease-out;
-            /* background-color: #00f; */
 
             .subMenuInner{
               max-width:100%;
-              height:max-content;
-              /* background-color: #f60; */
+              height:100%;
               box-sizing: border-box;
               padding:50px 280px 100px 280px;
               display: flex;
@@ -162,6 +160,7 @@ const Header = memo(() => {
     const sub = current.querySelector('.subMenuWrap');
     console.log(sub);
     sub.style.maxHeight = sub.scrollHeight + 'px';
+    console.log(sub.scrollHeight);
   }, []);
 
   const onMenuItemOut = useCallback((e) =>{
@@ -181,7 +180,8 @@ const Header = memo(() => {
                 <li key={i} className='mainMenuItem' onMouseOver={onMenuItemOver} onMouseOut={onMenuItemOut}>
                   <a href={v.url} className='link'>{v.title}</a>
                   <div className="subMenuWrap">
-                    <div className='subMenuInner'>
+                    {(v.leftchildren.length > 0 || v.children.length > 0 || v.childBanners.length > 0) && (
+                      <div className='subMenuInner'>
                     {v.leftchildren.length > 0 && (
                       <ul className='common'>
                         {v.leftchildren.map((vv, ii) => {
@@ -216,7 +216,8 @@ const Header = memo(() => {
                           })}
                         </ul>
                       )}
-                    </div>
+                      </div>
+                    )}
                   </div>
                 </li>
               );

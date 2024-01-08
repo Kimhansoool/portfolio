@@ -1,7 +1,16 @@
-import React, {memo, useCallback} from 'react';
+import React, {memo, useCallback, useMemo, useState} from 'react';
 import styled from 'styled-components';
 import dataset from '../../dataset';
-import {NavLink} from 'react-router-dom';
+import { NavLink, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import classnames from 'classnames';
+
+import WeeklyBestWoman from './WeeklyBestWoman';
+import WeeklyBestMan from './WeeklyBestMan';
+import WeeklyBestKids from './WeeklyBestKids';
+import WeeklyBestPajamas from './WeeklyBestPajamas';
+
+import {useQueryString} from '../../hooks/useQueryString';
+
 
 const ContentContainer = styled.div`
     text-align: center;
@@ -28,30 +37,11 @@ const ContentContainer = styled.div`
             position: relative;
             margin-right:40px;
 
-            &.active{
-                font-weight: 600;
-                border-bottom:3px solid #000000;
-                padding-bottom:6px;
-                
-                &::after{
-                    content: "";
-                    position: absolute;
-                    right:-8px;
-                    top:-6px;
-                    width:8px;
-                    height:8px;
-                    background-color: #c41e20;
-                    border-radius: 50%;
-                }
-            }
-
             &:last-child{
                 margin-right:0;
             }
 
-            a{
-                font-size:20px;
-            }
+            
         }
     }
 
@@ -70,6 +60,7 @@ const ContentContainer = styled.div`
             justify-content: center;
 
             .item{
+                position: relative;
                 width:385px;
                 margin-right:20px; 
                 margin-bottom:60px;
@@ -79,8 +70,6 @@ const ContentContainer = styled.div`
                 &:nth-child(4n){
                     margin-right:0;
                 }
-
-
 
                 .imgWrap{
                     position: relative;
@@ -92,20 +81,22 @@ const ContentContainer = styled.div`
                         bottom:20px;
                         right:20px;
                         display: none;
-
                     }
 
                     &:hover{
+
+                        .productImg{
+                            opacity: 0.8;
+                        }
 
                         .productInfo{
                             display: block;
                             animation: move 0.3s;
                             cursor: pointer;
-                        }
-                        img{
-                            opacity:0.8;
-                        }  
+                        } 
                     }
+
+                    
 
                     @keyframes move{
                         0% {
@@ -113,26 +104,7 @@ const ContentContainer = styled.div`
                         } 100% {
                             bottom:20px;
                         }
-                    }
-
-                    &.weeklyBest{
-                        &::after{
-                            content: "1";
-                            position: absolute;
-                            font-size:26px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            color:#fff;
-                            top:0;
-                            left:0;
-                            width:60px;
-                            height:60px;
-                            background-color: #e86434;
-                        }
-                    }
-
-                    
+                    }             
 
                     img{
                         width:100%;
@@ -237,6 +209,42 @@ const ContentContainer = styled.div`
     }
 `;
 
+const MenuLink = styled(NavLink)`
+    font-size:20px;
+
+    &.active{
+        font-weight: 600;
+        border-bottom:3px solid #000000;
+        padding-bottom:6px;
+                
+        &::after{
+            content: "";
+            position: absolute;
+            right:-8px;
+            top:-6px;
+            width:8px;
+            height:8px;
+            background-color: #c41e20;
+            border-radius: 50%;
+        }
+    }
+`;
+
+const Number = styled.div`
+    content: "";
+    position: absolute;
+    font-size:26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#fff;
+    top:0;
+    left:0;
+    width:60px;
+    height:60px;
+    background-color: #e86434;
+`;
+
 const HoverMenu = styled.div`
     position: absolute;
     text-align: left;
@@ -274,7 +282,11 @@ const HoverMenu = styled.div`
 `;
 
 const Content = memo(() => {
-    const {weeklyBest, newProduct} = dataset.content;
+    const {pathname} = useLocation();
+    // console.log(pathname);
+    
+    const {link, newProduct} = dataset.content;
+    const [tabIndex, setTabIndex] = useState(0);
 
     const onInfoHover = useCallback((e) =>{
         e.preventDefault();
@@ -286,15 +298,6 @@ const Content = memo(() => {
         currentHover.classList.toggle('active');
         
     },[]);
-
-    // const onInfoOut = useCallback((e) =>{
-    //     e.preventDefault();
-
-    //     const current = e.currentTarget;
-    //     const currentHover = current.parentElement.querySelector('.HoverMenu');
-    //     currentHover.style.height = '0px';
-    //     currentHover.style.opacity = 0;
-    // }, []);
 
     const onWish = useCallback((e) =>{
         e.preventDefault();
@@ -314,58 +317,42 @@ const Content = memo(() => {
  
     }, []);
 
+    const onTabButtonClick = useCallback((e) =>{
+        const current = e.currentTarget;
+
+        const href = current.getAttribute('href');
+        // console.log(href);
+
+        setTabIndex((currentValue) =>{
+            return link.findIndex(element => `#${element.id}` === href);
+          });
+    },[]);
+
   return (
     <ContentContainer>
       <h1 className='mainTitle'>위클리 베스트</h1>
       <ul className='menuWrap'>
-        <li className='link active'><NavLink to='/'>우먼</NavLink></li>
-        <li className='link'><NavLink to='/'>맨</NavLink></li>
-        <li className='link'><NavLink to='/'>키즈</NavLink></li>
-        <li className='link'><NavLink to='/'>파자마</NavLink></li>
+        {link.map((v, i) =>{
+
+            const linkItem = classnames({
+                'active': i === tabIndex
+            });
+
+            return(
+                <li key={i} className='link'>
+                    <MenuLink to={`/${v.id}`} className={linkItem} onClick={onTabButtonClick}>{v.item}</MenuLink>
+                </li>
+            );
+        })}
       </ul>
       <div className='itemWrap'>
-        <ul className='itemInner'>
-            {weeklyBest.map((v, i) =>{
-                return(
-                    <li key={v.id} className='item'>
-                        <div className='imgWrap weeklyBest'>
-                            <a href='#'><img src={v.img} className='productImg' alt='weeklyBest-img' /></a>
-                            <img className='productInfo' onClick={onInfoHover} src='/img/icon/hamburger-menu.png' alt='hamburger-menu' />
-                            <HoverMenu className='HoverMenu'>
-                                <ul className='hoverItemWrap'>
-                                    {v.hoverInfo.map((j, k) =>{
-                                        return(
-                                            <li key={k}>{j.text}</li>
-                                        );
-                                    })}
-                                </ul>
-                            </HoverMenu>
-                       </div>
-                        <div className='description'>
-                            <div className='productName'>
-                                <span><a href={v.url} className='title'>{v.title}</a></span>
-                                <i className='wish' onClick={onWish}></i>
-                            </div>
-                            <div className='price'>
-                                <span className='nowPrice'>{v.nowPrice}</span>
-                                <span className='beforePrice'>{v.beforePrice}</span>
-                                <span className='discountPercent'>{v.discountPercent}</span>
-                            </div>
-                            <div className='colorBox'>
-                                {v.colorChip.map((j, k) => {
-                                return (
-                                    <span className='colorChip' key={k} style={{backgroundColor :`${j.hexCode}`}}></span>
-                                );
-                                })}
-                            </div>
-                            <div className='reviewBox'>
-                                <span className='review'>리뷰{v.review}건</span>
-                            </div>
-                        </div>
-                    </li>
-                );
-            })}
-        </ul>
+        <Routes>
+            <Route path='/' element={<WeeklyBestWoman />} />
+            <Route path='/woman' element={<WeeklyBestWoman />} />
+            <Route path='/man' element={<WeeklyBestMan />} />
+            <Route path='/kids' element={<WeeklyBestKids />} />
+            <Route path='/pajamas' element={<WeeklyBestPajamas />} />
+        </Routes>
       </div>
       <h1 className='mainTitle newProduct'>신상품</h1>
       <div className='itemWrap'>

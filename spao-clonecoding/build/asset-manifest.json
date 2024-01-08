@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/static/js/main.fc45de26.js",
-    "static/media/slide2.jpg": "/static/media/slide2.769fc61ced1750cc3dbd.jpg",
-    "static/media/slide1.jpg": "/static/media/slide1.bc1d37b526dab2a5afc4.jpg",
-    "static/media/slide5.jpg": "/static/media/slide5.b9ca04858cff01d562b2.jpg",
-    "static/media/slide3.jpg": "/static/media/slide3.2fd0c865b20e130701b8.jpg",
-    "static/media/slide4.jpg": "/static/media/slide4.ecd0a7a8187f38fb17b9.jpg",
-    "index.html": "/index.html",
-    "main.fc45de26.js.map": "/static/js/main.fc45de26.js.map"
+    "main.js": "/portfolio/react/SPAO/static/js/main.09f7ba41.js",
+    "static/media/slide2.jpg": "/portfolio/react/SPAO/static/media/slide2.769fc61ced1750cc3dbd.jpg",
+    "static/media/slide1.jpg": "/portfolio/react/SPAO/static/media/slide1.bc1d37b526dab2a5afc4.jpg",
+    "static/media/slide5.jpg": "/portfolio/react/SPAO/static/media/slide5.b9ca04858cff01d562b2.jpg",
+    "static/media/slide3.jpg": "/portfolio/react/SPAO/static/media/slide3.2fd0c865b20e130701b8.jpg",
+    "static/media/slide4.jpg": "/portfolio/react/SPAO/static/media/slide4.ecd0a7a8187f38fb17b9.jpg",
+    "index.html": "/portfolio/react/SPAO/index.html",
+    "main.09f7ba41.js.map": "/portfolio/react/SPAO/static/js/main.09f7ba41.js.map"
   },
   "entrypoints": [
-    "static/js/main.fc45de26.js"
+    "static/js/main.09f7ba41.js"
   ]
 }

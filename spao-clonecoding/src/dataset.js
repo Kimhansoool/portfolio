@@ -36,9 +36,9 @@ const dataset = {
                {  title: "홈웨어/잠옷", url: "#" }
             ],
             childBanners: [
-                { title: "/img/womanImg1.jpg", url: "#" },
-                { title: "/img/womanImg2.jpg", url: "#" },
-                { title: "/img/womanImg3.jpg", url: "#" }
+                { title: "img/womanImg1.jpg", url: "#" },
+                { title: "img/womanImg2.jpg", url: "#" },
+                { title: "img/womanImg3.jpg", url: "#" }
             ]
         },
         {
@@ -60,9 +60,9 @@ const dataset = {
                {  title: "홈웨어/잠옷", url: "#" }
             ],
             childBanners: [
-                { title: "/img/manImg1.jpg", url: "#" },
-                { title: "/img/manImg2.jpg", url: "#" },
-                { title: "/img/manImg3.jpg", url: "#" }
+                { title: "img/manImg1.jpg", url: "#" },
+                { title: "img/manImg2.jpg", url: "#" },
+                { title: "img/manImg3.jpg", url: "#" }
             ]
         },
         {
@@ -81,9 +81,9 @@ const dataset = {
                {  title: "팬시/뷰티", url: "#" }
             ],
             childBanners: [
-                { title: "/img/CollaborationImg1.jpg", url: "#" },
-                { title: "/img/CollaborationImg2.jpg", url: "#" },
-                { title: "/img/CollaborationImg3.jpg", url: "#" }
+                { title: "img/CollaborationImg1.jpg", url: "#" },
+                { title: "img/CollaborationImg2.jpg", url: "#" },
+                { title: "img/CollaborationImg3.jpg", url: "#" }
             ]
         },
         {
@@ -105,8 +105,8 @@ const dataset = {
                {  title: "악세서리", url: "#" }
             ],
             childBanners: [
-                { title: "/img/kidsImg1.jpg", url: "#" },
-                { title: "/img/kidsImg2.jpg", url: "#" }
+                { title: "img/kidsImg1.jpg", url: "#" },
+                { title: "img/kidsImg2.jpg", url: "#" }
             ]
         },
         {
@@ -132,9 +132,9 @@ const dataset = {
                {  title: "당첨자 발표", url: "#" },
             ],
             childBanners: [
-                { title: "/img/communityImg1.jpg", url: "#" },
-                { title: "/img/communityImg2.jpg", url: "#" },
-                { title: "/img/communityImg3.jpg", url: "#" }
+                { title: "img/communityImg1.jpg", url: "#" },
+                { title: "img/communityImg2.jpg", url: "#" },
+                { title: "img/communityImg3.jpg", url: "#" }
             ]
         },
     ],
@@ -149,7 +149,7 @@ const dataset = {
             {
                 id:"BW01",
                 title: "[리사이클] 베이직 퍼플리스 집업_SPFZD4TU01",
-                img: "/img/weeklyBest/woman/weeklyBestWoman01.jpg",
+                img: "img/weeklyBest/woman/weeklyBestWoman01.jpg",
                 url: "#",
                 nowPrice: "19,900",
                 beforePrice: "29,900",
@@ -195,7 +195,7 @@ const dataset = {
             {
                 id:"BW02",
                 title: "파스텔 푸퍼_SPJPD4TG01",
-                img: "/img/weeklyBest/woman/weeklyBestWoman02.jpg",
+                img: "img/weeklyBest/woman/weeklyBestWoman02.jpg",
                 url: "#",
                 nowPrice: "64,900",
                 beforePrice: "69,900",
@@ -238,7 +238,7 @@ const dataset = {
             {
                 id:"BW03",
                 title: "파스텔 푸퍼 (코듀로이)_SPJPD4TG02",
-                img: "/img/weeklyBest/woman/weeklyBestWoman03.jpg",
+                img: "img/weeklyBest/woman/weeklyBestWoman03.jpg",
                 url: "#",
                 nowPrice: "74,900",
                 beforePrice: "79,900",
@@ -260,7 +260,7 @@ const dataset = {
             {
                 id:"BW04",
                 title: "브레드걸 그래픽 반팔티_SPRPD37G10",
-                img: "/img/weeklyBest/woman/weeklyBestWoman04.jpg",
+                img: "img/weeklyBest/woman/weeklyBestWoman04.jpg",
                 url: "#",
                 nowPrice: "9,900",
                 beforePrice: "19,900",
@@ -294,7 +294,7 @@ const dataset = {
             {
                 id:"BW05",
                 title: "[울블렌드] 벨티드 발마칸 코트_SPJWD4VW01",
-                img: "/img/weeklyBest/woman/weeklyBestWoman05.jpg",
+                img: "img/weeklyBest/woman/weeklyBestWoman05.jpg",
                 url: "#",
                 nowPrice: "109,900",
                 beforePrice: "129,900",
@@ -324,7 +324,7 @@ const dataset = {
             {
                 id:"BW06",
                 title: "후드 숏 더플 코트(SPJWD4TG01 RE)_SPJWE11G91",
-                img: "/img/weeklyBest/woman/weeklyBestWoman06.jpg",
+                img: "img/weeklyBest/woman/weeklyBestWoman06.jpg",
                 url: "#",
                 nowPrice: "99,900",
                 beforePrice: "",
@@ -346,7 +346,7 @@ const dataset = {
             {
                 id:"BW07",
                 title: "[울블렌드] 크롭 R넥 스웨터_G,W_SPKWD4TU13",
-                img: "/img/weeklyBest/woman/weeklyBestWoman07.jpg",
+                img: "img/weeklyBest/woman/weeklyBestWoman07.jpg",
                 url: "#",
                 nowPrice: "19,900",
                 beforePrice: "35,900",
@@ -376,7 +376,7 @@ const dataset = {
             {
                 id:"BW08",
                 title: "퍼배색 무스탕_SPJLD4VW03",
-                img: "/img/weeklyBest/woman/weeklyBestWoman08.jpg",
+                img: "img/weeklyBest/woman/weeklyBestWoman08.jpg",
                 url: "#",
                 nowPrice: "99,900",
                 beforePrice: "",
@@ -404,7 +404,7 @@ const dataset = {
             {
                 id:"BM01",
                 title: "[리사이클] 베이직 퍼플리스 집업_SPFZD4TU01",
-                img: "/img/weeklyBest/man/weeklyBestMan01.jpg",
+                img: "img/weeklyBest/man/weeklyBestMan01.jpg",
                 url: "#",
                 nowPrice: "19,900",
                 beforePrice: "29,900",
@@ -450,7 +450,7 @@ const dataset = {
             {
                 id:"BM02",
                 title: "베이직 푸퍼_SPJPD4TC11",
-                img: "/img/weeklyBest/man/weeklyBestMan02.jpg",
+                img: "img/weeklyBest/man/weeklyBestMan02.jpg",
                 url: "#",
                 nowPrice: "64,900",
                 beforePrice: "69,900",
@@ -513,7 +513,7 @@ const dataset = {
             {
                 id:"BM03",
                 title: "베이직 푸퍼 (코듀로이)_SPJPD4TC12",
-                img: "/img/weeklyBest/man/weeklyBestMan03.jpg",
+                img: "img/weeklyBest/man/weeklyBestMan03.jpg",
                 url: "#",
                 nowPrice: "74,900",
                 beforePrice: "79,900",
@@ -551,7 +551,7 @@ const dataset = {
             {
                 id:"BM04",
                 title: "[울블렌드] 싱글 코트_SPJWD4VM01",
-                img: "/img/weeklyBest/man/weeklyBestMan04.jpg",
+                img: "img/weeklyBest/man/weeklyBestMan04.jpg",
                 url: "#",
                 nowPrice: "99,900",
                 beforePrice: "129,900",
@@ -580,7 +580,7 @@ const dataset = {
             {
                 id:"BM05",
                 title: "라이트 자켓_SPJPD4TC01",
-                img: "/img/weeklyBest/man/weeklyBestMan05.jpg",
+                img: "img/weeklyBest/man/weeklyBestMan05.jpg",
                 url: "#",
                 nowPrice: "39,900",
                 beforePrice: "59,900",
@@ -628,7 +628,7 @@ const dataset = {
             {
                 id:"BM06",
                 title: "[공용] [프렌치테리] 루즈핏 하프집업 스웨트셔츠 (기모)_SPMWD4TU03",
-                img: "/img/weeklyBest/man/weeklyBestMan06.jpg",
+                img: "img/weeklyBest/man/weeklyBestMan06.jpg",
                 url: "#",
                 nowPrice: "29,900",
                 beforePrice: "39,900",
@@ -667,7 +667,7 @@ const dataset = {
             {
                 id:"BM07",
                 title: "[데일리지] 스트레이트 진_SPTJD49C41",
-                img: "/img/weeklyBest/man/weeklyBestMan07.jpg",
+                img: "img/weeklyBest/man/weeklyBestMan07.jpg",
                 url: "#",
                 nowPrice: "49,900",
                 beforePrice: "",
@@ -697,7 +697,7 @@ const dataset = {
             {
                 id:"BM08",
                 title: "(우디) 케이블 스웨터 풀오버 (SPKWD4TC01 RE)_SPKWE12C51",
-                img: "/img/weeklyBest/man/weeklyBestMan08.jpg",
+                img: "img/weeklyBest/man/weeklyBestMan08.jpg",
                 url: "#",
                 nowPrice: "49,900",
                 beforePrice: "",
@@ -734,7 +734,7 @@ const dataset = {
             {
                 id:"BK01",
                 title: "[키즈] (산리오캐릭터즈) 쿠로미 수면 파자마(LIGHT PURPLE)_SPPPD4VKU4",
-                img: "/img/weeklyBest/kids/weeklyBestKids01.jpg",
+                img: "img/weeklyBest/kids/weeklyBestKids01.jpg",
                 url: "#",
                 nowPrice: "29,900",
                 beforePrice: "39,900",
@@ -756,7 +756,7 @@ const dataset = {
             {
                 id:"BK02",
                 title: "[키즈] (산리오캐릭터즈) 폼폼푸린 수면 파자마(YELLOW)_SPPPD4VKU4",
-                img: "/img/weeklyBest/kids/weeklyBestKids02.jpg",
+                img: "img/weeklyBest/kids/weeklyBestKids02.jpg",
                 url: "#",
                 nowPrice: "29,900",
                 beforePrice: "39,900",
@@ -778,7 +778,7 @@ const dataset = {
             {
                 id:"BK03",
                 title: "[키즈] (산리오캐릭터즈) 시나모롤 수면 파자마(LIGHT BLUE)_SPPPD4VKU4",
-                img: "/img/weeklyBest/kids/weeklyBestKids03.jpg",
+                img: "img/weeklyBest/kids/weeklyBestKids03.jpg",
                 url: "#",
                 nowPrice: "29,900",
                 beforePrice: "39,900",
@@ -800,7 +800,7 @@ const dataset = {
             {
                 id:"BK04",
                 title: "[키즈] (산리오캐릭터즈) 마이멜로디 수면 파자마(LIGHT PINK)_SPPPD4VKU4",
-                img: "/img/weeklyBest/kids/weeklyBestKids04.jpg",
+                img: "img/weeklyBest/kids/weeklyBestKids04.jpg",
                 url: "#",
                 nowPrice: "29,900",
                 beforePrice: "39,900",
@@ -822,7 +822,7 @@ const dataset = {
             {
                 id:"BK05",
                 title: "[키즈] (짱구) 수면 파자마(LIGHT BLUE)_SPPPD4VKU5",
-                img: "/img/weeklyBest/kids/weeklyBestKids05.jpg",
+                img: "img/weeklyBest/kids/weeklyBestKids05.jpg",
                 url: "#",
                 nowPrice: "36,900",
                 beforePrice: "39,900",
@@ -842,7 +842,7 @@ const dataset = {
             {
                 id:"BK06",
                 title: "[키즈] (짱구) 수면 파자마(MINT)_SPPPD4VKU5",
-                img: "/img/weeklyBest/kids/weeklyBestKids06.jpg",
+                img: "img/weeklyBest/kids/weeklyBestKids06.jpg",
                 url: "#",
                 nowPrice: "36,900",
                 beforePrice: "39,900",
@@ -862,7 +862,7 @@ const dataset = {
             {
                 id:"BK07",
                 title: "[키즈] (포켓몬) 피카츄 수면 파자마(YELLOW)_SPPPD4VKU2",
-                img: "/img/weeklyBest/kids/weeklyBestKids07.jpg",
+                img: "img/weeklyBest/kids/weeklyBestKids07.jpg",
                 url: "#",
                 nowPrice: "36,900",
                 beforePrice: "39,900",
@@ -883,7 +883,7 @@ const dataset = {
             {
                 id:"BK08",
                 title: "[키즈] (산리오캐릭터즈) 폼폼푸린 상하세트(CREAM)_SPSMD4VKG9",
-                img: "/img/weeklyBest/kids/weeklyBestKids08.jpg",
+                img: "img/weeklyBest/kids/weeklyBestKids08.jpg",
                 url: "#",
                 nowPrice: "59,900",
                 beforePrice: "",
@@ -907,7 +907,7 @@ const dataset = {
             {
                 id:"BP01",
                 title: "(해리포터) 머글은 못입는 수면잠옷(LIGHT PINK)_SPPPD4TU08",
-                img: "/img/weeklyBest/pajamas/weeklyBestPajamas01.jpg",
+                img: "img/weeklyBest/pajamas/weeklyBestPajamas01.jpg",
                 url: "#",
                 nowPrice: "46,900",
                 beforePrice: "49,900",
@@ -926,7 +926,7 @@ const dataset = {
             {
                 id:"BP02",
                 title: "(짱구) 못말리는 짱구 수면잠옷(MINT)_SPPPD4TU04",
-                img: "/img/weeklyBest/pajamas/weeklyBestPajamas02.jpg",
+                img: "img/weeklyBest/pajamas/weeklyBestPajamas02.jpg",
                 url: "#",
                 nowPrice: "46,900",
                 beforePrice: "49,900",
@@ -945,7 +945,7 @@ const dataset = {
             {
                 id:"BP03",
                 title: "(잔망루피) 더 귀여워졌뤂 수면 잠옷(LIGHT PURPLE)_SPPPD4TU05",
-                img: "/img/weeklyBest/pajamas/weeklyBestPajamas03.jpg",
+                img: "img/weeklyBest/pajamas/weeklyBestPajamas03.jpg",
                 url: "#",
                 nowPrice: "46,900",
                 beforePrice: "49,900",
@@ -964,7 +964,7 @@ const dataset = {
             {
                 id:"BP04",
                 title: "(산리오캐릭터즈) 산리오캐릭터즈 수면잠옷(BLACK)_SPPPE11U03",
-                img: "/img/weeklyBest/pajamas/weeklyBestPajamas04.jpg",
+                img: "img/weeklyBest/pajamas/weeklyBestPajamas04.jpg",
                 url: "#",
                 nowPrice: "39,900",
                 beforePrice: "49,900",
@@ -983,7 +983,7 @@ const dataset = {
             {
                 id:"BP05",
                 title: "(무직타이거) 뚱랑이랑 포르미랑 수면잠옷(GREEN)_SPPPD4TU07",
-                img: "/img/weeklyBest/pajamas/weeklyBestPajamas05.jpg",
+                img: "img/weeklyBest/pajamas/weeklyBestPajamas05.jpg",
                 url: "#",
                 nowPrice: "46,900",
                 beforePrice: "49,900",
@@ -1002,7 +1002,7 @@ const dataset = {
             {
                 id:"BP06",
                 title: "(산리오캐릭터즈) 산리오캐릭터즈 수면잠옷(YELLOW)_SPPPD4TU03",
-                img: "/img/weeklyBest/pajamas/weeklyBestPajamas06.jpg",
+                img: "img/weeklyBest/pajamas/weeklyBestPajamas06.jpg",
                 url: "#",
                 nowPrice: "39,900",
                 beforePrice: "49,900",
@@ -1021,7 +1021,7 @@ const dataset = {
             {
                 id:"BP07",
                 title: "(해리포터) 머글은 못입는 수면잠옷(BLACK)_SPPPD4TU08",
-                img: "/img/weeklyBest/pajamas/weeklyBestPajamas07.jpg",
+                img: "img/weeklyBest/pajamas/weeklyBestPajamas07.jpg",
                 url: "#",
                 nowPrice: "46,900",
                 beforePrice: "49,900",
@@ -1040,7 +1040,7 @@ const dataset = {
             {
                 id:"BP08",
                 title: "(포켓몬) 피카츄 포켓몬 긴팔 잠옷(BLACK)_SPPPD49U02",
-                img: "/img/weeklyBest/pajamas/weeklyBestPajamas08.jpg",
+                img: "img/weeklyBest/pajamas/weeklyBestPajamas08.jpg",
                 url: "#",
                 nowPrice: "19,900",
                 beforePrice: "39,900",
@@ -1061,7 +1061,7 @@ const dataset = {
             {
                 id:"N01",
                 title: "[울블렌드] 헤링본 발마칸 코트_SPJWD4VM04",
-                img: "/img/newProduct/newProductImg1.jpg",
+                img: "img/newProduct/newProductImg1.jpg",
                 url: "#",
                 nowPrice: "139,000",
                 beforePrice: "159,000",
@@ -1085,7 +1085,7 @@ const dataset = {
             {
                 id:"N02",
                 title: "(QR) 날개사 볼레로 가디건_SPCKD4VG94",
-                img: "/img/newProduct/newProductImg2.jpg",
+                img: "img/newProduct/newProductImg2.jpg",
                 url: "#",
                 nowPrice: "39,900",
                 beforePrice: "",
@@ -1105,7 +1105,7 @@ const dataset = {
             {
                 id:"N03",
                 title: "(QR) 카라 V넥 케이블 스웨터_SPKWD4TW88",
-                img: "/img/newProduct/newProductImg3.jpg",
+                img: "img/newProduct/newProductImg3.jpg",
                 url: "#",
                 nowPrice: "49,900",
                 beforePrice: "",
@@ -1125,7 +1125,7 @@ const dataset = {
             {
                 id:"N04",
                 title: "(QR) 헤어리 볼륨 니트_SPKWD4VW99",
-                img: "/img/newProduct/newProductImg4.jpg",
+                img: "img/newProduct/newProductImg4.jpg",
                 url: "#",
                 nowPrice: "39,900",
                 beforePrice: "",

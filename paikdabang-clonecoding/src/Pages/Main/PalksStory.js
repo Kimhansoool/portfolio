@@ -28,12 +28,16 @@ const PalksStoryContainer = styled.div`
                 background-repeat:no-repeat;
 
                 .textWrap{
-                    padding-left:80px;
+                    margin-left:80px;
+                    color:#fff;
                 }
             }
 
             .textWrap{
-                padding:60px 130px;
+                max-width: 1200px;
+                /* padding:60px 130px; */
+                margin-left:calc(100% - 600px);
+                padding-top:60px;
 
                 .title{
                     width:400px;

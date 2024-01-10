@@ -56,18 +56,27 @@ const HeaderContainer = styled.div`
             .navHoverWrap{
               background-color: #ffe600;
               width:100%;
-              position: absolute;
-              top:62px;
-              left:0;
+              position: relative;
+              /* position: absolute;
+              top:80px;
+              left:0; */
               z-index:999999999999;
               display: flex;
               flex-direction: column;
               overflow: hidden;
               max-height:0;
-              /* transition: max-height 300ms; */
+              transition: max-height 300ms;
 
               .navHoverItem{
                 padding:40px;
+
+                li{
+                  margin-bottom:10px;
+
+                  &.last-child{
+                    margin-bottom:0;
+                  }
+                }
               }
             }
           }

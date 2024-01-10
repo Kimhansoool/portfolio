@@ -23,7 +23,7 @@ const MainBannerSlide = memo(() => {
     <MainBannerSlideContainer>
       <ImageSlider
         width="100%"
-        height={480}
+        height={620}
         images={images}
         showBullets={true}
         showNavs={false}

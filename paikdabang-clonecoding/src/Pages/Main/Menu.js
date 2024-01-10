@@ -13,7 +13,14 @@ const MenuContainer = styled.div`
         overflow: hidden;
 
         &.w100{
-        width:100%;
+            width:100%;
+
+            .menuInner{
+                .textWrap{
+                    
+                }
+            }
+
         }
 
         &.w60{
@@ -22,6 +29,7 @@ const MenuContainer = styled.div`
             .menuInner{
 
                 .textWrap{
+                    left:31%;
 
                     .title{
                         color:#071f60;
@@ -73,10 +81,10 @@ const MenuContainer = styled.div`
             position: relative;
 
             .textWrap{
-                max-width: 1200px;
                 position: absolute;
                 top:14%;
-                left:10%;
+                left:18.5%;
+                /* margin-left:350px; */
                 z-index: 999999999;
 
                 .title{

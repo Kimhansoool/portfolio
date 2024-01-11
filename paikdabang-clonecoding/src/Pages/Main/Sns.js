@@ -47,8 +47,8 @@ const Sns = memo(() => {
             <p className='content'>#빽다방 #빽다방신메뉴 #빽다방이벤트</p>
             <hr className='divider' />
             <div className='icon'>
-                <img src='/img/icon/faceBook_icon.png' />
-                <img src='/img/icon/instagram_icon.png' />
+                <img src='img/icon/faceBook_icon.png' />
+                <img src='img/icon/instagram_icon.png' />
             </div>
         </div>
     </SnsContainer>

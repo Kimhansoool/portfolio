@@ -49,11 +49,11 @@ const Meta = (props) => {
  * props에 대한 기본값 설정
  */
 Meta.defaultProps = {
-    title: 'Foodlog Demo',
-    description: 'React.js 예제 입니다.',
-    author: '호쌤',
+    title: '빽다방',
+    description: 'React.js 포트폴리오 작업물입니다.',
+    author: '김한솔',
     subject: 'React.js Frontend Programming',
-    copyright: 'Lee K.H',
+    copyright: 'Kim Hansol',
     keywords: 'React',
     url:window.location.href,
     image:null,

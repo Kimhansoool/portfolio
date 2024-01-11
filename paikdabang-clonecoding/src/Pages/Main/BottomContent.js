@@ -49,13 +49,13 @@ const BottomContentContainer = styled.div`
                 background-color: #fff;
                 border-radius: 50%;
                 box-shadow: 3px 3px 10px #00000020;
-                background-image: url("/img/icon/store_icon.png");
+                background-image: url("img/icon/store_icon.png");
                 background-repeat:no-repeat ;
                 background-position: center center;
                 background-size: 50%;
 
                 &:hover{
-                    background-image:url("/img/icon/btn-on.png");
+                    background-image:url("img/icon/btn-on.png");
                     background-size: 100%;
                     animation:opacity 1s;
                 }
@@ -103,7 +103,7 @@ const BottomContentContainer = styled.div`
             }
             
             &.franchise{
-                background-image:url('/img/bottomContent1.png');
+                background-image:url('img/bottomContent1.png');
                 background-position:bottom right;
                 background-size: 45%;
                 background-repeat:no-repeat;
@@ -169,7 +169,7 @@ const BottomContent = memo(() => {
                 <form className='storeFindSubmit'>
                     <input type='text' placeholder='지역에 있는 매장을 찾아보세요!' className='findStore' />
                     <button type='submit' className='submitBtn'>
-                        <img src='/img/icon/search_icon.png' alt='searchIcon' />
+                        <img src='img/icon/search_icon.png' alt='searchIcon' />
                     </button>
                 </form>
                 
@@ -191,7 +191,7 @@ const BottomContent = memo(() => {
                     <MoreBtn href='#' />
                 </div>
             </a>
-            <img src='/img/bottomContent2.jpg' alt='DessertMenuBanner' />
+            <img src='img/bottomContent2.jpg' alt='DessertMenuBanner' />
         </section>
     </BottomContentContainer>
   );

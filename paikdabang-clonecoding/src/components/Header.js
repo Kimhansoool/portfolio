@@ -154,12 +154,12 @@ const Header = memo(() => {
       <div className='navInner'>
         <ul className='topMenu'>
           <li><a href='#'>더본코리아</a></li>
-          <li><a href='#'><img src='/img/icon/top-facebook.jpg' alt='facebook-logo' /></a></li>
-          <li><a href='#'><img src='/img/icon/top-instagram.jpg' alt='instagram-logo' /></a></li>
+          <li><a href='#'><img src='img/icon/top-facebook.jpg' alt='facebook-logo' /></a></li>
+          <li><a href='#'><img src='img/icon/top-instagram.jpg' alt='instagram-logo' /></a></li>
         </ul>
         <div className='navWrap'>
           <a href='#'>
-            <img src='/img/logo.png' alt='logoImg' className='logoImg' />
+            <img src='img/logo.png' alt='logoImg' className='logoImg' />
           </a>
           <ul className='navItem'>
             {header.map((v, i) =>{

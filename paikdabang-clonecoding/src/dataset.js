@@ -72,31 +72,31 @@ const dataset = {
         {
             title:"PAIK'S COFFEE STORY",
             text: "균형잡힌 바디감으로 긴 여운을 남기는 빽다방 커피를 만나보세요.",
-            img: "/img/main_sec1.jpg"
+            img: "img/main_sec1.jpg"
         },
         {
             title:"PAIK'S BRAND STORY",
             text: "합리적인 가격으로 만나는 맛있고 든든한 빽다방",
-            img: "/img/main_sec2.jpg"
+            img: "img/main_sec2.jpg"
         },
     ],
     menu:[
         {
             title: "FRESH COFFEE",
             text: "신선한 뉴크롭 원두를 사용하여 추출한 커피메뉴!",
-            img: "/img/menu_sec1.jpg",
+            img: "img/menu_sec1.jpg",
             state:"100",
         },
         {
             title: "VARIOUS BEVERAGE",
             text: "에이드, 티, 주스 등 취향대로 골라 먹는 즐거움!",
-            img: "/img/menu_sec2.jpg",
+            img: "img/menu_sec2.jpg",
             state:"60",
         },
         {
             title: "SWEET PAIK'S CCINO",
             text: "달콤 시원한 빽다방 시그니처 메뉴!",
-            img: "/img/menu_sec3.jpg",
+            img: "img/menu_sec3.jpg",
             state:"40",
         },
     ]

@@ -10,12 +10,12 @@ const MoreBtnContainer = styled.a`
     background-color: #fff;
     border-radius: 50%;
     box-shadow: 3px 3px 10px #00000020;
-    background-image: url("/img/icon/view_icon.png");
+    background-image: url("img/icon/view_icon.png");
     background-repeat: no-repeat;
     background-position: center center;
 
     &:hover{
-      background-image:url("/img/icon/btn-on.png");
+      background-image:url("img/icon/btn-on.png");
       animation:rotate 0.2s;
     }
 

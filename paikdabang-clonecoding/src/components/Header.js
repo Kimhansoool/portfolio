@@ -10,7 +10,23 @@ const HeaderContainer = styled.div`
     width:100%;
     height:120px;
 
+    .bgHover{
+      width:100%;
+      background-color: #ffe600;
+      position: absolute;
+      z-index: 20;
+      top:120px;
+      left:0;
+      height:0;
+      transition: height 200ms ease-in-out;
+
+      &.on{
+        height:180px;
+      }
+    }
+
     .navInner{
+      position: relative;
       max-width:1200px;
       /* background-color: #f60; */
       margin:0 auto;
@@ -42,11 +58,23 @@ const HeaderContainer = styled.div`
         justify-content: space-between;
         position: relative;
 
+        .logoImg{
+          margin-right:20px;
+        }
+
         .navItem{
+          width:100%;
+          height:100%;
           display: flex;
+          align-items: center;
+          justify-content: flex-end;
 
           .link{
-            padding:10px 40px;
+            height:100%;
+            width:120px;
+            padding:10px 20px;
+            position: relative;
+            /* padding:0 20px; */
             
 
             a{
@@ -54,18 +82,18 @@ const HeaderContainer = styled.div`
             }
 
             .navHoverWrap{
-              background-color: #ffe600;
-              width:100%;
-              position: relative;
-              /* position: absolute;
-              top:80px;
-              left:0; */
+              /* background-color: #ffe600; */
+              width:max-content;
+              /* position: relative; */
+              position: absolute;
+              left:-20px;
+              top:50px;
               z-index:999999999999;
               display: flex;
               flex-direction: column;
               overflow: hidden;
               max-height:0;
-              transition: max-height 300ms;
+              /* transition: max-height 300ms; */
 
               .navHoverItem{
                 padding:40px;
@@ -100,17 +128,29 @@ const Header = memo(() => {
     // console.log(hover);
     hover.style.maxHeight = hover.scrollHeight + 'px';
     // console.log(hover.scrollHeight);
+    const bgHover = document.querySelector('.bgHover');
+    console.log(bgHover);
+
+    if(hover.scrollHeight){
+      bgHover.classList.add('on');
+    }
   }, []);
 
   const onMenuItemOut = useCallback((e) =>{
     e.preventDefault();
     const current = e.currentTarget;
     const hover = current.querySelector('.navHoverWrap');
+    const bgHover = document.querySelector('.bgHover');
+
     hover.style.maxHeight = '0px';
+
+    // console.log(hover.scrollHeight);
+    bgHover.classList.remove('on');
   }, []);
 
   return (
     <HeaderContainer>
+      <div className='bgHover'></div>
       <div className='navInner'>
         <ul className='topMenu'>
           <li><a href='#'>더본코리아</a></li>
@@ -118,7 +158,9 @@ const Header = memo(() => {
           <li><a href='#'><img src='/img/icon/top-instagram.jpg' alt='instagram-logo' /></a></li>
         </ul>
         <div className='navWrap'>
-          <img src='/img/logo.png' alt='logoImg' className='logoImg' />
+          <a href='#'>
+            <img src='/img/logo.png' alt='logoImg' className='logoImg' />
+          </a>
           <ul className='navItem'>
             {header.map((v, i) =>{
               return(
@@ -140,70 +182,6 @@ const Header = memo(() => {
                 </li>
               );
             })}
-            {/* <li className='link' onMouseOver={onMenuItemOver} onMouseOut={onMenuItemOut}>
-              <a href='#'>빽다방</a>
-              <div className='navHoverWrap'>
-                <ul className='navHoverItem'>
-                  <li><a href='#'>CEO인사말</a></li>
-                  <li><a href='#'>빽다방 소개</a></li>
-                  <li><a href='#'>멤버쉽/앱 소개</a></li>
-                  <li><a href='#'>커피 이야기</a></li>
-                  <li><a href='#'>교육 이야기</a></li>
-                </ul>
-              </div>
-              </li>
-            <li className='link' onMouseOver={onMenuItemOver} onMouseOut={onMenuItemOut}>
-              <a href='#'>메뉴</a>
-              <div className='navHoverWrap'>
-                <ul className='navHoverItem'>
-                  <li><a href='#'>신메뉴</a></li>
-                  <li><a href='#'>커피</a></li>
-                  <li><a href='#'>음료</a></li>
-                  <li><a href='#'>아이스크림/디저트</a></li>
-                  <li><a href='#'>빽스치노</a></li>
-                </ul>
-              </div>
-              </li>
-            <li className='link' onMouseOver={onMenuItemOver} onMouseOut={onMenuItemOut}>
-              <a href='#'>소식</a>
-              <div className='navHoverWrap'>
-                <ul className='navHoverItem'>
-                  <li><a href='#'>소식</a></li>
-                  <li><a href='#'>이벤트</a></li>
-                  <li><a href='#'>친절 우수매장</a></li>
-                </ul>
-              </div>
-              </li>
-            <li className='link' onMouseOver={onMenuItemOver} onMouseOut={onMenuItemOut}>
-              <a href='#'>커뮤니티</a>
-              <div className='navHoverWrap'>
-                <ul className='navHoverItem'>
-                  <li><a href='#'>커피 클래스</a></li>
-                </ul>
-              </div>
-              </li>
-            <li className='link' onMouseOver={onMenuItemOver} onMouseOut={onMenuItemOut}>
-              <a href='#'>매장안내</a>
-              <div className='navHoverWrap'>
-                <ul className='navHoverItem'>
-                  <li><a href='#'>매장찾기</a></li>
-                </ul>
-              </div>
-              </li>
-            <li className='link' onMouseOver={onMenuItemOver} onMouseOut={onMenuItemOut}>
-              <a href='#'>창업안내</a>
-              <div className='navHoverWrap'>
-                <ul className='navHoverItem'>
-                  <li><a href='#'>왜 빽다방인가요?</a></li>
-                  <li><a href='#'>창업상담 신청</a></li>
-                  <li><a href='#'>창업절차 및 조건</a></li>
-                  <li><a href='#'>인테리어</a></li>
-                </ul>
-              </div>
-            </li>
-            <li className='link'>
-              <a href='#'>고객의 소리</a>
-            </li> */}
           </ul>
         </div>
       </div>

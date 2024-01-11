@@ -128,7 +128,7 @@ const Menu = memo(() => {
     <MenuContainer>
         {menu.map((v, i) =>{
             return(
-                <section className={`menuWrap w${v.state}`}>
+                <section className={`menuWrap w${v.state}`} key={i}>
                     <a href='#' className='menuInner'>
                         <div className='textWrap'>
                             <h1 className='title'>{v.title}</h1>

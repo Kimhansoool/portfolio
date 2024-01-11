@@ -179,8 +179,7 @@ const BottomContent = memo(() => {
                     <h1 className='title'>FRANCHISE</h1>
                     <p>빽다방 창업 안내를 도와드리겠습니다.</p>
                 </div>
-                <a href='#' className='storeBtn'>
-                </a>
+                <a href='#' className='storeBtn'></a>
             </div>
         </section>
         <section className='rightSec'>

@@ -1,5 +1,6 @@
 {
   "name": "paikdabang-clonecoding",
+  "homepage": "/portfolio/react/paikdabang",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

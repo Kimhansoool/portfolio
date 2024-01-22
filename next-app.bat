@@ -45,7 +45,11 @@ echo.
 echo ----------------------------------
 echo 4. 필수 패키지를 설치합니다.
 echo ----------------------------------
+<<<<<<< HEAD
 call yarn add react-router-dom prop-types react-helmet-async sass styled-reset styled-components babel-plugin-styled-components styled-components-breakpoints dayjs classnames lodash axios react-loader-spinner axios-hooks redux react-redux @reduxjs/toolkit redux-devtools-extension next-redux-wrapper chart.js react-chartjs-2 react-intersection-observer
+=======
+call yarn add react-router-dom prop-types react-helmet-async sass styled-reset styled-components babel-plugin-styled-components styled-components-breakpoints dayjs classnames lodash axios react-loader-spinner axios-hooks react-redux @reduxjs/toolkit redux-devtools-extension chart.js react-chartjs-2 react-intersection-observer
+>>>>>>> 91395b5cc4033f39e45183a755797e772730707c
 echo.
 
 echo $ yarn add eslint-config-react-app -D

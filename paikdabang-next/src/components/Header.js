@@ -76,7 +76,7 @@ const HeaderContainer = styled.div`
           .link{
             height:100%;
             width:120px;
-            padding:10px 20px;
+            padding:30px 20px;
             position: relative;
             /* padding:0 20px; */
 
@@ -86,7 +86,7 @@ const HeaderContainer = styled.div`
               /* position: relative; */
               position: absolute;
               left:-20px;
-              top:50px;
+              top:70px;
               z-index:999999999999;
               display: flex;
               flex-direction: column;
@@ -163,21 +163,21 @@ const Header = memo(() => {
           <li><Link href='#' className='topMenuLink'><img src='/img/icon/top-instagram.jpg' alt='instagram-logo' /></Link></li>
         </ul>
         <div className='navWrap'>
-          <Link href='#' className='navWrapLink'>
+          <Link href='/' className='navWrapLink'>
             <img src='/img/logo.png' alt='logoImg' className='logoImg' />
           </Link>
           <ul className='navItem'>
             {data && data.map((v, i) =>{
               return(
                 <li key={v.id} className='link' onMouseOver={onMenuItemOver} onMouseOut={onMenuItemOut}>
-                  <Link href='#'>{v.title}</Link>
+                  <Link href={v.url} >{v.title}</Link>
                   <div className='navHoverWrap'>
                     {v.subMenu.length > 0 && (
                       <ul className='navHoverItem'>
                         {v.subMenu.map((j, k) =>{
                           return(
                             <li key={k}>
-                              <Link href='#'>{j.title}</Link>
+                              <Link href={j.url}>{j.title}</Link>
                             </li>
                           );
                         })}

@@ -2,11 +2,11 @@ import React, {memo, useEffect} from 'react';
 import Link from "next/link";
 
 import styled from 'styled-components';
-import dataset from '../../dataset';
 
 import MoreBtn from '../../components/MoreBtn';
 
 import { useSelector, useDispatch } from 'react-redux';
+import { getList } from '@/slices/PaiksStorySlice';
 
 const PalksStoryContainer = styled.div`
     display: flex;
@@ -64,20 +64,18 @@ const PalksStoryContainer = styled.div`
 
 const PalksStory = memo(() => {
     const dispatch = useDispatch();
-    // const {data, loading, error} = 
+    const {data, loading, error} = useSelector((state) =>state.PaiksStorySlice);
 
-    const {story} = dataset;
-
-    // useEffect(() =>{
-    //     dispatch();
-    // }, []);
+    useEffect(() =>{
+        dispatch(getList());
+    }, []);
     
   return (
     <PalksStoryContainer>
-        {story.map((v, i) =>{
+        {data && data.map((v, i) =>{
             return(
                 <section className='storyWrap' key={i}>
-                    {(story.length - 1 === i) ? (
+                    {(data.length - 1 === i) ? (
                         <div className='storyInner brand' style={{backgroundImage: `url(${v.img})`}}>
                             <div className='textWrap'>
                                 <h1 className='title'>{v.title}</h1>

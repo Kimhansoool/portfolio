@@ -15,13 +15,13 @@
         {
             "id": "M02",
             "title": "메뉴",
-            "url": "#",
+            "url": "/menu/menu_coffee",
             "subMenu": [
                 {"title": "신메뉴", "url": "#"},
-                {"title": "커피", "url": "#"},
-                {"title": "음료", "url": "#"},
-                {"title": "아이스크림/디저트", "url": "#"},
-                {"title": "빽스치노", "url": "#"}
+                {"title": "커피", "url": "/menu/menu_coffee"},
+                {"title": "음료", "url": "/menu/menu_drink"},
+                {"title": "아이스크림/디저트", "url": "/menu/menu_dessert"},
+                {"title": "빽스치노", "url": "/menu/menu_ccino"}
             ]
         },
         {
@@ -98,6 +98,280 @@
             "text": "달콤 시원한 빽다방 시그니처 메뉴!",
             "img": "img/menu_sec3.jpg",
             "state":"40"
+        }
+    ],
+    "paiksMenu":[
+        {
+            "id": "Coffee01",
+            "category": "menu_coffee",
+            "new": false,
+            "best": false,
+            "img":"/img/menu/coffee/menu_coffee01.png",
+            "name_kor":"더블에스프레소",
+            "name_eng": "DOUBLE ESPRESSO",
+            "dese": "브라질 원두 블렌딩으로 다크초콜릿, 카라멜, 견과류의 고소함을 느낄 수 있는 에스프레소",
+            "info":{
+                "standard": "60ml",
+                "caffeine": 237,
+                "calorie": 22,
+                "sodium": 0,
+                "sugars": 0,
+                "saturatedFat": 0,
+                "protein": 1
+            }
+        },
+        {
+            "id": "Coffee02",
+            "category": "menu_coffee",
+            "new": false,
+            "best": false,
+            "img":"/img/menu/coffee/menu_coffee02.png",
+            "name_kor":"아메리카노(HOT)",
+            "name_eng": "AMERICANO",
+            "dese": "빽다방만의 맛과 향을 더한 100% 아라비카 로스팅 원두로 뽑아내 깊고 진한 맛의 앗!메리카노",
+            "info":{
+                "standard": "400ml",
+                "caffeine": 237,
+                "calorie": 14,
+                "sodium": 4,
+                "sugars": 0,
+                "saturatedFat": 0,
+                "protein": 0
+            }
+        },
+        {
+            "id": "Coffee03",
+            "category": "menu_coffee",
+            "new": false,
+            "best": false,
+            "img":"/img/menu/coffee/menu_coffee03.png",
+            "name_kor":"아메리카노(ICED)",
+            "name_eng": "AMERICANO",
+            "dese": "빽다방만의 맛과 향을 더한 100% 아라비카 로스팅 원두로 뽑아내 깊고 진한 맛의 앗!메리카노",
+            "info":{
+                "standard": "625ml",
+                "caffeine": 237,
+                "calorie": 13,
+                "sodium": 4,
+                "sugars": 0,
+                "saturatedFat": 0,
+                "protein": 0
+            }
+        },
+        {
+            "id": "Coffee04",
+            "category": "menu_coffee",
+            "new": false,
+            "best": false,
+            "img":"/img/menu/coffee/menu_coffee04.png",
+            "name_kor":"원조커피(HOT)",
+            "name_eng": "ORIGINAL MIXED COFFEE",
+            "dese": "달콤한 빽다방 대표메뉴, 믹스커피 종결자!",
+            "info":{
+                "standard": "375ml",
+                "caffeine": 406,
+                "calorie": 471,
+                "sodium": 24,
+                "sugars": 57,
+                "saturatedFat": 7,
+                "protein": 3
+            }
+        },
+        {
+            "id": "Drink01",
+            "category": "menu_drink",
+            "new": true,
+            "best": false,
+            "img":"/img/menu/drink/menu_drink01.png",
+            "name_kor":"대파크림감자라떼(HOT)",
+            "name_eng": "",
+            "dese": "국내산 대파와 감자를 활용해 향긋하고 든든한 라떼",
+            "info":{
+                "standard": "450ml",
+                "caffeine": 0,
+                "calorie": 557,
+                "sodium": 315,
+                "sugars": 27,
+                "saturatedFat": 26,
+                "protein": 12
+            }
+        },
+        {
+            "id": "Drink02",
+            "category": "menu_drink",
+            "new": true,
+            "best": false,
+            "img":"/img/menu/drink/menu_drink02.png",
+            "name_kor":"대파크림감자라떼(ICED)",
+            "name_eng": "",
+            "dese": "국내산 대파와 감자를 활용해 향긋하고 든든한 라떼",
+            "info":{
+                "standard": "650ml",
+                "caffeine": 0,
+                "calorie": 530,
+                "sodium": 319,
+                "sugars": 32,
+                "saturatedFat": 25,
+                "protein": 12.2
+            }
+        },
+        {
+            "id": "Drink03",
+            "category": "menu_drink",
+            "new": false,
+            "best": false,
+            "img":"/img/menu/drink/menu_drink03.png",
+            "name_kor":"뱅쇼(HOT)",
+            "name_eng": "VIN CHAUD",
+            "dese": "상큼한 과일향과 풍부한 시나몬향이 매력적인 메뉴",
+            "info":{
+                "standard": "355ml",
+                "caffeine": 0,
+                "calorie": 223,
+                "sodium": 12,
+                "sugars": 46,
+                "saturatedFat": 0,
+                "protein": 0.3
+            }
+        },
+        {
+            "id": "Drink04",
+            "category": "menu_drink",
+            "new": false,
+            "best": false,
+            "img":"/img/menu/drink/menu_drink04.png",
+            "name_kor":"뱅쇼(ICED)",
+            "name_eng": "VIN CHAUD",
+            "dese": "상큼한 과일향과 풍부한 시나몬향이 매력적인 메뉴",
+            "info":{
+                "standard": "600ml",
+                "caffeine": 0,
+                "calorie": 210,
+                "sodium": 10,
+                "sugars": 46,
+                "saturatedFat": 0,
+                "protein": 0.4
+            }
+        },
+        {
+            "id": "Dessert01",
+            "category": "menu_dessert",
+            "new": false,
+            "best": false,
+            "img":"/img/menu/dessert/menu_dessert01.png",
+            "name_kor":"쫀득 감자빵",
+            "name_eng": "",
+            "dese": "국내산 감자가 들어있는 짭짤하고 고소한 감자빵",
+            "info":{}
+        },
+        {
+            "id": "Dessert02",
+            "category": "menu_dessert",
+            "new": false,
+            "best": false,
+            "img":"/img/menu/dessert/menu_dessert02.png",
+            "name_kor":"쫀득 고구마빵",
+            "name_eng": "",
+            "dese": "국내산 고구마(앙금 내 수입산 혼용)가 들어있는 달달하고 고소한 고구마빵",
+            "info":{}
+        },
+        {
+            "id": "Dessert03",
+            "category": "menu_dessert",
+            "new": false,
+            "best": false,
+            "img":"/img/menu/dessert/menu_dessert03.png",
+            "name_kor":"명란 소금빵",
+            "name_eng": "",
+            "dese": "짭조름한 명란맛과 버터의 풍미가 느껴지는 소금빵",
+            "info":{}
+        },
+        {
+            "id": "Dessert04",
+            "category": "menu_dessert",
+            "new": false,
+            "best": false,
+            "img":"/img/menu/dessert/menu_dessert04.png",
+            "name_kor":"황치즈 크럼블 머핀",
+            "name_eng": "YELLOW CHEESE CRUMBLE MUFFIN",
+            "dese": "짭짤하고 고소한 황치즈 머핀에 달콤한 크럼블을 곁들인 단짠 디저트",
+            "info":{}
+        },
+        {
+            "id": "Ccino01",
+            "category": "menu_ccino",
+            "new": false,
+            "best": false,
+            "img":"/img/menu/ccino/menu_ccino01.png",
+            "name_kor":"원조빽스치노(BASIC)",
+            "name_eng": "ORIGINAL MIXED COFFEE PAIK'S CCINO",
+            "dese": "원조커피의 시원한 변신~! 매력만점 커피 빽스치노",
+            "info":{
+                "standard": "625ml",
+                "caffeine": 280,
+                "calorie": 578,
+                "sodium": 122,
+                "sugars": 75,
+                "saturatedFat": 16,
+                "protein": 9
+            }
+        },
+        {
+            "id": "Ccino02",
+            "category": "menu_ccino",
+            "new": false,
+            "best": true,
+            "img":"/img/menu/ccino/menu_ccino02.png",
+            "name_kor":"원조빽스치노(SOFT)",
+            "name_eng": "ORIGINAL MIXED COFFEE PAIK'S CCINO",
+            "dese": "원조커피의 시원한 변신~! 매력만점 커피 빽스치노",
+            "info":{
+                "standard": "765ml",
+                "caffeine": 280,
+                "calorie": 785,
+                "sodium": 166,
+                "sugars": 87,
+                "saturatedFat": 26,
+                "protein": 11
+            }
+        },
+        {
+            "id": "Ccino03",
+            "category": "menu_ccino",
+            "new": false,
+            "best": false,
+            "img":"/img/menu/ccino/menu_ccino03.png",
+            "name_kor":"딸기바나나빽스치노(BASIC)",
+            "name_eng": "STRAWBERRY & BANANA PAIK'S CCINO",
+            "dese": "상큼한 딸기와 달달한 바나나의 완전 시원한 만남!",
+            "info":{
+                "standard": "625ml",
+                "caffeine": 0,
+                "calorie": 500,
+                "sodium": 108,
+                "sugars": 93,
+                "saturatedFat": 2,
+                "protein": 8
+            }
+        },
+        {
+            "id": "Ccino04",
+            "category": "menu_ccino",
+            "new": false,
+            "best": true,
+            "img":"/img/menu/ccino/menu_ccino04.png",
+            "name_kor":"딸기바나나빽스치노(SOFT)",
+            "name_eng": "STRAWBERRY & BANANA PAIK'S CCINO",
+            "dese": "상큼한 딸기와 달달한 바나나의 완전 시원한 만남!",
+            "info":{
+                "standard": "765ml",
+                "caffeine": 0,
+                "calorie": 685,
+                "sodium": 164,
+                "sugars": 138,
+                "saturatedFat": 12,
+                "protein": 11
+            }
         }
     ]
 }

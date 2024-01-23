@@ -5,6 +5,9 @@ import {configureStore} from "@reduxjs/toolkit";
 
 // 직접 정의한 Slice 파일 import
 import HeaderSlice from '@/slices/HeaderSlice';
+import MenuSlice from '@/slices/MenuSlice';
+import PaiksStorySlice from '@/slices/PaiksStorySlice';
+import CategorySlice from '@/slices/CategorySlice';
 
 /** react에서 store역할을 함 */
 const rootReducer = (state, action) =>{
@@ -15,7 +18,7 @@ const rootReducer = (state, action) =>{
 
     const reducer = combineReducers({
         // ... import한 Slice들을 콤마로 구분하여 나열(JSON아님 이름만 나열함)
-        HeaderSlice
+        HeaderSlice, MenuSlice, PaiksStorySlice, CategorySlice
     });
 
     return reducer(state, action);

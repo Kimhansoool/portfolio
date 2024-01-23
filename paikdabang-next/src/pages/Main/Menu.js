@@ -1,9 +1,11 @@
-import React, {memo} from 'react';
+import React, {memo, useEffect} from 'react';
 import Link from "next/link";
 
 import styled from 'styled-components';
 import MoreBtn from '../../components/MoreBtn';
-import dataset from '../../dataset';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { getList } from '@/slices/MenuSlice';
 
 const MenuContainer = styled.div`
     display: flex;
@@ -124,10 +126,16 @@ const MenuContainer = styled.div`
 `;
 
 const Menu = memo(() => {
-    const {menu} = dataset;
+    const dispatch = useDispatch();
+    const {data, loading, error} = useSelector((state) =>state.MenuSlice);
+
+    useEffect(() =>{
+        dispatch(getList());
+    }, []);
+
   return (
     <MenuContainer>
-        {menu.map((v, i) =>{
+        {data && data.map((v, i) =>{
             return(
                 <section className={`menuWrap w${v.state}`} key={i}>
                     <div className='menuInner'>

@@ -27,8 +27,8 @@ function rejected(state, {meta, payload}){
         data: payload, 
         loading: false,
         error: {
-            code: payload.status ? payload.status : 500,
-            message: payload.statusText ? payload.statusText : 'Server Error'
+            code: payload?.status ? payload?.status : 500,
+            message: payload?.statusText ? payload?.statusText : 'Server Error'
         }
     }
 }

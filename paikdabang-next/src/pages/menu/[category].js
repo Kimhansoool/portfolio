@@ -1,8 +1,9 @@
-import React, {memo, useEffect} from 'react';
+import React, {memo, useCallback, useEffect} from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 import { getList } from '@/slices/CategorySlice';
+import { titleList } from '@/slices/TitleContainerSlice';
 import Link from 'next/link';
 
 const PaiksMenu = styled.div`
@@ -53,7 +54,17 @@ const PaiksMenu = styled.div`
                 /* background-color: #ffe600; */
                 background-color: #fff;
                 border: 1px solid #aaaaaa90;
+                border-left:0;
                 cursor: pointer;
+
+                &:first-child{
+                    border-left:1px solid #aaaaaa90;
+                }
+
+                &.on{
+                        background-color: #ffe600;
+                        
+                    }
                 
 
 
@@ -78,11 +89,10 @@ const PaiksMenu = styled.div`
             width:300px;
             height:400px;
             border:1px solid #aaaaaa90;
-            /* border-collapse: collapse; */
-            border-right:0;
+            border-left:0;
 
-            &:last-child{
-                border-right: 1px solid #aaaaaa90;
+            &:first-child{
+                border-left: 1px solid #aaaaaa90;
             }
 
             img{
@@ -99,33 +109,67 @@ const PaiksMenu = styled.div`
 const Category = memo(() => {
     const router = useRouter();
     const {category} = router.query;
-    console.log(category);
+    // console.log(category);
 
     const dispatch = useDispatch();
     const {data, loading, error} = useSelector((state) =>state.CategorySlice);
+    const {data: data2, loading: loading2, error: error2} = useSelector((state) =>state.TitleContainerSlice);
 
     useEffect(() =>{
         if (category) {
             dispatch(getList({category: category}));
+            dispatch(titleList({category: category}));
         }
     }, [category]);
 
+    const onTabClick = useCallback((e) =>{
+        const current = e.currentTarget;
+        console.log(current);
+        const TabLi = document.querySelectorAll('.Tabinner');
+
+        TabLi.forEach((v, i) =>{
+            v.classList.remove("on");
+        });
+        current.classList.add("on");
+    }, []);
+
     return (
         <PaiksMenu>
-            <div className='titleContainer' style={{backgroundImage: "url(/img/menu_sec_coffeeBg.jpg)"}}>
+            {data2 && data2.map((v, i) =>{
+                return(
+                    <div className='titleContainer' style={{backgroundImage: `url(${v.bgImage})`}}>
+                        <div className='titleInner'>
+                            <h3 className='mainTitle'>{v.title}</h3>
+                            <hr className='divider' />
+                            <p className='mainSubTitle'>{v.subTitle}</p>
+                        </div>
+                        <ul className='mainTab'>
+                        {v.tab.map((j, k) =>{
+                            return(
+                                <li className='Tabinner' onClick={onTabClick} key={k}>
+                                    <Link href={j.url} className='titleLink'>{j.title}</Link>
+                                </li>
+                            );
+                        })}
+                        </ul>
+                    </div>
+                );
+            })}
+            
+            {/* <div className='titleContainer' style={{backgroundImage: "url(/img/menu_sec_coffeeBg.jpg)"}}>
                 <div className='titleInner'>
                     <h3 className='mainTitle'>커피</h3>
                     <hr className='divider' />
                     <p className='mainSubTitle'>뉴 크롭 원두를 사용하여 더욱더 신선한 커피 메뉴를 만나보세요.</p>
                 </div>
                 <ul className='mainTab'>
-                    <li><Link href='/menu/menu_new' className='titleLink'>신메뉴</Link></li>
-                    <li><Link href='/menu/menu_coffee' className='titleLink'>커피</Link></li>
-                    <li><Link href='/menu/menu_drink' className='titleLink'>음료</Link></li>
-                    <li><Link href='/menu/menu_dessert' className='titleLink'>아이스크림/디저트</Link></li>
-                    <li><Link href='/menu/menu_ccino' className='titleLink'>빽스치노</Link></li>
+                    <li className='Tabinner' onClick={onTabClick}><Link href='/menu/menu_new' className='titleLink'>신메뉴</Link></li>
+                    <li className='Tabinner' onClick={onTabClick}><Link href='/menu/menu_coffee' className='titleLink'>커피</Link></li>
+                    <li className='Tabinner' onClick={onTabClick}><Link href='/menu/menu_drink' className='titleLink'>음료</Link></li>
+                    <li className='Tabinner' onClick={onTabClick}><Link href='/menu/menu_dessert' className='titleLink'>아이스크림/디저트</Link></li>
+                    <li className='Tabinner' onClick={onTabClick}><Link href='/menu/menu_ccino' className='titleLink'>빽스치노</Link></li>
                 </ul>
-            </div>
+            </div> */}
             <ul className='totalMenuContainer'>
                 {data && data.map((v, i) =>{
                     return(

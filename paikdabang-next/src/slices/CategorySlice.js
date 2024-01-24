@@ -8,12 +8,16 @@ const API_URL = '/api/paiksMenu';
 export const getList = createAsyncThunk("CategorySlice/getList", async (payload, { rejectWithValue }) => {
     let result = null;
 
+    const myParams = {};
+
+    if (payload?.category) {
+        myParams.category = payload.category;
+    }
+
     try {
         // /api/paiksMenu?category=payload.kkk의값
         const response = await axios.get(API_URL,{
-            params: {
-                category: payload.category
-            }
+            params: myParams
         });
         result = response.data;
     } catch (err) {

@@ -1,19 +1,27 @@
 import React, {memo} from 'react';
 import styled from 'styled-components';
 import MoreBtn from '../../components/MoreBtn';
+import mq from '@/styles/MediaQuery';
 import Link from "next/link";
 
 const BottomContentContainer = styled.div`
     display: flex;
-    /* background-color: #2a9d8f; */
-    max-width:1200px;
+    width:100%;
     margin: 0 auto;
     margin-top:15px;
 
     .leftSec{
+        width:500px;
+        height:600px;
+        margin-left:18%;
+
+        ${mq.maxWidth('xxl')`
+            margin-left:15px;
+        `}
+
         .contentBox{
             width:500px;
-            height:292.5px;
+            height:calc(50% - 7.5px);
             border:2px solid #071f60;
             margin-bottom:15px;
             padding:40px 50px;
@@ -114,21 +122,16 @@ const BottomContentContainer = styled.div`
     }
 
     .rightSec{
-        position: relative;
-        /* width:2000px; */
-        /* background-color: #f7e1d7; */
         margin-left:15px;
-
-        img{
-
-        }
+        width: 100%;
+        height:600px;
+        background-image: url('/img/bottomContent2.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
 
         .SecInner{
             cursor: pointer;
-            position: absolute;
-            z-index: 9999999;
-            top:10%;
-            left:5%;
+            margin:50px 40px;
 
             .title{
                 width:350px;
@@ -193,7 +196,6 @@ const BottomContent = memo(() => {
                     <MoreBtn href='#' />
                 </div>
             </div>
-            <img src='img/bottomContent2.jpg' alt='DessertMenuBanner' />
         </section>
     </BottomContentContainer>
   );

@@ -2,7 +2,13 @@ import React, {memo} from 'react';
 import styled from 'styled-components';
 import ImageSlider from 'react-simple-image-slider';
 
-const MainBannerSlideContainer = styled.div``;
+import mq from '@/styles/MediaQuery';
+
+const MainBannerSlideContainer = styled.div`
+  ${mq.maxWidth('xl')`
+    width:100%;
+  `}
+`;
 
 const MainBannerSlide = memo(() => {
   const images = [

@@ -116,11 +116,91 @@ const MenuNewContainer = styled.div`
             width:100%;
 
             .contentItem{
+                position: relative;
                 /* background-color: #00f5; */
                 width:370px;
 
                 img{
                     width:70%;
+                }
+
+                .on{
+                position: absolute;
+                top:0;
+                left:0;
+                background-color: rgba(255, 230, 0, 0.8);
+                border:1px solid rgba(255, 230, 0, 1);
+                width:100%;
+                height:100%;
+                text-align: left;
+                padding:30px 25px;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+
+                .onTitleWrap{
+                    height: 100px;
+
+                    .onTitle{
+                        font-size:24px;
+                        font-weight: 900;
+                        line-height:1.3;
+                    }
+
+                    .onEngTitle{
+                        font-family: 'Montserrat', sans-serif;
+                        margin-top:5px;
+                        color:#071F60;
+                    }
+
+                    .divider{
+                        width:30px;
+                        margin:10px 0;
+                        border: 1px solid #071F60;
+                    }
+
+                    .desc{
+                        font-size:14px;
+                        line-height: 1.6;
+                    }
+                }
+
+                .onDescription{
+                    margin-top:80px;
+
+                    p{
+                        font-size:14px;
+                        margin-bottom:8px;
+                    }
+
+                    span{
+                        font-size:10px;
+                    }
+                    
+                    .descContent{
+                        border-top:1px solid #000;
+                        border-bottom:1px solid #000;
+                        display: flex;
+                        flex-wrap: wrap;
+                        height:100%;
+                        width:100%;
+                        padding:4px 0;
+
+                        li{
+                            display: block;
+                            border-right:1px solid #000;
+                            font-size:12px;
+                            width:158px;
+                            padding:6px 5px;
+                            display: flex;
+                            justify-content: space-between;
+                            /* background-color: #071F60; */
+
+                            &:nth-child(2n){
+                                border-right:0;
+                            }
+                        }
+                    }
+                }
                 }
             }
         }
@@ -148,6 +228,14 @@ const MenuNew = memo(() => {
             v.classList.remove("on");
         });
         current.classList.add("on");
+    }, []);
+
+    const onInfoClick = useCallback((e) =>{
+        const current = e.currentTarget;
+        const on = document.querySelectorAll('.MenuWrap .on');
+        console.log(on);
+        
+        current.style.opacity = 1 - current.style.opacity;
     }, []);
 
     return (
@@ -180,6 +268,44 @@ const MenuNew = memo(() => {
                     {filterData && filterData.map((v, i) =>{
                         return(
                             <li className='contentItem' key={i}>
+                                <div className='on' onClick={onInfoClick}>
+                                <div className='onTitleWrap'>
+                                    <h3 className='onTitle'>{v.name_kor}</h3>
+                                    <h5 className='onEngTitle'>{v.name_eng}</h5>
+                                    <hr className='divider' />
+                                    <p className='desc'>{v.desc}</p>
+                                </div>
+                                <div className='onDescription'>
+                                    <p>※ 1회 제공량 기준: {v.info.standard}</p>
+                                    <ul className='descContent'>
+                                        <li>
+                                            <div>카페인(mg)</div>
+                                            <div>{v.info.caffeine}</div>
+                                        </li>
+                                        <li>
+                                            <div>칼로리 (kcal)</div>
+                                            <div>{v.info.calorie}</div>
+                                        </li>
+                                        <li>
+                                            <div>나트륨 (mg)</div>
+                                            <div>{v.info.sodium}</div>
+                                        </li>
+                                        <li>
+                                            <div>당류 (g)</div>
+                                            <div>{v.info.sugars}</div>
+                                        </li>
+                                        <li>
+                                            <div>포화지방 (g)</div>
+                                            <div>{v.info.saturatedFat}</div>
+                                        </li>
+                                        <li>
+                                            <div>단백질(g)</div>
+                                            <div>{v.info.protein}</div>
+                                        </li>
+                                    </ul>
+                                    <span>(매장 상황에 따라 판매하지 않을 수 있습니다.)</span>
+                                </div>
+                                </div>
                                 <img src={v.img} />
                                 <p>{v.name_kor}</p>
                             </li>

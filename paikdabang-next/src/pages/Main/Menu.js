@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import styled from 'styled-components';
 import MoreBtn from '../../components/MoreBtn';
+import mq from '@/styles/MediaQuery';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getList } from '@/slices/MenuSlice';
@@ -15,12 +16,24 @@ const MenuContainer = styled.div`
         width:100%;
         height:auto;
         overflow: hidden;
+        background-size:cover;
+        background-repeat: no-repeat;
 
         &.w100{
             width:100%;
 
             .menuInner{
-                cursor: pointer;
+                cursor: pointer; 
+
+                .textWrap{
+                    ${mq.maxWidth('xxl')`
+                        margin-left:5%;
+                    `}
+
+                    ${mq.maxWidth('xl')`
+                        margin-left:7%;
+                    `}
+                }
             }
         }
 
@@ -31,14 +44,24 @@ const MenuContainer = styled.div`
                 cursor: pointer;
 
                 .textWrap{
-                    left:31%;
+                    margin-left:32%;
 
-                    .title{
-                        color:#071f60;
-                    }
+                    ${mq.maxWidth('xxl')`
+                        margin-left:8%;
+                    `}
 
-                    .divider{
-                        background-color:#071f60;
+                    ${mq.maxWidth('xl')`
+                        margin-left:12%;
+                    `}
+
+                    .textInner{
+                        .title{
+                            color:#071f60;
+                        }
+
+                        .divider{
+                            background-color:#071f60;
+                        }
                     }
                 }
             }
@@ -53,18 +76,21 @@ const MenuContainer = styled.div`
             cursor: pointer;
             
                 .textWrap{
+                    margin:100px 0 100px 60px;
 
-                    .title{
-                        color:#f1ae1d;
-                        width:340px;
-                    }
+                    .textInner{
+                        .title{
+                            color:#f1ae1d;
+                            width:400px;
+                        }
 
-                    .divider{
-                        background-color:#f1ae1d;
-                    }
+                        .divider{
+                            background-color:#f1ae1d;
+                        }
 
-                    p{
-                        width:350px;
+                        p{
+                            width:350px;
+                        }
                     }
                 }
             }
@@ -79,41 +105,42 @@ const MenuContainer = styled.div`
 
         .menuInner{
             display: block;
-            width:100%;
-            height:100%;
-            position: relative;
 
             .textWrap{
-                position: absolute;
-                top:14%;
-                left:18.5%;
-                /* margin-left:350px; */
-                z-index: 999999999;
+                width:400px;
+                height:280px;
+                margin:100px 0;
+                margin-left:19%;
+                display:flex;
+                flex-direction:column;
+                justify-content:space-between;
 
-                .title{
-                    width:200px;
-                    font-size:46px;
-                    font-family: 'Montserrat', sans-serif;
-                    font-weight: 900;
-                    color:#6b4d30;
-                }
+                .textInner{
+                    .title{
+                        width:200px;
+                        font-size:46px;
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight: 900;
+                        color:#6b4d30;
+                    }
 
-                .divider{
-                    width:40px;
-                    height:3px;
-                    background-color:#6b4d30;
-                    margin:16px 0;
-                }
+                    .divider{
+                        width:40px;
+                        height:3px;
+                        background-color:#6b4d30;
+                        margin:16px 0;
+                    }
 
-                p{
-                    width:230px;
-                    line-height: 1.4;
-                    margin-top:20px;
-                    font-size:18px;
-                    font-family: 'Noto Sans KR', sans-serif;
-                    font-weight: 600;
-                    margin-bottom:110px;
-                }
+                    p{
+                        width:230px;
+                        line-height: 1.4;
+                        margin-top:20px;
+                        font-size:18px;
+                        font-family: 'Noto Sans KR', sans-serif;
+                        font-weight: 600;
+                        /* margin-bottom:100px; */
+                    }
+                }                
             }
 
             img{
@@ -137,15 +164,16 @@ const Menu = memo(() => {
     <MenuContainer>
         {data && data.map((v, i) =>{
             return(
-                <section className={`menuWrap w${v.state}`} key={i}>
+                <section className={`menuWrap w${v.state}`} key={i} style={{backgroundImage: `url(${v.img})`}}>
                     <div className='menuInner'>
                         <div className='textWrap'>
-                            <h1 className='title'>{v.title}</h1>
-                            <div className='divider'></div>
-                            <p>{v.text}</p>
+                            <div className='textInner'>
+                                <h1 className='title'>{v.title}</h1>
+                                <div className='divider'></div>
+                                <p>{v.text}</p>
+                            </div>
                             <MoreBtn href='#' />
                         </div>
-                        <img src={v.img} alt='CoffeeMenuBanner' />
                     </div>
                 </section>
             );

@@ -4,6 +4,7 @@ import Link from "next/link";
 import styled from 'styled-components';
 
 import MoreBtn from '../../components/MoreBtn';
+import mq from '@/styles/MediaQuery';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getList } from '@/slices/PaiksStorySlice';
@@ -38,9 +39,17 @@ const PalksStoryContainer = styled.div`
 
             .textWrap{
                 max-width: 1200px;
-                /* padding:60px 130px; */
-                margin-left:calc(100% - 600px);
+                margin-left:38%;
                 padding-top:60px;
+
+                ${mq.maxWidth('xxl')`
+                    margin-left:66px;
+                `}
+
+                ${mq.maxWidth('xl')`
+                    margin-left:80px;
+                        
+                    `}
 
                 .title{
                     width:400px;

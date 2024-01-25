@@ -1,15 +1,17 @@
 import React, {memo, useCallback, useEffect} from 'react';
 import styled from 'styled-components';
-import dataset from '@/dataset';
+
 import Link from 'next/link';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getList } from '@/slices/HeaderSlice';
 
+import mq from '@/styles/MediaQuery'
+
 const HeaderContainer = styled.div`
     font-family: 'Noto Sans KR', sans-serif;
     /* background-color: #ff05; */
-    padding:20px 0;
+    padding:20px 40px;
     position: static;
     width:100%;
     height:120px;

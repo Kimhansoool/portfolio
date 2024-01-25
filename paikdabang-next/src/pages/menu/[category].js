@@ -103,12 +103,16 @@ const PaiksMenu = styled.div`
                 margin:10px;
                 text-align: left;
                 padding:30px 25px;
-                display: block;
+                //display: none;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
 
                 .onTitleWrap{
+                    height:130px;
                     .onTitle{
                         font-size:24px;
                         font-weight: 900;
+                        line-height:1.3;
                     }
 
                     .onEngTitle{
@@ -135,6 +139,10 @@ const PaiksMenu = styled.div`
                     p{
                         font-size:14px;
                         margin-bottom:8px;
+                    }
+
+                    span{
+                        font-size:10px;
                     }
                     
                     .descContent{
@@ -210,6 +218,36 @@ const Category = memo(() => {
         current.classList.add("on");
     }, []);
 
+    // const onInfoClick = useCallback((e) =>{
+    //     const current = e.currentTarget;
+    //     // console.log(current);
+    //     const on = document.querySelectorAll('.MenuWrap .on');
+    //     // console.log(on);
+
+    //     on.forEach((v, i)=>{
+    //         v.style.display = "none";
+    //     });
+    //     console.log("###########");
+
+    //     if (current.firstChild.style.display == "none") {
+    //         current.firstChild.style.display = "block";
+    //     }
+    // }, []);
+
+    const onInfoClick = useCallback((e) =>{
+        const current = e.currentTarget;
+        const on = document.querySelectorAll('.MenuWrap .on');
+        console.log(on);
+
+        // on.forEach((v, i) =>{
+        //     v.style.display = "none";
+        // })
+
+        //console.log(current.style.display);
+        
+        current.style.opacity = 1 - current.style.opacity;
+    }, []);
+
     return (
         <PaiksMenu>
             {data2 && data2.map((v, i) =>{
@@ -247,45 +285,50 @@ const Category = memo(() => {
                     <li className='Tabinner' onClick={onTabClick}><Link href='/menu/menu_ccino' className='titleLink'>빽스치노</Link></li>
                 </ul>
             </div> */}
+            <div>
+                <button type='button'>바로가기</button>
+                <button type='button'>메인</button>
+            </div>
             <ul className='totalMenuContainer'>
                 {data && data.map((v, i) =>{
                     return(
                         <li key={v.id} className='MenuWrap'>
-                            <div className='on'>
+                            <div className='on' onClick={onInfoClick}>
                                 <div className='onTitleWrap'>
-                                    <h3 className='onTitle'>더블에스프레소</h3>
-                                    <h5 className='onEngTitle'>DOUBLE ESPRESSO</h5>
+                                    <h3 className='onTitle'>{v.name_kor}</h3>
+                                    <h5 className='onEngTitle'>{v.name_eng}</h5>
                                     <hr className='divider' />
-                                    <p className='desc'>브라질 원두 블렌딩으로 다크초콜릿, 카라멜, 견과류의 고소함을 느낄 수 있는 에스프레소</p>
+                                    <p className='desc'>{v.desc}</p>
                                 </div>
                                 <div className='onDescription'>
-                                    <p>※ 1회 제공량 기준 : 60ml</p>
+                                    <p>※ 1회 제공량 기준: {v.info.standard}</p>
                                     <ul className='descContent'>
                                         <li>
                                             <div>카페인(mg)</div>
-                                            <div>237</div>
+                                            <div>{v.info.caffeine}</div>
                                         </li>
                                         <li>
                                             <div>칼로리 (kcal)</div>
-                                            <div>22</div>
+                                            <div>{v.info.calorie}</div>
                                         </li>
                                         <li>
                                             <div>나트륨 (mg)</div>
-                                            <div>0</div>
+                                            <div>{v.info.sodium}</div>
                                         </li>
                                         <li>
                                             <div>당류 (g)</div>
-                                            <div>0</div>
+                                            <div>{v.info.sugars}</div>
                                         </li>
                                         <li>
                                             <div>포화지방 (g)</div>
-                                            <div>0</div>
+                                            <div>{v.info.saturatedFat}</div>
                                         </li>
                                         <li>
                                             <div>단백질(g)</div>
-                                            <div>1</div>
+                                            <div>{v.info.protein}</div>
                                         </li>
                                     </ul>
+                                    <span>(매장 상황에 따라 판매하지 않을 수 있습니다.)</span>
                                 </div>
                             </div>
                             <img src={v.img} />

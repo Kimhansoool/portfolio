@@ -79,19 +79,96 @@ const PaiksMenu = styled.div`
 
     .totalMenuContainer{
         width:1200px;
-        height: 500px;
+        height: 100%;
         /* background-color: #f0f5; */
-        margin:0 auto;
-        margin-top:100px;
+        margin:100px auto;
         display: flex;
+        flex-wrap: wrap;
 
         .MenuWrap{
             width:300px;
             height:400px;
             border:1px solid #aaaaaa90;
             border-left:0;
+            position: relative;
+            margin-bottom: 20px;
+
+            .on{
+                position: absolute;
+                top:0;
+                left:0;
+                background-color: rgba(255, 230, 0, 0.8);
+                width:calc(100% - 20px);
+                height:calc(100% - 20px);
+                margin:10px;
+                text-align: left;
+                padding:30px 25px;
+                display: block;
+
+                .onTitleWrap{
+                    .onTitle{
+                        font-size:24px;
+                        font-weight: 900;
+                    }
+
+                    .onEngTitle{
+                        font-family: 'Montserrat', sans-serif;
+                        margin-top:5px;
+                        color:#071F60;
+                    }
+
+                    .divider{
+                        width:30px;
+                        margin:10px 0;
+                        border: 1px solid #071F60;
+                    }
+
+                    .desc{
+                        font-size:14px;
+                        line-height: 1.6;
+                    }
+                }
+
+                .onDescription{
+                    margin-top:80px;
+
+                    p{
+                        font-size:14px;
+                        margin-bottom:8px;
+                    }
+                    
+                    .descContent{
+                        border-top:1px solid #000;
+                        border-bottom:1px solid #000;
+                        display: flex;
+                        flex-wrap: wrap;
+                        height:100%;
+                        width:100%;
+                        padding:4px 0;
+
+                        li{
+                            display: block;
+                            border-right:1px solid #000;
+                            font-size:12px;
+                            width:114px;
+                            padding:6px 5px;
+                            display: flex;
+                            justify-content: space-between;
+                            /* background-color: #071F60; */
+
+                            &:nth-child(2n){
+                                border-right:0;
+                            }
+                        }
+                    }
+                }
+            }
 
             &:first-child{
+                border-left: 1px solid #aaaaaa90;
+            }
+
+            &:nth-child(5n){
                 border-left: 1px solid #aaaaaa90;
             }
 
@@ -137,7 +214,7 @@ const Category = memo(() => {
         <PaiksMenu>
             {data2 && data2.map((v, i) =>{
                 return(
-                    <div className='titleContainer' style={{backgroundImage: `url(${v.bgImage})`}}>
+                    <div className='titleContainer' key={i} style={{backgroundImage: `url(${v.bgImage})`}}>
                         <div className='titleInner'>
                             <h3 className='mainTitle'>{v.title}</h3>
                             <hr className='divider' />
@@ -174,6 +251,43 @@ const Category = memo(() => {
                 {data && data.map((v, i) =>{
                     return(
                         <li key={v.id} className='MenuWrap'>
+                            <div className='on'>
+                                <div className='onTitleWrap'>
+                                    <h3 className='onTitle'>더블에스프레소</h3>
+                                    <h5 className='onEngTitle'>DOUBLE ESPRESSO</h5>
+                                    <hr className='divider' />
+                                    <p className='desc'>브라질 원두 블렌딩으로 다크초콜릿, 카라멜, 견과류의 고소함을 느낄 수 있는 에스프레소</p>
+                                </div>
+                                <div className='onDescription'>
+                                    <p>※ 1회 제공량 기준 : 60ml</p>
+                                    <ul className='descContent'>
+                                        <li>
+                                            <div>카페인(mg)</div>
+                                            <div>237</div>
+                                        </li>
+                                        <li>
+                                            <div>칼로리 (kcal)</div>
+                                            <div>22</div>
+                                        </li>
+                                        <li>
+                                            <div>나트륨 (mg)</div>
+                                            <div>0</div>
+                                        </li>
+                                        <li>
+                                            <div>당류 (g)</div>
+                                            <div>0</div>
+                                        </li>
+                                        <li>
+                                            <div>포화지방 (g)</div>
+                                            <div>0</div>
+                                        </li>
+                                        <li>
+                                            <div>단백질(g)</div>
+                                            <div>1</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <img src={v.img} />
                             <p className='MenuTitle'>{v.name_kor}</p>
                         </li>

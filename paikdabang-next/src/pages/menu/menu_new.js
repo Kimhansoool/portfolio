@@ -9,6 +9,19 @@ const MenuNewContainer = styled.div`
     font-family: 'Noto Sans KR', sans-serif;
     text-align: center;
 
+    .title{
+        margin-top:100px;
+        font-size:36px;
+        font-weight: 600;
+        color:#071F60;
+    }
+
+    .titDivider{
+        width:60px;
+        margin-top:30px;
+        border:2px solid #071F60;
+    }
+
     .titleContainer{
         flex-wrap: wrap;
         height:500px;
@@ -68,6 +81,51 @@ const MenuNewContainer = styled.div`
             }
         }
     }
+
+    .productContaier{
+        margin:0 auto;
+        margin-top:80px;
+        margin-bottom:80px;
+        width:1200px;
+        height:100%;
+        display: flex;
+        align-items: center;
+
+        .prevButton{
+
+            .button{
+                width:45px;
+                height:auto;
+                font-size:45px;
+                color:#efefef;
+            }
+        }
+
+        .nextButton{
+            .button{
+                width:45px;
+                height:auto;
+                font-size:45px;
+                color:#efefef;
+            }
+        }
+
+        .productWrap{
+            display: flex;
+            flex-wrap: wrap;
+            width:100%;
+
+            .contentItem{
+                /* background-color: #00f5; */
+                width:370px;
+
+                img{
+                    width:70%;
+                }
+            }
+        }
+    }
+
 `;
 
 const MenuNew = memo(() => {
@@ -93,7 +151,7 @@ const MenuNew = memo(() => {
     }, []);
 
     return (
-        <MenuNewContainer>     
+        <MenuNewContainer>   
             <div className='titleContainer' style={{backgroundImage: "url(/img/menu_sec_newBg.jpg)"}}>
                 <div className='titleInner'>
                     <h3 className='mainTitle'>신메뉴</h3>
@@ -113,8 +171,54 @@ const MenuNew = memo(() => {
                     return (<p>{JSON.stringify(v)}</p>);
                 }
             })} */}
+            <h1 className='title'>신메뉴</h1> 
+            <hr className=' titDivider' />
 
-            {JSON.stringify(filterData)}
+            <div className='productContaier'>
+                <div className='prevButton'><i className="fa-solid fa-chevron-left button"></i></div>
+                <ul className='productWrap'>
+                    {filterData && filterData.map((v, i) =>{
+                        return(
+                            <li className='contentItem' key={i}>
+                                <img src={v.img} />
+                                <p>{v.name_kor}</p>
+                            </li>
+                        );
+                    })}
+                </ul>
+                <div className='prevButton'><i className="fa-solid fa-chevron-right button"></i></div>
+            </div>
+
+            {/* <div className='productContaier'>
+                <div className='prevButton'>
+                    <i class="fa-solid fa-chevron-left button"></i>
+                </div>
+                <ul className='productWrap'>
+                    <li className='contentItem'>
+                        <Link href='#' className='contentLink'>
+                            <img src='/img/menu/coffee/menu_coffee02.png' />
+                            <p>아메리카노(HOT)</p>
+                        </Link>
+                    </li>
+                    <li className='contentItem'>
+                        <Link href='#' className='contentLink'>
+                            <img src='/img/menu/coffee/menu_coffee02.png' />
+                            <p>아메리카노(HOT)</p>
+                        </Link>
+                    </li>
+                    <li className='contentItem'>
+                        <Link href='#' className='contentLink'>
+                            <img src='/img/menu/coffee/menu_coffee02.png' />
+                            <p>아메리카노(HOT)</p>
+                        </Link>
+                    </li>
+                </ul>
+                <div className='nextButton'>
+                    <i class="fa-solid fa-chevron-right button"></i>
+                </div>
+            </div> */}
+
+            {/* {JSON.stringify(filterData)} */}
         </MenuNewContainer>
     );
 });

@@ -401,6 +401,25 @@
             }
         },
         {
+            "id": "Drink27",
+            "category": "menu_drink",
+            "new": true,
+            "best": false,
+            "img":"/img/menu/drink/menu_drink27.png",
+            "name_kor":"제주감귤주스",
+            "name_eng": "",
+            "dese": "제주 감귤이 통째로 들어가 상큼함이 가득한 주스",
+            "info":{
+                "standard": "625ml",
+                "caffeine": 0,
+                "calorie": 237,
+                "sodium": 107,
+                "sugars": 41,
+                "saturatedFat": 0.1,
+                "protein": 24
+            }
+        },
+        {
             "id": "Dessert01",
             "category": "menu_dessert",
             "new": false,

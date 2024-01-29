@@ -1,6 +1,7 @@
 import React, {memo} from 'react';
 import styled from 'styled-components';
 import Link from 'next/link'
+import mq from '@/styles/MediaQuery';
 
 const MoreBtnContainer = styled(Link)`
     display: flex;
@@ -32,6 +33,12 @@ const MoreBtnContainer = styled(Link)`
       width:18px;
       height:18px;
     }
+
+    ${mq.maxWidth('xl')`
+      position: absolute;
+      bottom:50px;
+      right:50px;
+    `}
 `;
 
 const MoreBtn = memo(({href}) => {

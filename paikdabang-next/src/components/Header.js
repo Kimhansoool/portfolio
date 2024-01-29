@@ -12,9 +12,19 @@ const HeaderContainer = styled.div`
     font-family: 'Noto Sans KR', sans-serif;
     /* background-color: #ff05; */
     padding:20px 40px;
-    position: static;
+    position: fixed;
     width:100%;
     height:120px;
+    z-index: 99999999999999;
+    background-color: #fff;
+
+    ${mq.maxWidth('xl')`
+      height:70px;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      padding:0 20px;
+    `}
 
     .bgHover{
       width:100%;
@@ -33,14 +43,17 @@ const HeaderContainer = styled.div`
 
     .navInner{
       position: relative;
-      max-width:1200px;
-      /* background-color: #f60; */
+      width:1200px;
       margin:0 auto;
 
       .topMenu{
         display: flex;
         justify-content: right;
         align-items: center;
+
+        ${mq.maxWidth('xl')`
+          display:none;
+        `}
         
         li{
           margin-left:10px;
@@ -59,13 +72,42 @@ const HeaderContainer = styled.div`
       }
 
       .navWrap{
+        width:100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
         position: relative;
 
+        .moNav{
+          background-color:#fff;
+          display:none;
+          position:relative;
+
+          .hambugerBtn{
+            width:32px;
+            height:26px;
+
+            span{
+              display:block;
+              width:100%;
+              height:4px;
+              background-color:#071f60;
+              margin-bottom:6px;
+            }
+          }
+
+          ${mq.maxWidth('xl')`
+            display:block;
+          `}
+        }
+
         .logoImg{
           margin-right:20px;
+
+          ${mq.maxWidth('xl')`
+            width:110px;
+            height:auto;
+          `}
         }
 
         .navItem{
@@ -74,6 +116,10 @@ const HeaderContainer = styled.div`
           display: flex;
           align-items: center;
           justify-content: flex-end;
+
+          ${mq.maxWidth('xl')`
+            display:none;
+          `}
 
           .link{
             height:100%;
@@ -109,6 +155,46 @@ const HeaderContainer = styled.div`
               }
             }
           }
+        }
+      }
+    }
+
+    .moNavWrap{
+      position: fixed;
+      background-color:#fafafa;
+      padding:0 20px;
+      top:70px;
+      right:0;
+      width:85%;
+      height:10000px;
+      z-index:999999999;
+      display:none;
+      
+
+      @keyframes slurp {
+        0%{
+          transform:translateX(850px);
+        } 100%{
+          transform:translateX(0);
+        }
+      }
+
+      &.active{
+        display:block;
+        animation:slurp 0.5s ease-in-out;
+      }
+
+      .moNavItem{
+        width:100%;
+        height:66px;
+        /* margin-bottom:20px; */
+        display:flex;
+        align-items:center;
+        border-bottom:1px solid #e5e5e5;
+
+        .moNavLink{
+          font-size:20px;
+          
         }
       }
     }
@@ -155,6 +241,18 @@ const Header = memo(() => {
     bgHover.classList.remove('on');
   }, []);
 
+  /** Mo */
+  const onMoNavClick = useCallback((e) =>{
+    e.preventDefault();
+    console.log("클릭됨");
+    const moMenu = document.querySelector('.moNavWrap');
+    // console.log(moMenu);
+
+    moMenu.classList.toggle('active');
+    
+  }, []);
+
+
   return (
     <HeaderContainer>
       <div className='bgHover'></div>
@@ -168,6 +266,13 @@ const Header = memo(() => {
           <Link href='/' className='navWrapLink'>
             <img src='/img/logo.png' alt='logoImg' className='logoImg' />
           </Link>
+          <div className='moNav' >
+            <div className='hambugerBtn' onClick={onMoNavClick}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>     
+          </div>
           <ul className='navItem'>
             {data && data.map((v, i) =>{
               return(
@@ -192,6 +297,15 @@ const Header = memo(() => {
           </ul>
         </div>
       </div>
+      <ul className='moNavWrap'>
+        <li className='moNavItem'><Link href='#' className='moNavLink'>빽다방</Link></li>
+        <li className='moNavItem'><Link href='#' className='moNavLink'>메뉴</Link></li>
+        <li className='moNavItem'><Link href='#' className='moNavLink'>소식</Link></li>
+        <li className='moNavItem'><Link href='#' className='moNavLink'>커뮤니티</Link></li>
+        <li className='moNavItem'><Link href='#' className='moNavLink'>매장안내</Link></li>
+        <li className='moNavItem'><Link href='#' className='moNavLink'>창업안내</Link></li>
+        <li className='moNavItem'><Link href='#' className='moNavLink'>고객의 소리</Link></li>
+      </ul>
     </HeaderContainer>
   );
 });

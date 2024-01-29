@@ -19,8 +19,16 @@ const MenuContainer = styled.div`
         background-size:cover;
         background-repeat: no-repeat;
 
+        ${mq.maxWidth('xl')`
+            position: relative;
+        `}
+
         &.w100{
             width:100%;
+
+            ${mq.maxWidth('lg')`
+                background-size:cover;
+            `}
 
             .menuInner{
                 cursor: pointer; 
@@ -29,16 +37,17 @@ const MenuContainer = styled.div`
                     ${mq.maxWidth('xxl')`
                         margin-left:5%;
                     `}
-
-                    ${mq.maxWidth('xl')`
-                        margin-left:7%;
-                    `}
                 }
             }
         }
 
         &.w60{
             width:60%;
+
+            ${mq.maxWidth('lg')`
+                width:100%;
+                background-size:cover;
+            `}
 
             .menuInner{
                 cursor: pointer;
@@ -50,8 +59,8 @@ const MenuContainer = styled.div`
                         margin-left:8%;
                     `}
 
-                    ${mq.maxWidth('xl')`
-                        margin-left:12%;
+                    ${mq.maxWidth('lg')`
+                        margin-left:5%;
                     `}
 
                     .textInner{
@@ -72,11 +81,25 @@ const MenuContainer = styled.div`
         &.w40{
             width:40%;
 
+            ${mq.maxWidth('lg')`
+                width:100%;
+                background-size:cover;
+            `}
+
             .menuInner{
             cursor: pointer;
             
                 .textWrap{
                     margin:100px 0 100px 60px;
+
+                    ${mq.maxWidth('xl')`
+                        margin:60px 0;
+                        margin-left:8%;
+                    `}
+
+                    ${mq.maxWidth('lg')`
+                        margin-left:5%;
+                    `}
 
                     .textInner{
                         .title{
@@ -115,6 +138,10 @@ const MenuContainer = styled.div`
                 flex-direction:column;
                 justify-content:space-between;
 
+                ${mq.maxWidth('xl')`
+                    margin:60px 0;
+                `}
+
                 .textInner{
                     .title{
                         width:200px;
@@ -122,6 +149,10 @@ const MenuContainer = styled.div`
                         font-family: 'Montserrat', sans-serif;
                         font-weight: 900;
                         color:#6b4d30;
+
+                        ${mq.maxWidth('xl')`
+                            font-size:40px;
+                        `}
                     }
 
                     .divider{
@@ -129,6 +160,10 @@ const MenuContainer = styled.div`
                         height:3px;
                         background-color:#6b4d30;
                         margin:16px 0;
+
+                        ${mq.maxWidth('xl')`
+                            height:2px;
+                        `}
                     }
 
                     p{
@@ -139,6 +174,10 @@ const MenuContainer = styled.div`
                         font-family: 'Noto Sans KR', sans-serif;
                         font-weight: 600;
                         /* margin-bottom:100px; */
+
+                        ${mq.maxWidth('xl')`
+                            display:none;
+                        `}
                     }
                 }                
             }

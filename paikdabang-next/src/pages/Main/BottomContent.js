@@ -9,19 +9,35 @@ const BottomContentContainer = styled.div`
     width:100%;
     margin: 0 auto;
     margin-top:15px;
+    
+
+    ${mq.maxWidth('lg')`
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        margin:0;
+    `}
 
     .leftSec{
         width:500px;
-        height:600px;
         margin-left:18%;
 
         ${mq.maxWidth('xxl')`
             margin-left:15px;
         `}
 
+        ${mq.maxWidth('lg')`
+            display:flex;
+            flex-direction: row-reverse;
+            width:100%;
+            margin-left:0;
+            justify-content: center;
+            margin-top:20px;
+
+        `}
+
         .contentBox{
             width:500px;
-            height:calc(50% - 7.5px);
+            height:292px;
             border:2px solid #071f60;
             margin-bottom:15px;
             padding:40px 50px;
@@ -29,6 +45,13 @@ const BottomContentContainer = styled.div`
             flex-wrap: wrap;
             flex-direction: column;
             justify-content: space-between;
+
+            ${mq.maxWidth('lg')`
+                width:calc(46% - 10px);
+                margin:10px;
+                height:250px;
+                padding:20px 30px
+            `}
 
 
             .textWrap{
@@ -41,11 +64,28 @@ const BottomContentContainer = styled.div`
                     font-weight: 800;
                     color:#071f60;
                     margin-bottom:10px;
+
+                    ${mq.maxWidth('lg')`
+                        font-size:30px;
+                    `}
+
+                    ${mq.maxWidth('md')`
+                        font-size:24px;
+                    `}
+                    
                 }
 
                 p{
                     font-family: 'Noto Sans KR', sans-serif;
                     font-size:18px;
+
+                    ${mq.maxWidth('lg')`
+                        font-size:16px;
+                    `}
+
+                    ${mq.maxWidth('md')`
+                        font-size:14px;
+                    `}
                 }
             }
             
@@ -86,17 +126,31 @@ const BottomContentContainer = styled.div`
             .storeFindSubmit{
                 position: relative;
                 width:320px;
-                background-color: #00f;
+                /* background-color: #00f; */
+
+                ${mq.maxWidth('lg')`
+                    width:88%;
+                `}
+
+                ${mq.maxWidth('md')`
+                    input::placeholder{color:#fff;}
+                `}
 
                 .findStore{
                     position: relative;
-                    width:320px;
+                    width:100%;
                     height:50px;
                     border:2px solid #071f60;
                     padding:0 16px;
-            }
+                    display:flex;
+                    align-items:center;
 
-            .submitBtn{
+                    ${mq.maxWidth('lg')`
+                        height:40px;
+                    `}
+                }
+
+                .submitBtn{
                     position: absolute;
                     top:50%;
                     right:10px;
@@ -107,6 +161,10 @@ const BottomContentContainer = styled.div`
                     img{
                         width:24px;
                         height:auto;
+
+                        ${mq.maxWidth('lg')`
+                            width:18px;
+                        `}
                     }
                 }
             }
@@ -116,8 +174,12 @@ const BottomContentContainer = styled.div`
                 background-position:bottom right;
                 background-size: 45%;
                 background-repeat:no-repeat;
-            }
-            
+
+                ${mq.maxWidth('lg')`
+                    background-size: 35%;
+
+                `}
+            }  
         }
     }
 
@@ -128,36 +190,79 @@ const BottomContentContainer = styled.div`
         background-image: url('/img/bottomContent2.jpg');
         background-repeat: no-repeat;
         background-size: cover;
+        
+
+        ${mq.maxWidth('xl')`
+            position: relative;
+        `}
+
+        ${mq.maxWidth('lg')`
+            width:100%;
+            background-position:center right;
+            margin:0;
+        `}
 
         .SecInner{
             cursor: pointer;
-            margin:50px 40px;
 
-            .title{
-                width:350px;
-                font-size:50px;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 900;
-                color:#ffffff;
-                margin-bottom:10px;
-            }
 
-            .divider{
-                width:44px;
-                height:2px;
-                background-color:#ffffff;
-                margin:20px 0;
-            }
+            ${mq.maxWidth('xl')`
+                margin-left:8%; 
+                margin:60px 0;
+            `}
 
-            p{
-                color:#ffffff;
-                width:180px;
-                font-size:18px;
-                font-weight: 600;
-                line-height: 1.5;
-                font-family: 'Noto Sans KR', sans-serif;
-                margin-bottom:210px;
-            }
+            .textWrap{
+                padding:50px 40px;
+
+                ${mq.maxWidth('xl')`
+                    padding:0;
+                    margin-left:8%;
+                `}
+
+                ${mq.maxWidth('lg')`
+                    margin-left:5%;
+                    padding:0;
+                `}
+
+                .title{
+                    width:350px;
+                    font-size:50px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 900;
+                    color:#ffffff;
+                    margin-bottom:10px;
+
+                    ${mq.maxWidth('xl')`
+                        font-size:40px;
+                    `}
+                
+                }
+
+                .divider{
+                    width:44px;
+                    height:3px;
+                    background-color:#ffffff;
+                    margin:20px 0;
+
+                    ${mq.maxWidth('xl')`
+                        height:2px;
+                    `}
+                }
+
+                p{
+                    color:#ffffff;
+                    width:180px;
+                    font-size:18px;
+                    font-weight: 600;
+                    line-height: 1.5;
+                    font-family: 'Noto Sans KR', sans-serif;
+                    margin-bottom:210px;
+
+                    ${mq.maxWidth('xl')`
+                        display:none;
+                    `}
+                }
+            }   
         }
     }
 `;

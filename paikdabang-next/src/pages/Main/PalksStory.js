@@ -11,10 +11,16 @@ import { getList } from '@/slices/PaiksStorySlice';
 
 const PalksStoryContainer = styled.div`
     display: flex;
+    flex-wrap: wrap;
 
     .storyWrap{
         width:50%;
         height:300px;
+
+        ${mq.maxWidth('lg')`
+            width:100%;
+            height:250px;
+        `}
 
         .storyInner{
             background-size:cover;
@@ -25,6 +31,10 @@ const PalksStoryContainer = styled.div`
             width:100%;
             height:100%;
 
+            ${mq.maxWidth('xl')`
+                position: relative;
+            `}
+
             &.brand{
                 background-color: #253f85;
                 background-size:300px;
@@ -34,6 +44,18 @@ const PalksStoryContainer = styled.div`
                 .textWrap{
                     margin-left:80px;
                     color:#fff;
+
+                    ${mq.maxWidth('xl')`
+                        margin-left:8%; 
+                    `}
+
+                    ${mq.maxWidth('lg')`
+                        margin-left:5%;
+                    `}
+
+                    .title{
+                        color:#fff;
+                    }
                 }
             }
 
@@ -47,15 +69,24 @@ const PalksStoryContainer = styled.div`
                 `}
 
                 ${mq.maxWidth('xl')`
-                    margin-left:80px;
-                        
-                    `}
+                    margin-left:8%; 
+                `}
+
+                ${mq.maxWidth('lg')`
+                    margin-left:5%;
+                `}
 
                 .title{
                     width:400px;
                     font-size:46px;
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 900;
+                    color:#071f60;
+
+                    ${mq.maxWidth('xl')`
+                        font-size:40px;
+                        margin-bottom:50px;
+                    `}
                 }
 
                 p{
@@ -64,6 +95,11 @@ const PalksStoryContainer = styled.div`
                     font-family: 'Noto Sans KR', sans-serif;
                     font-weight: 600;
                     margin-bottom:30px;
+                    
+
+                    ${mq.maxWidth('xl')`
+                        display:none;
+                    `}
                 }
             }
         }

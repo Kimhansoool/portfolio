@@ -9,6 +9,8 @@ import MenuSlice from '@/slices/MenuSlice';
 import PaiksStorySlice from '@/slices/PaiksStorySlice';
 import CategorySlice from '@/slices/CategorySlice';
 import TitleContainerSlice from '@/slices/TitleContainerSlice';
+import CoffeeClassSlice from '@/slices/CoffeeClassSlice';
+import NewsSlice from '@/slices/NewsSlice';
 
 /** react에서 store역할을 함 */
 const rootReducer = (state, action) =>{
@@ -19,7 +21,7 @@ const rootReducer = (state, action) =>{
 
     const reducer = combineReducers({
         // ... import한 Slice들을 콤마로 구분하여 나열(JSON아님 이름만 나열함)
-        HeaderSlice, MenuSlice, PaiksStorySlice, CategorySlice, TitleContainerSlice
+        HeaderSlice, MenuSlice, PaiksStorySlice, CategorySlice, TitleContainerSlice, CoffeeClassSlice, NewsSlice
     });
 
     return reducer(state, action);

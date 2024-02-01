@@ -16,6 +16,7 @@ const HeaderContainer = styled.div`
     width:100%;
     height:120px;
     z-index: 99999999999999;
+    top:0px;
     background-color: #fff;
 
     ${mq.maxWidth('xl')`

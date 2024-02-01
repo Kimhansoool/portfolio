@@ -27,9 +27,9 @@
         {
             "id": "M03",
             "title": "소식",
-            "url": "#",
+            "url": "/news",
             "subMenu": [
-                {"title": "소식", "url": "#"},
+                {"title": "소식", "url": "/news"},
                 {"title": "이벤트", "url": "#"},
                 {"title": "친절 우수매장", "url": "#"}
             ]
@@ -37,9 +37,9 @@
         {
             "id": "M04",
             "title": "커뮤니티",
-            "url": "#",
+            "url": "/community/coffeeClass",
             "subMenu": [
-                {"title": "커피 클래스", "url": "#"}
+                {"title": "커피 클래스", "url": "/community/coffeeClass"}
             ]
         },
         {
@@ -538,6 +538,100 @@
                 "saturatedFat": 12,
                 "protein": 11
             }
+        }
+    ],
+    "class":[
+        {
+            "id": "C01",
+            "title_img":"/img/community/classtitle/classtitleImg_01.jpg",
+            "state": "종료",
+            "title":"4월 커피클래스",
+            "start_date": "2020-04-10",
+            "end_date": "2020-04-14",
+            "content_img": "/img/community/classcontent/content01.jpg"
+        },
+        {
+            "id": "C02",
+            "title_img":"/img/community/classtitle/classtitleImg_02.jpg",
+            "state": "종료",
+            "title":"1월 커피클래스",
+            "start_date": "2020-01-10",
+            "end_date": "2020-01-16",
+            "content_img": "/img/community/classcontent/content02.jpg"
+        },
+        {
+            "id": "C03",
+            "title_img":"/img/community/classtitle/classtitleImg_03.jpg",
+            "state": "종료",
+            "title":"12월 커피클래스",
+            "start_date": "2019-12-06",
+            "end_date": "2019-12-12",
+            "content_img": "/img/community/classcontent/content03.jpg"
+        },
+        {
+            "id": "C04",
+            "title_img":"/img/community/classtitle/classtitleImg_04.jpg",
+            "state": "종료",
+            "title":"11월 커피클래스",
+            "start_date": "2019-11-04",
+            "end_date": "2019-11-10",
+            "content_img": "/img/community/classcontent/content04.jpg"
+        }
+    ],
+    "news": [
+        {
+            "id": "N01",
+            "num": 166,
+            "group": "소식",
+            "title": "#우리가치프로젝트 국내산 농산물로 더 맛있고 든든한 신메뉴",
+            "regi_date": "2024-01-04",
+            "view": "276",
+            "content_img": "/img/news/content_n01.jpg"
+        },
+        {
+            "id": "N02",
+            "num": 165,
+            "group": "소식",
+            "title": "당류 걱정없이 즐기는 빽다방 베스트 메뉴, 원조커피 제로슈거",
+            "regi_date": "2023-12-21",
+            "view": "4192",
+            "content_img": "/img/news/content_n02.jpg"
+        },
+        {
+            "id": "N03",
+            "num": 164,
+            "group": "이벤트",
+            "title": "빽다방, 군인•경찰•소방관 위한 감사 프로모션 진행",
+            "regi_date": "2023-12-08",
+            "view": "2519",
+            "content_img": "/img/news/content_n03.png"
+        },
+        {
+            "id": "N04",
+            "num": 163,
+            "group": "소식",
+            "title": "추운 겨울, 몸을 따뜻하게 녹여줄 ‘뱅쇼’",
+            "regi_date": "2023-11-28",
+            "view": "1308",
+            "content_img": "/img/news/content_n04.jpg"
+        },
+        {
+            "id": "N05",
+            "num": 162,
+            "group": "이벤트",
+            "title": "[빽다방X놀자곰] 2024 빽다방 캘린더 프로모션 안내 *추가 진행매장 안내",
+            "regi_date": "2023-11-07",
+            "view": "37527",
+            "content_img": "/img/news/content_n05.jpg"
+        },
+        {
+            "id": "N06",
+            "num": 161,
+            "group": "소식",
+            "title": "짭짤한 황치즈 머핀에 달콤한 크럼블을 올린 단짠 디저트 ‘황치즈 크럼블 머핀’",
+            "regi_date": "2023-09-20",
+            "view": "1136",
+            "content_img": "/img/news/content_n06.jpg"
         }
     ]
 }

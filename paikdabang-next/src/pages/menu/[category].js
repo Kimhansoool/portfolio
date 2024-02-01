@@ -5,10 +5,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getList } from '@/slices/CategorySlice';
 import { titleList } from '@/slices/TitleContainerSlice';
 import Link from 'next/link';
+import mq from '@/styles/MediaQuery';
 
 const PaiksMenu = styled.div`
     width:100%;
     height:100%;
+    margin-top:80px;
     /* background-color: #00f5; */
     text-align: center;
     font-family: 'Noto Sans KR', sans-serif;
@@ -17,6 +19,7 @@ const PaiksMenu = styled.div`
         flex-wrap: wrap;
         height:500px;
         padding-top:150px;
+        background-position: center;
 
         .titleInner{
             width:100%;
@@ -41,9 +44,10 @@ const PaiksMenu = styled.div`
 
         .mainTab{
             margin:0 auto;
-            width:900px;
+            max-width:900px;
             display: flex;
             margin-top:100px;
+            padding:0 20px;
 
             li{
                 display: flex;
@@ -57,6 +61,10 @@ const PaiksMenu = styled.div`
                 border-left:0;
                 cursor: pointer;
 
+                ${mq.maxWidth('xl')`
+                    font-size:14px;
+                `}
+
                 &:first-child{
                     border-left:1px solid #aaaaaa90;
                 }
@@ -66,8 +74,6 @@ const PaiksMenu = styled.div`
                         
                     }
                 
-
-
                 .titleLink{
                     cursor: pointer;
                     display: block;
@@ -78,20 +84,42 @@ const PaiksMenu = styled.div`
     }
 
     .totalMenuContainer{
-        width:1200px;
+        max-width:1200px;
         height: 100%;
         /* background-color: #f0f5; */
         margin:100px auto;
         display: flex;
         flex-wrap: wrap;
+        padding:0 40px;
 
         .MenuWrap{
-            width:300px;
-            height:400px;
+            width:25%;
+            height:auto;
+            padding-bottom:40px;
             border:1px solid #aaaaaa90;
             border-left:0;
             position: relative;
             margin-bottom: 20px;
+
+            ${mq.maxWidth('xl')`
+                width:50%;
+                border-left: 1px solid #aaaaaa90;
+
+                &:nth-child(2n){
+                    border-left:0;
+                }
+            `}
+
+            .MenuInner{
+
+                img{
+                    width:90%;
+                }
+
+                .MenuTitle{
+                    font-size:16px;
+                }
+            }
 
             .on{
                 position: absolute;
@@ -134,11 +162,28 @@ const PaiksMenu = styled.div`
                 }
 
                 .onDescription{
-                    margin-top:80px;
+                    margin-top:60px;
+
+                    ${mq.maxWidth('xl')`
+                        margin-top:230px;
+                    `}
+
+                    ${mq.maxWidth('lg')`
+                        margin-top:150px;
+                    `}
+
+                    ${mq.maxWidth('md')`
+                        margin-top:70px;
+                    `}
+
+                    ${mq.maxWidth('sm')`
+                        margin-top:50px;
+                    `}
 
                     p{
                         font-size:14px;
                         margin-bottom:8px;
+                        font-weight:600;
                     }
 
                     span{
@@ -158,11 +203,11 @@ const PaiksMenu = styled.div`
                             display: block;
                             border-right:1px solid #000;
                             font-size:12px;
-                            width:114px;
+                            width:50%;
                             padding:6px 5px;
                             display: flex;
                             justify-content: space-between;
-                            /* background-color: #071F60; */
+                            font-weight:600;
 
                             &:nth-child(2n){
                                 border-right:0;
@@ -180,13 +225,7 @@ const PaiksMenu = styled.div`
                 border-left: 1px solid #aaaaaa90;
             }
 
-            img{
-                width:90%;
-            }
-
-            .MenuTitle{
-                font-size:16px;
-            }
+            
         }
     }
 `;
@@ -194,7 +233,7 @@ const PaiksMenu = styled.div`
 const Category = memo(() => {
     const router = useRouter();
     const {category} = router.query;
-    // console.log(category);
+    console.log(category);
 
     const dispatch = useDispatch();
     const {data, loading, error} = useSelector((state) =>state.CategorySlice);
@@ -285,10 +324,10 @@ const Category = memo(() => {
                     <li className='Tabinner' onClick={onTabClick}><Link href='/menu/menu_ccino' className='titleLink'>빽스치노</Link></li>
                 </ul>
             </div> */}
-            <div>
+            {/* <div>
                 <button type='button'>바로가기</button>
                 <button type='button'>메인</button>
-            </div>
+            </div> */}
             <ul className='totalMenuContainer'>
                 {data && data.map((v, i) =>{
                     return(
@@ -331,8 +370,10 @@ const Category = memo(() => {
                                     <span>(매장 상황에 따라 판매하지 않을 수 있습니다.)</span>
                                 </div>
                             </div>
-                            <img src={v.img} />
-                            <p className='MenuTitle'>{v.name_kor}</p>
+                            <div className='MenuInner'>
+                                <img src={v.img} />
+                                <p className='MenuTitle'>{v.name_kor}</p>
+                            </div>
                         </li>
                     );
                 })}

@@ -5,9 +5,17 @@ import { getList } from '@/slices/CategorySlice';
 import { titleList } from '@/slices/TitleContainerSlice';
 import Link from 'next/link';
 
+import mq from '@/styles/MediaQuery';
+
 const MenuNewContainer = styled.div`
     font-family: 'Noto Sans KR', sans-serif;
     text-align: center;
+    margin-top:120px;
+    width:100%;
+
+    ${mq.maxWidth('xl')`
+        margin-top:70px;
+    `}
 
     .title{
         margin-top:100px;
@@ -23,9 +31,9 @@ const MenuNewContainer = styled.div`
     }
 
     .titleContainer{
-        flex-wrap: wrap;
         height:500px;
         padding-top:150px;
+        background-position: center;
 
         .titleInner{
             width:100%;
@@ -50,9 +58,10 @@ const MenuNewContainer = styled.div`
 
         .mainTab{
             margin:0 auto;
-            width:900px;
+            max-width:900px;
             display: flex;
             margin-top:100px;
+            padding:0 20px;
 
             li{
                 display: flex;
@@ -64,6 +73,10 @@ const MenuNewContainer = styled.div`
                 border: 1px solid #aaaaaa90;
                 border-left:0;
                 cursor: pointer;
+
+                ${mq.maxWidth('xl')`
+                    font-size:14px;
+                `}
 
                 &:first-child{
                     border-left:1px solid #aaaaaa90;
@@ -83,13 +96,13 @@ const MenuNewContainer = styled.div`
     }
 
     .productContaier{
-        margin:0 auto;
-        margin-top:80px;
-        margin-bottom:80px;
-        width:1200px;
+        margin:80px auto;
+        padding:0 40px;
+        max-width:1200px;
         height:100%;
         display: flex;
         align-items: center;
+        
 
         .prevButton{
 
@@ -118,7 +131,11 @@ const MenuNewContainer = styled.div`
             .contentItem{
                 position: relative;
                 /* background-color: #00f5; */
-                width:370px;
+                width:33.3%;
+
+                ${mq.maxWidth('xl')`
+                    width:50%;
+                `}
 
                 img{
                     width:70%;
@@ -137,6 +154,14 @@ const MenuNewContainer = styled.div`
                 opacity: 0;
                 transition: opacity 0.3s ease-in-out;
 
+                ${mq.maxWidth('lg')`
+                    padding:20px 15px;
+                `}
+
+                ${mq.maxWidth('sm')`
+                    padding:10px 15px;
+                `}
+
                 .onTitleWrap{
                     height: 100px;
 
@@ -144,6 +169,14 @@ const MenuNewContainer = styled.div`
                         font-size:24px;
                         font-weight: 900;
                         line-height:1.3;
+
+                        ${mq.maxWidth('lg')`
+                            font-size:20px;
+                        `}
+
+                        ${mq.maxWidth('md')`
+                            font-size:16px;
+                        `}
                     }
 
                     .onEngTitle{
@@ -156,16 +189,40 @@ const MenuNewContainer = styled.div`
                         width:30px;
                         margin:10px 0;
                         border: 1px solid #071F60;
+
+                        ${mq.maxWidth('md')`
+                            margin:6px 0;
+                        `}
                     }
 
                     .desc{
                         font-size:14px;
                         line-height: 1.6;
+
+                        ${mq.maxWidth('md')`
+                            font-size:12px;
+                        `}
                     }
                 }
 
                 .onDescription{
-                    margin-top:80px;
+                    margin-top:60px;
+
+                    ${mq.maxWidth('xl')`
+                        margin-top:130px;
+                    `}
+
+                    ${mq.maxWidth('lg')`
+                        margin-top:54px;
+                    `}
+
+                    ${mq.maxWidth('md')`
+                        margin-top:0px;
+                    `}
+
+                    ${mq.maxWidth('sm')`
+                        // margin-top:50px;
+                    `}
 
                     p{
                         font-size:14px;
@@ -189,7 +246,7 @@ const MenuNewContainer = styled.div`
                             display: block;
                             border-right:1px solid #000;
                             font-size:12px;
-                            width:158px;
+                            width:50%;
                             padding:6px 5px;
                             display: flex;
                             justify-content: space-between;
@@ -198,6 +255,11 @@ const MenuNewContainer = styled.div`
                             &:nth-child(2n){
                                 border-right:0;
                             }
+
+                            ${mq.maxWidth('lg')`
+                                font-size:11px;
+                                padding:3px 4px;
+                            `}
                         }
                     }
                 }

@@ -2,88 +2,21 @@ import React, {memo, useCallback, useEffect} from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import mq from '@/styles/MediaQuery';
+import NewsHeader from '@/components/NewsHeader';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getList } from '@/slices/NewsSlice';
 
 const IndexContainer = styled.div`
     margin-top:120px;
-    /* background-color: #ff0; */
 
-    .titleContainer{
-        text-align: center;
-        flex-wrap: wrap;
-        height:500px;
-        padding-top:150px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        .titleInner{
-            width:100%;
-            height:150px;
-
-            .mainTitle{
-                font-size:40px;
-                font-weight:600;
-                margin-bottom: 30px;
-            }
-
-            .divider{
-                width:50px;
-                border: 1px solid #000;
-            }
-
-            .mainSubTitle{
-                margin-top:30px;
-                font-size:20px;
-            }
-        }
-
-        .mainTab{
-            margin:0 auto;
-            max-width:900px;
-            display: flex;
-            margin-top:100px;
-            padding:0 20px;
-
-            li{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width:100%;
-                height:40px;
-                background-color: #fff;
-                border: 1px solid #aaaaaa90;
-                border-left:0;
-                cursor: pointer;
-
-                ${mq.maxWidth('xl')`
-                    font-size:14px;
-                `}
-
-                &:first-child{
-                    border-left:1px solid #aaaaaa90;
-                }
-
-                &.on{
-                    background-color: #ffe600;
-                        
-                    }
-                
-                .titleLink{
-                    cursor: pointer;
-                    display: block;
-                    padding:0 20px;
-                }
-            }
-        }
-    }
+    ${mq.maxWidth('xl')`
+        margin-top:70px;
+    `}
 
     .contentContainer{
         max-width:1200px;
         margin:60px auto;
-        /* background-color:#00f5; */
 
         .contentWrap{
             width:100%;
@@ -117,7 +50,6 @@ const IndexContainer = styled.div`
                         }
                     }
                     
-                    
                     td{
                         padding:28px 30px; 
                         text-align:center;
@@ -132,8 +64,7 @@ const IndexContainer = styled.div`
                         }
 
                     }
-                }
-                
+                }  
             }
         }
     }
@@ -193,20 +124,21 @@ const index = memo(() => {
         dispatch(getList());
     }, []);
 
-    const onTabClick = useCallback((e) =>{
-        const current = e.currentTarget;
-        console.log(current);
-        const TabLi = document.querySelectorAll('.Tabinner');
+    // const onTabClick = useCallback((e) =>{
+    //     const current = e.currentTarget;
+    //     console.log(current);
+    //     const TabLi = document.querySelectorAll('.Tabinner');
 
-        TabLi.forEach((v, i) =>{
-            v.classList.remove("on");
-        });
-        current.classList.add("on");
-    }, []);
+    //     TabLi.forEach((v, i) =>{
+    //         v.classList.remove("on");
+    //     });
+    //     current.classList.add("on");
+    // }, []);
 
     return (
         <IndexContainer>
-            <div className='titleContainer' style={{backgroundImage: "url(/img/news_sec_Bg.jpg)"}}>
+            <NewsHeader />
+            {/* <div className='titleContainer' style={{backgroundImage: "url(/img/news_sec_Bg.jpg)"}}>
                 <div className='titleInner'>
                     <h3 className='mainTitle'>소식</h3>
                     <hr className='divider' />
@@ -219,7 +151,8 @@ const index = memo(() => {
                     <li className='Tabinner' onClick={onTabClick}><Link href='/news' className='titleLink'>친절우수매장</Link></li>
                     <li className='Tabinner' onClick={onTabClick}><Link href='/news' className='titleLink'>찾아가는 빽다방</Link></li>
                 </ul>
-            </div>
+            </div> */}
+
             <div className='contentContainer'>
                 <table className='contentWrap'>
                     <thead>
@@ -237,7 +170,7 @@ const index = memo(() => {
                             <tr key={i}>
                                 <td>{v.num}</td>
                                 <td>{v.group}</td>
-                                <td><Link href='#' className='conLink'>{v.title}</Link></td>
+                                <td><Link href={`/news/${v.id}`} className='conLink'>{v.title}</Link></td>
                                 <td>{v.regi_date}</td>
                                 <td>{v.view}</td>
                             </tr>

@@ -12,6 +12,10 @@ const CoffeeClassContainer = styled.div`
     margin-top:120px;
     font-family: 'Noto Sans KR', sans-serif;
 
+    ${mq.maxWidth('xl')`
+        margin-top:70px;
+    `}
+
     .classApplyContainer{
         width:100%;
         margin-top:70px;

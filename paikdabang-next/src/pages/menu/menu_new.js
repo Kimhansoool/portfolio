@@ -2,8 +2,11 @@ import React, {memo, useCallback, useEffect, useMemo} from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { getList } from '@/slices/CategorySlice';
-import { titleList } from '@/slices/TitleContainerSlice';
 import Link from 'next/link';
+
+import Head from 'next/head';
+
+import Glider from 'react-glider';
 
 import mq from '@/styles/MediaQuery';
 
@@ -102,170 +105,162 @@ const MenuNewContainer = styled.div`
         height:100%;
         display: flex;
         align-items: center;
-        
 
         .prevButton{
 
             .button{
+                line-height:150px;
                 width:45px;
                 height:auto;
                 font-size:45px;
-                color:#efefef;
+                color:#333333;
             }
         }
 
         .nextButton{
             .button{
+                line-height:150px;
                 width:45px;
                 height:auto;
                 font-size:45px;
-                color:#efefef;
+                color:#333333;
             }
         }
 
-        .productWrap{
-            display: flex;
-            flex-wrap: wrap;
-            width:100%;
-
+        .glider-container{
             .contentItem{
-                position: relative;
-                /* background-color: #00f5; */
-                width:33.3%;
+                    position: relative;
+                    width:33.3%;
 
-                ${mq.maxWidth('xl')`
-                    width:50%;
-                `}
+                    img{
+                        width:70%;
+                    }
 
-                img{
-                    width:70%;
-                }
-
-                .on{
-                position: absolute;
-                top:0;
-                left:0;
-                background-color: rgba(255, 230, 0, 0.8);
-                border:1px solid rgba(255, 230, 0, 1);
-                width:100%;
-                height:100%;
-                text-align: left;
-                padding:30px 25px;
-                opacity: 0;
-                transition: opacity 0.3s ease-in-out;
-
-                ${mq.maxWidth('lg')`
-                    padding:20px 15px;
-                `}
-
-                ${mq.maxWidth('sm')`
-                    padding:10px 15px;
-                `}
-
-                .onTitleWrap{
-                    height: 100px;
-
-                    .onTitle{
-                        font-size:24px;
-                        font-weight: 900;
-                        line-height:1.3;
+                    .on{
+                        position: absolute;
+                        top:0;
+                        left:0;
+                        background-color: rgba(255, 230, 0, 0.8);
+                        border:1px solid rgba(255, 230, 0, 1);
+                        width:100%;
+                        height:100%;
+                        text-align: left;
+                        padding:30px 25px;
+                        opacity: 0;
+                        transition: opacity 0.3s ease-in-out;
 
                         ${mq.maxWidth('lg')`
-                            font-size:20px;
+                            padding:20px 15px;
                         `}
 
-                        ${mq.maxWidth('md')`
-                            font-size:16px;
+                        ${mq.maxWidth('sm')`
+                            padding:10px 15px;
                         `}
-                    }
 
-                    .onEngTitle{
-                        font-family: 'Montserrat', sans-serif;
-                        margin-top:5px;
-                        color:#071F60;
-                    }
+                        .onTitleWrap{
+                            height: 100px;
 
-                    .divider{
-                        width:30px;
-                        margin:10px 0;
-                        border: 1px solid #071F60;
+                            .onTitle{
+                                font-size:24px;
+                                font-weight: 900;
+                                line-height:1.3;
 
-                        ${mq.maxWidth('md')`
-                            margin:6px 0;
-                        `}
-                    }
+                                ${mq.maxWidth('lg')`
+                                    font-size:20px;
+                                `}
 
-                    .desc{
-                        font-size:14px;
-                        line-height: 1.6;
-
-                        ${mq.maxWidth('md')`
-                            font-size:12px;
-                        `}
-                    }
-                }
-
-                .onDescription{
-                    margin-top:60px;
-
-                    ${mq.maxWidth('xl')`
-                        margin-top:130px;
-                    `}
-
-                    ${mq.maxWidth('lg')`
-                        margin-top:54px;
-                    `}
-
-                    ${mq.maxWidth('md')`
-                        margin-top:0px;
-                    `}
-
-                    ${mq.maxWidth('sm')`
-                        // margin-top:50px;
-                    `}
-
-                    p{
-                        font-size:14px;
-                        margin-bottom:8px;
-                    }
-
-                    span{
-                        font-size:10px;
-                    }
-                    
-                    .descContent{
-                        border-top:1px solid #000;
-                        border-bottom:1px solid #000;
-                        display: flex;
-                        flex-wrap: wrap;
-                        height:100%;
-                        width:100%;
-                        padding:4px 0;
-
-                        li{
-                            display: block;
-                            border-right:1px solid #000;
-                            font-size:12px;
-                            width:50%;
-                            padding:6px 5px;
-                            display: flex;
-                            justify-content: space-between;
-                            /* background-color: #071F60; */
-
-                            &:nth-child(2n){
-                                border-right:0;
+                                ${mq.maxWidth('md')`
+                                    font-size:16px;
+                                `}
                             }
 
-                            ${mq.maxWidth('lg')`
-                                font-size:11px;
-                                padding:3px 4px;
+                            .onEngTitle{
+                                font-family: 'Montserrat', sans-serif;
+                                margin-top:5px;
+                                color:#071F60;
+                            }
+
+                            .divider{
+                                width:30px;
+                                margin:10px 0;
+                                border: 1px solid #071F60;
+
+                                ${mq.maxWidth('md')`
+                                    margin:6px 0;
+                                `}
+                            }
+
+                            .desc{
+                                font-size:14px;
+                                line-height: 1.6;
+
+                                ${mq.maxWidth('md')`
+                                    font-size:12px;
+                                `}
+                            }
+                        }
+
+                        .onDescription{
+                            margin-top:60px;
+
+                            ${mq.maxWidth('xl')`
+                                margin-top:20px;
                             `}
+
+                            ${mq.maxWidth('lg')`
+                                margin-top:100px;
+                            `}
+
+                            ${mq.maxWidth('md')`
+                                margin-top:40px;
+                            `}
+
+                            ${mq.maxWidth('sm')`
+                                margin-top:20px;
+                            `}
+
+                            p{
+                                font-size:14px;
+                                margin-bottom:8px;
+                            }
+
+                            span{
+                                font-size:10px;
+                            }
+                            
+                            .descContent{
+                                border-top:1px solid #000;
+                                border-bottom:1px solid #000;
+                                display: flex;
+                                flex-wrap: wrap;
+                                height:100%;
+                                width:100%;
+                                padding:4px 0;
+
+                                li{
+                                    display: block;
+                                    border-right:1px solid #000;
+                                    font-size:12px;
+                                    width:50%;
+                                    padding:6px 5px;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    /* background-color: #071F60; */
+
+                                    &:nth-child(2n){
+                                        border-right:0;
+                                    }
+
+                                    ${mq.maxWidth('lg')`
+                                        font-size:11px;
+                                        padding:3px 4px;
+                                    `}
+                                }
+                            }
                         }
                     }
-                }
-                }
-            }
-        }
+            } 
+        }   
     }
 
 `;
@@ -301,7 +296,10 @@ const MenuNew = memo(() => {
     }, []);
 
     return (
-        <MenuNewContainer>   
+        <MenuNewContainer> 
+            <Head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css" />
+            </Head>  
             <div className='titleContainer' style={{backgroundImage: "url(/img/menu_sec_newBg.jpg)"}}>
                 <div className='titleInner'>
                     <h3 className='mainTitle'>신메뉴</h3>
@@ -325,11 +323,33 @@ const MenuNew = memo(() => {
             <hr className=' titDivider' />
 
             <div className='productContaier'>
-                <div className='prevButton'><i className="fa-solid fa-chevron-left button"></i></div>
-                <ul className='productWrap'>
+                <Glider
+                    className="glider-container"
+                    hasArrows
+                    slidesToShow={2}
+                    slidesToScroll={1}
+                    scrollLock
+                    iconLeft={
+                        <div className='prevButton'><i className="fa-solid fa-chevron-left button"></i></div>
+                    }
+                    iconRight={
+                        <div className='nextButton'><i className="fa-solid fa-chevron-right button"></i></div>
+                    }
+                    responsive={[
+                        {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: "auto",
+                            slidesToScroll: "auto",
+                            itemWidth: 300,
+                            duration: 0.25,
+                        },
+                        },
+                    ]}
+                    >
                     {filterData && filterData.map((v, i) =>{
                         return(
-                            <li className='contentItem' key={i}>
+                            <div className='contentItem' key={i}>
                                 <div className='on' onClick={onInfoClick}>
                                 <div className='onTitleWrap'>
                                     <h3 className='onTitle'>{v.name_kor}</h3>
@@ -340,41 +360,40 @@ const MenuNew = memo(() => {
                                 <div className='onDescription'>
                                     <p>※ 1회 제공량 기준: {v.info.standard}</p>
                                     <ul className='descContent'>
-                                        <li>
-                                            <div>카페인(mg)</div>
-                                            <div>{v.info.caffeine}</div>
-                                        </li>
-                                        <li>
-                                            <div>칼로리 (kcal)</div>
-                                            <div>{v.info.calorie}</div>
-                                        </li>
-                                        <li>
-                                            <div>나트륨 (mg)</div>
-                                            <div>{v.info.sodium}</div>
-                                        </li>
-                                        <li>
-                                            <div>당류 (g)</div>
-                                            <div>{v.info.sugars}</div>
-                                        </li>
-                                        <li>
-                                            <div>포화지방 (g)</div>
-                                            <div>{v.info.saturatedFat}</div>
-                                        </li>
-                                        <li>
-                                            <div>단백질(g)</div>
-                                            <div>{v.info.protein}</div>
-                                        </li>
+                                            <li>
+                                                <div>카페인(mg)</div>
+                                                <div>{v.info.caffeine}</div>
+                                            </li>
+                                            <li>
+                                                <div>칼로리 (kcal)</div>
+                                                <div>{v.info.calorie}</div>
+                                            </li>
+                                            <li>
+                                                <div>나트륨 (mg)</div>
+                                                <div>{v.info.sodium}</div>
+                                            </li>
+                                            <li>
+                                                <div>당류 (g)</div>
+                                                <div>{v.info.sugars}</div>
+                                            </li>
+                                            <li>
+                                                <div>포화지방 (g)</div>
+                                                <div>{v.info.saturatedFat}</div>
+                                            </li>
+                                            <li>
+                                                <div>단백질(g)</div>
+                                                <div>{v.info.protein}</div>
+                                            </li>
                                     </ul>
                                     <span>(매장 상황에 따라 판매하지 않을 수 있습니다.)</span>
                                 </div>
                                 </div>
                                 <img src={v.img} />
                                 <p>{v.name_kor}</p>
-                            </li>
+                            </div>
                         );
                     })}
-                </ul>
-                <div className='prevButton'><i className="fa-solid fa-chevron-right button"></i></div>
+                </Glider>
             </div>
 
             {/* <div className='productContaier'>
@@ -405,8 +424,6 @@ const MenuNew = memo(() => {
                     <i class="fa-solid fa-chevron-right button"></i>
                 </div>
             </div> */}
-
-            {/* {JSON.stringify(filterData)} */}
         </MenuNewContainer>
     );
 });

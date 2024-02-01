@@ -13,18 +13,17 @@ const ContentContainer = styled.div`
   width:100%;
   height:100%;
 
+  ${mq.maxWidth('xl')`
+    margin-top:70px;
+  `}
+
   .contentWrap{
-    /* background-color: #ff0; */
     max-width: 1200px;
     margin:60px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
-    .contentImg{
-
-    }
   }
 `;
 

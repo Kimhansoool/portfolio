@@ -8,8 +8,16 @@ const API_URL = '/api/news';
 export const getList = createAsyncThunk("NewsSlice/getList", async (payload, { rejectWithValue }) => {
     let result = null;
 
+    const myParams = {};
+
+    if (payload?.newscontent) {
+        myParams.id = payload.newscontent;
+    }
+
     try {
-        const response = await axios.get(API_URL);
+        const response = await axios.get(API_URL,{
+            params: myParams
+        });
         result = response.data;
     } catch (err) {
         result = rejectWithValue(err.response);

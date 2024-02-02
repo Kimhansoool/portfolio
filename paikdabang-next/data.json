@@ -27,9 +27,9 @@
         {
             "id": "M03",
             "title": "소식",
-            "url": "/news",
+            "url": "/news/all",
             "subMenu": [
-                {"title": "소식", "url": "/news"},
+                {"title": "소식", "url": "/news/"},
                 {"title": "이벤트", "url": "#"},
                 {"title": "친절 우수매장", "url": "#"}
             ]
@@ -580,58 +580,84 @@
     ],
     "news": [
         {
-            "id": "N01",
+            "id": "N166",
             "num": 166,
             "group": "소식",
+            "category":"cate_news",
             "title": "#우리가치프로젝트 국내산 농산물로 더 맛있고 든든한 신메뉴",
             "regi_date": "2024-01-04",
             "view": "276",
-            "content_img": "/img/news/content_n01.jpg"
+            "content_img": "/img/news/content_n166.jpg"
         },
         {
-            "id": "N02",
+            "id": "N165",
             "num": 165,
             "group": "소식",
+            "category":"cate_news",
             "title": "당류 걱정없이 즐기는 빽다방 베스트 메뉴, 원조커피 제로슈거",
             "regi_date": "2023-12-21",
             "view": "4192",
-            "content_img": "/img/news/content_n02.jpg"
+            "content_img": "/img/news/content_n165.jpg"
         },
         {
-            "id": "N03",
+            "id": "N164",
             "num": 164,
             "group": "이벤트",
+            "category":"cate_event",
             "title": "빽다방, 군인•경찰•소방관 위한 감사 프로모션 진행",
             "regi_date": "2023-12-08",
             "view": "2519",
-            "content_img": "/img/news/content_n03.png"
+            "content_img": "/img/news/content_n164.png"
         },
         {
-            "id": "N04",
+            "id": "N163",
             "num": 163,
             "group": "소식",
+            "category":"cate_news",
             "title": "추운 겨울, 몸을 따뜻하게 녹여줄 ‘뱅쇼’",
             "regi_date": "2023-11-28",
             "view": "1308",
-            "content_img": "/img/news/content_n04.jpg"
+            "content_img": "/img/news/content_n163.jpg"
         },
         {
-            "id": "N05",
+            "id": "N162",
             "num": 162,
             "group": "이벤트",
+            "category":"cate_event",
             "title": "[빽다방X놀자곰] 2024 빽다방 캘린더 프로모션 안내 *추가 진행매장 안내",
             "regi_date": "2023-11-07",
             "view": "37527",
-            "content_img": "/img/news/content_n05.jpg"
+            "content_img": "/img/news/content_n162.jpg"
         },
         {
-            "id": "N06",
+            "id": "N161",
             "num": 161,
             "group": "소식",
+            "category":"cate_news",
             "title": "짭짤한 황치즈 머핀에 달콤한 크럼블을 올린 단짠 디저트 ‘황치즈 크럼블 머핀’",
             "regi_date": "2023-09-20",
             "view": "1136",
-            "content_img": "/img/news/content_n06.jpg"
+            "content_img": "/img/news/content_n161.jpg"
+        },
+        {
+            "id": "N155",
+            "num": 155,
+            "group": "찾아가는 빽다방",
+            "category":"cate_visiting",
+            "title": "빽다방 커피트럭이 세종대를 찾아갔어요!",
+            "regi_date": "2023-06-21",
+            "view": "1245",
+            "content_img": "/img/news/content_n155.png"
+        },
+        {
+            "id": "N04",
+            "num": 4,
+            "group": "친절우수매장",
+            "category":"cate_kind",
+            "title": "2019년 4분기 빽다방 “친절 우수매장”",
+            "regi_date": "2020-01-22",
+            "view": "20816",
+            "content_img": "/img/news/content_n04.jpg"
         }
     ]
 }

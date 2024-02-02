@@ -93,51 +93,50 @@ const NewsContentContainer = styled.div`
     
 `;
 
-const NewsContent = memo(() => {
+const Id = memo(() => {
     const router = useRouter();
-    const {newscontent} = router.query;
-    console.log(newscontent);
+    const {id, category} = router.query;
+    console.log(category);
 
     const dispatch = useDispatch();
     const {data, loading, error} = useSelector((state) =>state.NewsSlice);
 
     useEffect(() =>{
-        if(newscontent){
-            dispatch(getList({newscontent: newscontent}));
+        if(id){
+            dispatch(getList({id: id}));
         }
-    }, [newscontent]);
+    }, [id]);
 
     return (
         <NewsContentContainer>
             <NewsHeader />
             <div className='contentWrap'>
-                {data && data.map((v, i) =>{
-                    return(
+                {data && (
                     <>
                         <div className='titleContainer'>
                             <div className='titleInner'>
                                 <div className='title'>
-                                    <span className='group'>[{v.group}]</span>
-                                    <h2>{v.title}</h2>
+                                    <span className='group'>[{data.group}]</span>
+                                    <h2>{data.title}</h2>
                                 </div>
                                 <div className='info'>
-                                    <span>{v.regi_date}</span>
+                                    <span>{data.regi_date}</span>
                                     <span className='divider'>|</span>
-                                    <span>조회수 {v.view}</span>
+                                    <span>조회수 {data.view}</span>
                                 </div>
                             </div>
                         </div>
-                        <img className='contentImg' src={v.content_img} />
+                        <img className='contentImg' src={data.content_img} />
+
+                        <div className='buttonContainer'>
+                            <button className='home'><Link href='/news/all' className='link'>목록</Link></button>
+                        </div>
                     </>
-                    );
-                })}
-                <div className='buttonContainer'>
-                    <button className='home'><Link href='/news' className='link'>목록</Link></button>
-                </div>
+                )}
                 
             </div>
         </NewsContentContainer>
     );
 });
 
-export default NewsContent;
+export default Id;

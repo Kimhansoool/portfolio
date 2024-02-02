@@ -98,11 +98,11 @@ const NewsHeader = memo(() => {
                     <p className='mainSubTitle'>다양한 이벤트와 새로운 소식을 확인하세요.</p>
                 </div>
                 <ul className='mainTab'>
-                    <li className='Tabinner on' onClick={onTabClick}><Link href='/news' className='titleLink'>전체보기</Link></li>
-                    <li className='Tabinner' onClick={onTabClick}><Link href='/news' className='titleLink'>소식</Link></li>
-                    <li className='Tabinner' onClick={onTabClick}><Link href='/news' className='titleLink'>이벤트</Link></li>
-                    <li className='Tabinner' onClick={onTabClick}><Link href='/news' className='titleLink'>친절우수매장</Link></li>
-                    <li className='Tabinner' onClick={onTabClick}><Link href='/news' className='titleLink'>찾아가는 빽다방</Link></li>
+                    <li className='Tabinner on' onClick={onTabClick}><Link href='/news/all' className='titleLink'>전체보기</Link></li>
+                    <li className='Tabinner' onClick={onTabClick}><Link href='/news/cate_news' className='titleLink'>소식</Link></li>
+                    <li className='Tabinner' onClick={onTabClick}><Link href='/news/cate_event' className='titleLink'>이벤트</Link></li>
+                    <li className='Tabinner' onClick={onTabClick}><Link href='/news/cate_kind' className='titleLink'>친절우수매장</Link></li>
+                    <li className='Tabinner' onClick={onTabClick}><Link href='/news/cate_visiting' className='titleLink'>찾아가는 빽다방</Link></li>
                 </ul>
             </div>
         </NewsHeaderContainer>

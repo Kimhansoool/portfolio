@@ -45,9 +45,9 @@
         {
             "id": "M05",
             "title": "매장안내",
-            "url": "#",
+            "url": "/store",
             "subMenu": [
-                {"title": "매장찾기", "url": "#"}
+                {"title": "매장찾기", "url": "/store"}
             ]
         },
         {
@@ -658,6 +658,93 @@
             "regi_date": "2020-01-22",
             "view": "20816",
             "content_img": "/img/news/content_n04.jpg"
+        }
+    ],
+    "store": [
+        {
+            "id": "S01",
+            "region": "경상남도",
+            "store_name": "삼천포점",
+            "address": "경상남도 사천시 벌리동 258-10",
+            "store_img": "/img/store/gyeongsang/s01.jpg",
+            "tel": "055-833-0740",
+            "time": [
+                {"weekday_open": "09:00"},
+                {"weekday_close": "22:00"},
+                {"weekend_open": ""},
+                {"weekend_close": ""}
+            ],
+            "parking": "불가",
+            "dayoff": "연중무휴",
+            "seat": "테이블 8개/좌석 16석"
+        },
+        {
+            "id": "S02",
+            "region": "제주도",
+            "store_name": "서귀포호근동희망점",
+            "address": "제주특별자치도 서귀포시 호근동 807-2",
+            "store_img": "/img/store/gyeongsang/s02.png",
+            "tel": "064-900-0566",
+            "time": [
+                {"weekday_open": "07:00"},
+                {"weekday_close": "20:00"},
+                {"weekend_open": "08:00"},
+                {"weekend_close": "19:00"}
+            ],
+            "parking": "가능",
+            "dayoff": "연중무휴",
+            "seat": "테이블 4개/좌석 18석"
+        },
+        {
+            "id": "S03",
+            "region": "서울특별시",
+            "store_name": "수유사거리점",
+            "address": "서울특별시 강북구 수유로 84",
+            "store_img": "/img/store/gyeongsang/s03.png",
+            "tel": "070-4799-0240",
+            "time": [
+                {"weekday_open": "08:00"},
+                {"weekday_close": "22:00"},
+                {"weekend_open": ""},
+                {"weekend_close": ""}
+            ],
+            "parking": "불가",
+            "dayoff": "연중무휴",
+            "seat": "없음(테이크아웃 전용매장)"
+        },
+        {
+            "id": "S04",
+            "region": "충청북도",
+            "store_name": "청주방서호반우미린점",
+            "address": "충청북도 청주시 상당구 동남로 20",
+            "store_img": "/img/store/gyeongsang/s04.png",
+            "tel": "070-7840-2515",
+            "time": [
+                {"weekday_open": "08:00"},
+                {"weekday_close": "21:30"},
+                {"weekend_open": ""},
+                {"weekend_close": ""}
+            ],
+            "parking": "불가",
+            "dayoff": "연중무휴",
+            "seat": "테이블 7개/좌석 18석"
+        },
+        {
+            "id": "S05",
+            "region": "부산광역시",
+            "store_name": "부산거제레이카운티점",
+            "address": "부산시 연제구 아시아드대로 39, 상가동 2단지 1층 120호",
+            "store_img": "/img/store/gyeongsang/s05.png",
+            "tel": "070-8287-2918",
+            "time": [
+                {"weekday_open": "08:00"},
+                {"weekday_close": "21:00"},
+                {"weekend_open": ""},
+                {"weekend_close": ""}
+            ],
+            "parking": "아파트 상가 지하주차장(예정)",
+            "dayoff": "연중무휴",
+            "seat": "테이블 3개/좌석 6석"
         }
     ]
 }

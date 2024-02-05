@@ -10,7 +10,7 @@ import mq from '@/styles/MediaQuery';
 const PaiksMenu = styled.div`
     width:100%;
     height:100%;
-    margin-top:80px;
+    margin-top:120px;
     /* background-color: #00f5; */
     text-align: center;
     font-family: 'Noto Sans KR', sans-serif;
@@ -44,7 +44,7 @@ const PaiksMenu = styled.div`
 
         .mainTab{
             margin:0 auto;
-            max-width:900px;
+            max-width:1000px;
             display: flex;
             margin-top:100px;
             padding:0 20px;
@@ -53,13 +53,11 @@ const PaiksMenu = styled.div`
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width:100%;
+                width:20%;
                 height:40px;
-                /* background-color: #ffe600; */
                 background-color: #fff;
                 border: 1px solid #aaaaaa90;
                 border-left:0;
-                cursor: pointer;
 
                 ${mq.maxWidth('xl')`
                     font-size:14px;
@@ -70,14 +68,16 @@ const PaiksMenu = styled.div`
                 }
 
                 &.on{
-                        background-color: #ffe600;
+                    background-color: #ffe600;
                         
                     }
                 
                 .titleLink{
-                    cursor: pointer;
+                    width:100%;
+                    /* cursor: pointer; */
                     display: block;
-                    padding:0 20px;
+                    padding:20px 20px;
+                    font-size:16px;
                 }
             }
         }

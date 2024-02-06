@@ -1,9 +1,19 @@
-import React, {memo, useCallback} from 'react';
+import React, {memo, useCallback, useEffect} from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import mq from '@/styles/MediaQuery';
+
+// redux 참조
+import { useSelector, useDispatch } from 'react-redux';
+import { getList } from '@/slices/StoreSearchSlice';
 
 const IndexContainer = styled.div`
+    font-family: 'Noto Sans KR', sans-serif;
     margin-top:120px;
+
+    ${mq.maxWidth('xl')`
+        margin-top:70px;
+    `}
 
     .titleContainer{
         width:100%;
@@ -21,7 +31,7 @@ const IndexContainer = styled.div`
 
             .mainTitle{
                 font-size:40px;
-            font-weight:600;
+                font-weight:600;
                 margin-bottom: 30px;
             }
 
@@ -39,31 +49,49 @@ const IndexContainer = styled.div`
     }
     
     .storeSearchForm{
-        margin:60px auto;
-        max-width:1200px;
-        padding:30px 40px;
-        /* background-color: #ff0; */
-        border:1px solid #ddd;
-        background-color: #fefefe;
-        border-radius: 3px;
-        display: flex;
-        align-items: center;
+        padding:0 20px;
 
-        .regionSearch{
-            width:40%;
+        .storeSearchFormInner{
+            margin:60px auto;
+            max-width:1200px;
+            padding:30px 40px;
+            border:1px solid #ddd;
+            background-color: #fefefe;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            flex-wrap:wrap;
+
+            .regionSearch{
+            width:45%;
             height:46px;
             display: flex;
             align-items: center;
 
+            ${mq.maxWidth('lg')`
+                width:100%;
+            `}
+
             span{
                 font-size:18px;
                 margin-right:30px;
+
+                ${mq.maxWidth('xl')`
+                    width:120px;
+                    font-size:16px;
+                    margin-right:20px;
+                `}
+
+                ${mq.maxWidth('lg')`
+                    width:100px;
+                    margin-right:10px;
+                `}
             }
 
             .regionAll, .regionDetails{
                 border:1px solid #eee;
                 padding:6px 12px;
-                width:140px;
             }
 
             .regionAll{
@@ -75,38 +103,82 @@ const IndexContainer = styled.div`
             }
         }
 
-        .storeSearch{
-            position: relative;
-            /* background-color: #00f5; */
-            width:60%;
-            height:46px;
-            display: flex;
-            align-items: center;
+            .storeSearch{
+                position: relative;
+                /* background-color: #00f5; */
+                width:55%;
+                height:46px;
+                display: flex;
+                align-items: center;
 
-            span{
-                font-size:18px;
-                margin-right:30px;
-            }
+                ${mq.maxWidth('lg')`
+                    width:100%;
+                `}
 
-            .searchInput{
-                height:40px;
-                width:78%;
-                border:1px solid #eee;
-            }
+                span{
+                    font-size:18px;
+                    margin-right:30px;
 
-            .searchSubmitButton{
-                width:24px;
-                height:24px;
-                background-image: url("/img/icon/search_icon.png");
-                background-size: cover;
-                border:0;
-                background-color: #fff;
-                text-indent: -9999999999px;
-                position: absolute;
-                right:6%;
-                top:24%;
+                    ${mq.maxWidth('xl')`
+                        width:120px;
+                        font-size:16px;
+                        margin-right:20px;
+                    `}
+
+                    ${mq.maxWidth('lg')`
+                        width:100px;
+                        margin-right:10px;
+                    `}
+                }
+
+                .searchInput{
+                    height:40px;
+                    width:78%;
+                    border:1px solid #eee;
+
+                    ${mq.maxWidth('xl')`
+                        width:70%;
+                    `}
+
+                    ${mq.maxWidth('lg')`
+                        width:83%;
+                    `}
+
+                    ${mq.maxWidth('md')`
+                        width:75%;
+                    `}
+                }
+
+                .searchSubmitButton{
+                    width:24px;
+                    height:24px;
+                    background-image: url("/img/icon/search_icon.png");
+                    background-size: cover;
+                    border:0;
+                    background-color: #fff;
+                    text-indent: -9999999999px;
+                    position: absolute;
+                    right:30px;
+                    top:24%;
+
+                    ${mq.maxWidth('xl')`
+                        right:16%;
+                    `}
+
+                    ${mq.maxWidth('lg')`
+                        right:2%;
+                    `}
+
+                    ${mq.maxWidth('md')`
+                        right:9%;
+                    `}
+
+                    ${mq.maxWidth('sm')`
+                        right:6%;
+                    `}
+                }
             }
-        }
+        }  
     }
 
     .contentContainer{
@@ -128,6 +200,10 @@ const IndexContainer = styled.div`
                .contentInner{
                 display: flex;
                 padding:28px 30px;
+
+                ${mq.maxWidth('lg')`
+                    padding:24px 10px;
+                `}
 
                     span{
                         text-align: center;
@@ -176,7 +252,7 @@ const IndexContainer = styled.div`
                                     background-image: url('/img/icon/more-on.png');
                                     background-repeat: no-repeat;
                                     background-position: center;
-                                    text-indent: 999999999999999px;
+                                    /* text-indent: 999999999999999px; */
                                 } 
                             }
                         }
@@ -186,19 +262,42 @@ const IndexContainer = styled.div`
                     .contentInner{
                         cursor: pointer;
                         border-bottom:1px solid #c8c8c8;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
 
                         span{
                             color:#666;
 
+                            ${mq.maxWidth('lg')`
+                                font-size:14px;
+                            `}
+
+                            ${mq.maxWidth('md')`
+                                font-size:12px;
+                            `}
+
                             &:nth-child(2){
                                 color:#000;
+                            }
+
+                            &:nth-child(3){
+                                ${mq.maxWidth('md')`
+                                    width:350px;
+                                `}
+                            }
+
+                            &:nth-child(4){
+                                ${mq.maxWidth('md')`
+                                    width:80px;
+                                `}
                             }
 
                             &:nth-child(5){
                                 background-image: url('/img/icon/more-off.png');
                                 background-repeat: no-repeat;
                                 background-position: center;
-                                text-indent: 999999999999999px;
+                                text-indent: -999999999999999px;
                             } 
                         }
                     }
@@ -218,6 +317,16 @@ const IndexContainer = styled.div`
                         margin:230px 50px;
                         width:400px;
 
+                        ${mq.maxWidth('md')`
+                            width:300px;
+                            margin:200px 30px;
+                        `}
+
+                        ${mq.maxWidth('sm')`
+                            width:250px;
+                            margin:180px 30px;
+                        `}
+
                         img{
                             width:100%;
                             height: auto;
@@ -225,10 +334,19 @@ const IndexContainer = styled.div`
                     }
 
                     .storeInfo{
-                        margin-left:20px;
+                        padding:0 20px;
+
+                        ${mq.maxWidth('sm')`
+                            padding:0 15px;
+                        `}
 
                         .infoItem{
                             margin-bottom:30px;
+                            display: flex;
+
+                            ${mq.maxWidth('md')`
+                                margin-bottom:24px;
+                            `}
 
                             &:last-child{
                                 margin-bottom: 0;
@@ -237,13 +355,21 @@ const IndexContainer = styled.div`
                             .infoTitle{
                                 display: inline-block;
                                 width:60px;
-                                margin-right:60px;
                                 color: #071F60;
                                 font-weight: 600;
+
+                                ${mq.maxWidth('md')`
+                                    font-size:14px;
+                                `}
                             }
 
                             .infoText{
+                                margin-left:40px;
                                 color:#666;
+
+                                ${mq.maxWidth('md')`
+                                    font-size:14px;
+                                `}
                             }
                         }
                     }
@@ -300,6 +426,13 @@ const IndexContainer = styled.div`
 `;
 
 const index = memo(() => {
+    const dispatch = useDispatch();
+    const {data, loading, error} = useSelector((state) =>state.StoreSearchSlice);
+
+    useEffect(() =>{
+        dispatch(getList());
+    }, []);
+
     const ContentOn = useCallback((e) =>{
         e.preventDefault();
 
@@ -329,6 +462,7 @@ const index = memo(() => {
             console.log(infoWrap.scrollHeight);
         }
     }, []);
+
     return (
         <IndexContainer>
             <div className='titleContainer'>
@@ -339,43 +473,45 @@ const index = memo(() => {
                 </div>
             </div>
             <div className='storeSearchForm'>
-                <form className='regionSearch'>
-                    <span>지역검색</span>
-                    <select name='regionAll' className='regionAll'>
-                        <option value='Aall'>전체</option>
-                        <option value='01'>서울특별시</option>
-                        <option value='10'>경기도</option>
-                        <option value='20'>인천광역시</option>
-                        <option value='30'>대전광역시</option>
-                        <option value='40'>충청북도</option>
-                        <option value='50'>충청남도</option>
-                        <option value='60'>강원도</option>
-                        <option value='70'>경상북도</option>
-                        <option value='80'>경상남도</option>
-                        <option value='90'>제주도</option>
-                        <option value='100'>울산광역시</option>
-                        <option value='110'>부산광역시</option>
-                        <option value='120'>광주광역시</option>
-                        <option value='130'>전라북도</option>
-                        <option value='140'>전라남도</option>
-                        <option value='150'>대구광역시</option>
-                        <option value='160'>세종특별자치시</option>
-                    </select>
-                    <select name='regionDetails' className='regionDetails'>
-                        <option value='Dall'>전체</option>
-                        <option value='81'>사천시</option>
-                        <option value='91'>제주시</option>
-                        <option value='02'>강북구</option>
-                        <option value='41'>청주시</option>
-                        <option value='11'>수원시</option>
-                        <option value='111'>연제구</option>
-                    </select>
-                </form>
-                <form className='storeSearch'>
-                    <span>매장명 검색</span>
-                    <input type='text' className='searchInput' name='searchInput' />
-                    <button className='searchSubmitButton' type='submit'>검색버튼</button>
-                </form>
+                <div className='storeSearchFormInner'>
+                    <form className='regionSearch'>
+                        <span>지역검색</span>
+                        <select name='regionAll' className='regionAll'>
+                            <option value='Aall'>전체</option>
+                            <option value='01'>서울특별시</option>
+                            <option value='10'>경기도</option>
+                            <option value='20'>인천광역시</option>
+                            <option value='30'>대전광역시</option>
+                            <option value='40'>충청북도</option>
+                            <option value='50'>충청남도</option>
+                            <option value='60'>강원도</option>
+                            <option value='70'>경상북도</option>
+                            <option value='80'>경상남도</option>
+                            <option value='90'>제주도</option>
+                            <option value='100'>울산광역시</option>
+                            <option value='110'>부산광역시</option>
+                            <option value='120'>광주광역시</option>
+                            <option value='130'>전라북도</option>
+                            <option value='140'>전라남도</option>
+                            <option value='150'>대구광역시</option>
+                            <option value='160'>세종특별자치시</option>
+                        </select>
+                        <select name='regionDetails' className='regionDetails'>
+                            <option value='Dall'>전체</option>
+                            <option value='81'>사천시</option>
+                            <option value='91'>제주시</option>
+                            <option value='02'>강북구</option>
+                            <option value='41'>청주시</option>
+                            <option value='11'>수원시</option>
+                            <option value='111'>연제구</option>
+                        </select>
+                    </form>
+                    <form className='storeSearch'>
+                        <span>매장명 검색</span>
+                        <input type='text' className='searchInput' name='searchInput' />
+                        <button className='searchSubmitButton' type='submit'>검색버튼</button>
+                    </form>
+                </div>
             </div>
             <div className='contentContainer'>
                 <h2 className='total'>총 개의 매장이 있습니다.</h2>
@@ -389,7 +525,54 @@ const index = memo(() => {
                             <span></span>
                         </div>
                     </li>
-                    <li className='list listContent' onClick={ContentOn}>
+                    {data && data.map((v, i) =>{
+                        return(
+                            <li key={v.id} className='list listContent' onClick={ContentOn}>
+                                <div className='contentInner'>
+                                    <span>{v.region}</span>
+                                    <span>{v.store_name}</span>
+                                    <span>{v.address}</span>
+                                    <span>{v.tel}</span>
+                                    <span>상세</span>
+                                </div>
+                                <div className='infoWrap'>
+                                    <div className='storeImg'>
+                                        <img src={v.store_img} />
+                                    </div>
+                                    <ul className='storeInfo'>
+                                        <li className='infoItem'>
+                                            <span className='infoTitle'>위치</span>
+                                            <span className='infoText'>{v.address}</span>
+                                        </li>
+                                        <li className='infoItem'>
+                                            <span className='infoTitle'>영업시간</span>
+                                            <span className='infoText'>
+                                                {v.time.weekday_open && "평일 " + (v.time.weekday_open) + ' ~ '}{v.time.weekday_close && (v.time.weekday_close)}<br/>
+                                                {v.time.weekend_open && "주말 " + (v.time.weekend_open) + ' ~ '}{v.time.weekend_close && (v.time.weekend_close)}
+                                            </span>
+                                        </li>
+                                        <li className='infoItem'>
+                                            <span className='infoTitle'>주차</span>
+                                            <span className='infoText'>{v.parking}</span>
+                                        </li>
+                                        <li className='infoItem'>
+                                            <span className='infoTitle'>전화번호</span>
+                                            <span className='infoText'>{v.tel}</span>
+                                        </li>
+                                        <li className='infoItem'>
+                                            <span className='infoTitle'>휴일</span>
+                                            <span className='infoText'>{v.dayoff}</span>
+                                        </li>
+                                        <li className='infoItem'>
+                                            <span className='infoTitle'>좌석</span>
+                                            <span className='infoText'>{v.seat}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        );
+                    })}
+                    {/* <li className='list listContent' onClick={ContentOn}>
                         <div className='contentInner'>
                             <span>경상남도</span>
                             <span>삼천포점</span>
@@ -508,144 +691,8 @@ const index = memo(() => {
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li> */}
                 </ul>
-                {/* <table className='storeList'>
-                    <thead>
-                        <tr>
-                            <td>지역</td>
-                            <td>매장명</td>
-                            <td>주소</td>
-                            <td>전화번호</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr className='list' onClick={ContentOn}>
-                            <td>경상남도</td>
-                            <td>삼천포점</td>
-                            <td>경상남도 사천시 벌리동 258-10</td>
-                            <td>055-833-0740</td>
-                        </tr>
-                        <tr className='contentList'>
-                            <td className='contentListOn' colSpan={4}>
-                                <div className='contentInner'>
-                                    <div className='storeImg'>
-                                        <img src='/img/store/gyeongsang/s01.jpg' />
-                                    </div>
-                                    <ul className='storeInfo'>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>위치</span>
-                                            <span className='infoText'>경상남도 사천시 벌리동 258-10</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>영업시간</span>
-                                            <span className='infoText'>09:00 ~ 22:00</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>주차</span>
-                                            <span className='infoText'>불가</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>전화번호</span>
-                                            <span className='infoText'>055-833-0740</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>휴일</span>
-                                            <span className='infoText'>연중무휴</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>좌석</span>
-                                            <span className='infoText'>테이블 8개 / 좌석 16석</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr className='list' onClick={ContentOn}>
-                            <td>경상남도</td>
-                            <td>삼천포점</td>
-                            <td>경상남도 사천시 벌리동 258-10</td>
-                            <td>055-833-0740</td>
-                        </tr>
-                        <tr className='contentList'>
-                            <td className='contentListOn' colSpan={4}>
-                                <div className='contentInner'>
-                                    <div className='storeImg'>
-                                        <img src='/img/store/gyeongsang/s01.jpg' />
-                                    </div>
-                                    <ul className='storeInfo'>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>위치</span>
-                                            <span className='infoText'>경상남도 사천시 벌리동 258-10</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>영업시간</span>
-                                            <span className='infoText'>09:00 ~ 22:00</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>주차</span>
-                                            <span className='infoText'>불가</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>전화번호</span>
-                                            <span className='infoText'>055-833-0740</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>휴일</span>
-                                            <span className='infoText'>연중무휴</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>좌석</span>
-                                            <span className='infoText'>테이블 8개 / 좌석 16석</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr className='list' onClick={ContentOn}>
-                            <td>경상남도</td>
-                            <td>삼천포점</td>
-                            <td>경상남도 사천시 벌리동 258-10</td>
-                            <td>055-833-0740</td>
-                        </tr>
-                        <tr className='contentList'>
-                            <td className='contentListOn' colSpan={4}>
-                                <div className='contentInner'>
-                                    <div className='storeImg'>
-                                        <img src='/img/store/gyeongsang/s01.jpg' />
-                                    </div>
-                                    <ul className='storeInfo'>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>위치</span>
-                                            <span className='infoText'>경상남도 사천시 벌리동 258-10</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>영업시간</span>
-                                            <span className='infoText'>09:00 ~ 22:00</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>주차</span>
-                                            <span className='infoText'>불가</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>전화번호</span>
-                                            <span className='infoText'>055-833-0740</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>휴일</span>
-                                            <span className='infoText'>연중무휴</span>
-                                        </li>
-                                        <li className='infoItem'>
-                                            <span className='infoTitle'>좌석</span>
-                                            <span className='infoText'>테이블 8개 / 좌석 16석</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table> */}
-
                 <div className='navLinks'>
                     <ul className='pageNumbering'>
                         <li className='numItem'><Link href='#' className='link'>1</Link></li>

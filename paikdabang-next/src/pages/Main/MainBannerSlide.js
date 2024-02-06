@@ -1,39 +1,58 @@
-import React, {memo} from 'react';
 import styled from 'styled-components';
-import ImageSlider from 'react-simple-image-slider';
+import SimpleImageSlider from 'react-simple-image-slider';
 
-import mq from '@/styles/MediaQuery';
+const MainBannerSliderContains = styled.div`
+  position: relative;
+   width: 100%;
+   height: 100%;
+   /* overflow: hidden; */
 
-const MainBannerSlideContainer = styled.div`
-  ${mq.maxWidth('xl')`
-    width:100%;
-  `}
+    /* 부모요소의 넓이를 기준으로 높이를 설정함 ex) 100%로 설정하면 정사각형이 되고, 50%이면 2:1 비율의 직사각형임 */
+    // 미디어 쿼리로 모바일 사이즈 일 때 이 값을 좀 더 넉넉히 주세요.
+    padding-bottom: 30%; 
+
+    .wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+
+        .rsis-container {
+            div {
+                background-position: center center  !important;
+                background-size: cover !important;
+            }
+        }
+    }
 `;
 
-const MainBannerSlide = memo(() => {
-  const images = [
-    {url: './img/slides/slide1.jpg'},
-    {url: './img/slides/slide2.jpg'},
-    {url: './img/slides/slide3.jpg'},
-    {url: './img/slides/slide4.jpg'},
-    {url: './img/slides/slide5.jpg'}
-  ];
+export default function Home() {
+    const images = [
+        { url: "images/1.jpg" },
+        { url: "images/2.jpg" },
+        { url: "images/3.jpg" },
+        { url: "images/4.jpg" },
+        { url: "images/5.jpg" },
+        { url: "images/6.jpg" },
+        { url: "images/7.jpg" },
+    ];
 
   return (
-    <MainBannerSlideContainer>
-      <ImageSlider
-        width="100%"
-        height={620}
-        images={images}
-        showBullets={true}
-        showNavs={false}
-        autoPlay={true}
-        autoPlayDelay={5.0}
-        loop={true}
-        style={{margin: 'auto'}}
-      />
-    </MainBannerSlideContainer>
+    <MainBannerSliderContains>
+        <div className="wrap">
+            <SimpleImageSlider
+                width="100%"
+                height="100%"
+                images={images}
+                showBullets={true}
+                showNavs={true}
+                autoPlay={true}
+                autoPlayDelay={5.0}
+                loop={true}
+            />
+        </div>
+    </MainBannerSliderContains>
   );
-});
-
-export default MainBannerSlide;
+}

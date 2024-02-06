@@ -668,12 +668,12 @@
             "address": "경상남도 사천시 벌리동 258-10",
             "store_img": "/img/store/gyeongsang/s01.jpg",
             "tel": "055-833-0740",
-            "time": [
-                {"weekday_open": "09:00"},
-                {"weekday_close": "22:00"},
-                {"weekend_open": ""},
-                {"weekend_close": ""}
-            ],
+            "time": {
+                "weekday_open": "09:00",
+                "weekday_close": "22:00",
+                "weekend_open": "",
+                "weekend_close": ""
+            },
             "parking": "불가",
             "dayoff": "연중무휴",
             "seat": "테이블 8개/좌석 16석"
@@ -683,14 +683,14 @@
             "region": "제주도",
             "store_name": "서귀포호근동희망점",
             "address": "제주특별자치도 서귀포시 호근동 807-2",
-            "store_img": "/img/store/gyeongsang/s02.png",
+            "store_img": "/img/store/jeju/s02.png",
             "tel": "064-900-0566",
-            "time": [
-                {"weekday_open": "07:00"},
-                {"weekday_close": "20:00"},
-                {"weekend_open": "08:00"},
-                {"weekend_close": "19:00"}
-            ],
+            "time": {
+                "weekday_open": "07:00",
+                "weekday_close": "20:00",
+                "weekend_open": "08:00",
+                "weekend_close": "19:00"
+            },
             "parking": "가능",
             "dayoff": "연중무휴",
             "seat": "테이블 4개/좌석 18석"
@@ -700,14 +700,14 @@
             "region": "서울특별시",
             "store_name": "수유사거리점",
             "address": "서울특별시 강북구 수유로 84",
-            "store_img": "/img/store/gyeongsang/s03.png",
+            "store_img": "/img/store/metropolitancity/s03.png",
             "tel": "070-4799-0240",
-            "time": [
-                {"weekday_open": "08:00"},
-                {"weekday_close": "22:00"},
-                {"weekend_open": ""},
-                {"weekend_close": ""}
-            ],
+            "time": {
+                "weekday_open": "09:00",
+                "weekday_close": "22:00",
+                "weekend_open": "",
+                "weekend_close": ""
+            },
             "parking": "불가",
             "dayoff": "연중무휴",
             "seat": "없음(테이크아웃 전용매장)"
@@ -717,14 +717,14 @@
             "region": "충청북도",
             "store_name": "청주방서호반우미린점",
             "address": "충청북도 청주시 상당구 동남로 20",
-            "store_img": "/img/store/gyeongsang/s04.png",
+            "store_img": "/img/store/chungcheong/s04.png",
             "tel": "070-7840-2515",
-            "time": [
-                {"weekday_open": "08:00"},
-                {"weekday_close": "21:30"},
-                {"weekend_open": ""},
-                {"weekend_close": ""}
-            ],
+            "time": {
+                "weekday_open": "08:00",
+                "weekday_close": "21:30",
+                "weekend_open": "",
+                "weekend_close": ""
+            },
             "parking": "불가",
             "dayoff": "연중무휴",
             "seat": "테이블 7개/좌석 18석"
@@ -734,17 +734,68 @@
             "region": "부산광역시",
             "store_name": "부산거제레이카운티점",
             "address": "부산시 연제구 아시아드대로 39, 상가동 2단지 1층 120호",
-            "store_img": "/img/store/gyeongsang/s05.png",
+            "store_img": "/img/store/metropolitancity/s05.png",
             "tel": "070-8287-2918",
-            "time": [
-                {"weekday_open": "08:00"},
-                {"weekday_close": "21:00"},
-                {"weekend_open": ""},
-                {"weekend_close": ""}
-            ],
+            "time": {
+                "weekday_open": "08:00",
+                "weekday_close": "21:00",
+                "weekend_open": "",
+                "weekend_close": ""
+            },
             "parking": "아파트 상가 지하주차장(예정)",
             "dayoff": "연중무휴",
             "seat": "테이블 3개/좌석 6석"
+        },
+        {
+            "id": "S06",
+            "region": "경기도",
+            "store_name": "안산초지매매단지점",
+            "address": "경기도 안산시 단원구 원포공원2로 24",
+            "store_img": "/img/store/gyeonggi/s06.png",
+            "tel": "070-8680-1079",
+            "time": {
+                "weekday_open": "08:00",
+                "weekday_close": "22:00",
+                "weekend_open": "",
+                "weekend_close": ""
+            },
+            "parking": "불가",
+            "dayoff": "연중무휴",
+            "seat": "테이블 30개/좌석 60석"
+        },
+        {
+            "id": "S07",
+            "region": "인천광역시",
+            "store_name": "인천연수영남점",
+            "address": "인천 연수구 새말로107번길 15",
+            "store_img": "/img/store/metropolitancity/s07.png",
+            "tel": "032-818-0360",
+            "time": {
+                "weekday_open": "08:00",
+                "weekday_close": "21:30",
+                "weekend_open": "",
+                "weekend_close": ""
+            },
+            "parking": "불가",
+            "dayoff": "연중무휴",
+            "seat": "테이블 6개/좌석 10석"
+        },
+        {
+            "id": "S08",
+            "region": "전라북도",
+            "store_name": "전주마전점",
+            "address": "전라북도 전주시 완산구 홍산로 375",
+            "store_img": "/img/store/jeolla/s08.png",
+            "tel": "063-715-2288",
+            "time": {
+                "weekday_open": "08:00",
+                "weekday_close": "22:00",
+                "weekend_open": "",
+                "weekend_close": ""
+            },
+            "parking": "후면 주차장 1대 및 인근 골목 주차 가능",
+            "dayoff": "연중무휴",
+            "seat": "테이블 8개/좌석 16석/대기석 1석"
         }
     ]
 }

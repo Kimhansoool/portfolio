@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useEffect} from 'react';
+import React, {memo, useCallback, useEffect, useState, useRef} from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import mq from '@/styles/MediaQuery';
@@ -429,9 +429,23 @@ const index = memo(() => {
     const dispatch = useDispatch();
     const {data, loading, error} = useSelector((state) =>state.StoreSearchSlice);
 
+    const searchInputRef = useRef();
+    const [regionASearch, setRegionASearch] = useState('');
+    const [regionDSearch, setRegionDSearch] = useState('');
+    const [storeSearch, setStoreSearch] = useState('');
+
     useEffect(() =>{
-        dispatch(getList());
-    }, []);
+        console.log({
+            regionASearch: regionASearch,
+            regionDSearch: regionDSearch,
+            storeSearch: storeSearch
+        });
+        dispatch(getList({
+            regionASearch: regionASearch,
+            regionDSearch: regionDSearch,
+            storeSearch: storeSearch
+        }));
+    }, [regionASearch, regionDSearch, storeSearch]);
 
     const ContentOn = useCallback((e) =>{
         e.preventDefault();
@@ -463,6 +477,23 @@ const index = memo(() => {
         }
     }, []);
 
+    const onRegionSearch = useCallback((e) =>{
+        setRegionASearch(e.currentTarget.value);
+    }, []);
+
+    const onRegionDetSearch = useCallback((e) =>{
+        setRegionDSearch(e.currentTarget.value);
+    }, []);
+
+    const onStoreSearch = useCallback((e) =>{        
+        setStoreSearch(searchInputRef.current.value);
+        // console.log(document.querySelector('.searchInput').value);
+    }, []);
+
+    // const onStoreSearchInput = useCallback((e) =>{
+    //     setStoreSearch(e.currentTarget.value);
+    // }, []);
+
     return (
         <IndexContainer>
             <div className='titleContainer'>
@@ -476,45 +507,47 @@ const index = memo(() => {
                 <div className='storeSearchFormInner'>
                     <form className='regionSearch'>
                         <span>지역검색</span>
-                        <select name='regionAll' className='regionAll'>
-                            <option value='Aall'>전체</option>
-                            <option value='01'>서울특별시</option>
-                            <option value='10'>경기도</option>
-                            <option value='20'>인천광역시</option>
-                            <option value='30'>대전광역시</option>
-                            <option value='40'>충청북도</option>
-                            <option value='50'>충청남도</option>
-                            <option value='60'>강원도</option>
-                            <option value='70'>경상북도</option>
-                            <option value='80'>경상남도</option>
-                            <option value='90'>제주도</option>
-                            <option value='100'>울산광역시</option>
-                            <option value='110'>부산광역시</option>
-                            <option value='120'>광주광역시</option>
-                            <option value='130'>전라북도</option>
-                            <option value='140'>전라남도</option>
-                            <option value='150'>대구광역시</option>
-                            <option value='160'>세종특별자치시</option>
+                        <select name='regionAll' className='regionAll' onChange={onRegionSearch}>
+                            <option value='전체'>전체</option>
+                            <option value='서울특별시'>서울특별시</option>
+                            <option value='경기도'>경기도</option>
+                            <option value='인천광역시'>인천광역시</option>
+                            <option value='대전광역시'>대전광역시</option>
+                            <option value='충청북도'>충청북도</option>
+                            <option value='충청남도'>충청남도</option>
+                            <option value='강원도'>강원도</option>
+                            <option value='경상북도'>경상북도</option>
+                            <option value='경상남도'>경상남도</option>
+                            <option value='제주도'>제주도</option>
+                            <option value='울산광역시'>울산광역시</option>
+                            <option value='부산광역시'>부산광역시</option>
+                            <option value='광주광역시'>광주광역시</option>
+                            <option value='전라북도'>전라북도</option>
+                            <option value='전라남도'>전라남도</option>
+                            <option value='대구광역시'>대구광역시</option>
+                            <option value='세종특별자치시'>세종특별자치시</option>
                         </select>
-                        <select name='regionDetails' className='regionDetails'>
-                            <option value='Dall'>전체</option>
-                            <option value='81'>사천시</option>
-                            <option value='91'>제주시</option>
-                            <option value='02'>강북구</option>
-                            <option value='41'>청주시</option>
-                            <option value='11'>수원시</option>
-                            <option value='111'>연제구</option>
+                        <select name='regionDetails' className='regionDetails' onChange={onRegionDetSearch}>
+                            <option value='전체'>전체</option>
+                            <option value='강북구'>강북구</option>
+                            <option value='안산시'>안산시</option>
+                            <option value='청주시'>청주시</option>
+                            <option value='사천시'>사천시</option>
+                            <option value='제주시'>제주시</option>
+                            <option value='연제구'>연제구</option>
+                            <option value='전주시'>전주시</option>
+                            
                         </select>
                     </form>
                     <form className='storeSearch'>
                         <span>매장명 검색</span>
-                        <input type='text' className='searchInput' name='searchInput' />
-                        <button className='searchSubmitButton' type='submit'>검색버튼</button>
+                        <input type='text' ref={searchInputRef} className='searchInput' name='searchInput' defaultValue={storeSearch} />
+                        <button className='searchSubmitButton' type='button' onClick={onStoreSearch}>검색버튼</button>
                     </form>
                 </div>
             </div>
             <div className='contentContainer'>
-                <h2 className='total'>총 개의 매장이 있습니다.</h2>
+                <h2 className='total'>총 {data && data.length}개의 매장이 있습니다.</h2>
                 <ul className='storeList'>
                     <li className='list listTitle'>
                         <div className='contentInner'>
@@ -547,7 +580,7 @@ const index = memo(() => {
                                         <li className='infoItem'>
                                             <span className='infoTitle'>영업시간</span>
                                             <span className='infoText'>
-                                                {v.time.weekday_open && "평일 " + (v.time.weekday_open) + ' ~ '}{v.time.weekday_close && (v.time.weekday_close)}<br/>
+                                                {v.time.weekday_open && "주중 " + (v.time.weekday_open) + ' ~ '}{v.time.weekday_close && (v.time.weekday_close)}<br/>
                                                 {v.time.weekend_open && "주말 " + (v.time.weekend_open) + ' ~ '}{v.time.weekend_close && (v.time.weekend_close)}
                                             </span>
                                         </li>

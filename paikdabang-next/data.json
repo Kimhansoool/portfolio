@@ -29,9 +29,9 @@
             "title": "소식",
             "url": "/news/all",
             "subMenu": [
-                {"title": "소식", "url": "/news/"},
-                {"title": "이벤트", "url": "#"},
-                {"title": "친절 우수매장", "url": "#"}
+                {"title": "소식", "url": "/news/cate_news"},
+                {"title": "이벤트", "url": "/news/cate_event"},
+                {"title": "친절 우수매장", "url": "/news/cate_kind"}
             ]
         },
         {
@@ -664,6 +664,7 @@
         {
             "id": "S01",
             "region": "경상남도",
+            "city": "사천시",
             "store_name": "삼천포점",
             "address": "경상남도 사천시 벌리동 258-10",
             "store_img": "/img/store/gyeongsang/s01.jpg",
@@ -681,6 +682,7 @@
         {
             "id": "S02",
             "region": "제주도",
+            "city": "서귀포시",
             "store_name": "서귀포호근동희망점",
             "address": "제주특별자치도 서귀포시 호근동 807-2",
             "store_img": "/img/store/jeju/s02.png",
@@ -698,6 +700,7 @@
         {
             "id": "S03",
             "region": "서울특별시",
+            "city": "강북구",
             "store_name": "수유사거리점",
             "address": "서울특별시 강북구 수유로 84",
             "store_img": "/img/store/metropolitancity/s03.png",
@@ -715,6 +718,7 @@
         {
             "id": "S04",
             "region": "충청북도",
+            "city": "청주시",
             "store_name": "청주방서호반우미린점",
             "address": "충청북도 청주시 상당구 동남로 20",
             "store_img": "/img/store/chungcheong/s04.png",
@@ -732,6 +736,7 @@
         {
             "id": "S05",
             "region": "부산광역시",
+            "city": "연제구",
             "store_name": "부산거제레이카운티점",
             "address": "부산시 연제구 아시아드대로 39, 상가동 2단지 1층 120호",
             "store_img": "/img/store/metropolitancity/s05.png",
@@ -749,6 +754,7 @@
         {
             "id": "S06",
             "region": "경기도",
+            "city": "안산시",
             "store_name": "안산초지매매단지점",
             "address": "경기도 안산시 단원구 원포공원2로 24",
             "store_img": "/img/store/gyeonggi/s06.png",
@@ -766,6 +772,7 @@
         {
             "id": "S07",
             "region": "인천광역시",
+            "city": "인천시",
             "store_name": "인천연수영남점",
             "address": "인천 연수구 새말로107번길 15",
             "store_img": "/img/store/metropolitancity/s07.png",
@@ -783,6 +790,7 @@
         {
             "id": "S08",
             "region": "전라북도",
+            "city": "전주시",
             "store_name": "전주마전점",
             "address": "전라북도 전주시 완산구 홍산로 375",
             "store_img": "/img/store/jeolla/s08.png",
@@ -796,6 +804,24 @@
             "parking": "후면 주차장 1대 및 인근 골목 주차 가능",
             "dayoff": "연중무휴",
             "seat": "테이블 8개/좌석 16석/대기석 1석"
+        },
+        {
+            "id": "S09",
+            "region": "전라북도",
+            "city": "전주시",
+            "store_name": "전주신일강변점",
+            "address": "전북 전주시 완산구 효자천변1길 27",
+            "store_img": "/img/store/jeolla/s09.jpg",
+            "tel": "063-714-2070",
+            "time": {
+                "weekday_open": "08:00",
+                "weekday_close": "21:00",
+                "weekend_open": "",
+                "weekend_close": ""
+            },
+            "parking": "불가",
+            "dayoff": "연중무휴",
+            "seat": "테이블 24개/좌석 48석"
         }
     ]
 }

@@ -5,7 +5,7 @@ const MainBannerSliderContains = styled.div`
   position: relative;
    width: 100%;
    height: 100%;
-   /* overflow: hidden; */
+   overflow: hidden;
 
     /* 부모요소의 넓이를 기준으로 높이를 설정함 ex) 100%로 설정하면 정사각형이 되고, 50%이면 2:1 비율의 직사각형임 */
     // 미디어 쿼리로 모바일 사이즈 일 때 이 값을 좀 더 넉넉히 주세요.
@@ -30,13 +30,11 @@ const MainBannerSliderContains = styled.div`
 
 export default function Home() {
     const images = [
-        { url: "images/1.jpg" },
-        { url: "images/2.jpg" },
-        { url: "images/3.jpg" },
-        { url: "images/4.jpg" },
-        { url: "images/5.jpg" },
-        { url: "images/6.jpg" },
-        { url: "images/7.jpg" },
+        { url: "/img/slides/slide1.jpg" },
+        { url: "/img/slides/slide2.jpg" },
+        { url: "/img/slides/slide3.jpg" },
+        { url: "/img/slides/slide4.jpg" },
+        { url: "/img/slides/slide5.jpg" },
     ];
 
   return (

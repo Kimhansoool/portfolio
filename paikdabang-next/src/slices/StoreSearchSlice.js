@@ -8,8 +8,24 @@ const API_URL = '/api/store';
 export const getList = createAsyncThunk("StoreSearchSlice/getList", async (payload, { rejectWithValue }) => {
     let result = null;
 
+    const myparams = {}
+
+    if (payload?.regionASearch) {
+        myparams.region = payload.regionASearch;
+    }
+
+    if (payload?.regionDSearch) {
+        myparams.city = payload.regionDSearch;
+    }
+
+    if (payload?.storeSearch) {
+        myparams.store_name_like = payload.storeSearch;
+    }
+
     try {
-        const response = await axios.get(API_URL);
+        const response = await axios.get(API_URL, {
+            params: myparams
+        });
         result = response.data;
     } catch (err) {
         result = rejectWithValue(err.response);

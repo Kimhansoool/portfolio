@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MainBanner from './MainBanner';
 import Introduce from './Introduce';
+import Portfolio from './Portfolio';
 
 const IndexContainer = styled.div``;
 
@@ -14,6 +15,7 @@ const index = memo(() => {
         <Header />
         <MainBanner />
         <Introduce />
+        <Portfolio />
         <Footer />
     </IndexContainer>
   );

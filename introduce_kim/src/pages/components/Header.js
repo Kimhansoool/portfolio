@@ -6,7 +6,7 @@ const HeaderContainer = styled.div`
     top:0;
     left:0;
     z-index: 99999999;
-    background-color: #000;
+    background-color: #111111;
     width:100%;
     height:60px;
 

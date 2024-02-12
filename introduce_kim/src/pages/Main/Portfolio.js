@@ -1,11 +1,13 @@
 import React, {memo} from 'react';
 import styled from 'styled-components';
+import dataset from '../../dataset';
 
 const PortfolioContainer = styled.div`
     background-color: #333333;
     color:#fff !important;
     width:100%;
-    height: 100vh;
+    padding:100px 0;
+    /* height: 100vh; */
 
     .contentWrap{
         max-width:1200px;
@@ -45,7 +47,7 @@ const PortfolioContainer = styled.div`
                         top:50%;
                         left:50%;
                         transform: translate(-50%, -50%);
-                        background-color: #F9A93199;
+                        background-color: rgba(255,255,255,0.9);
                         display: none;
                         padding:40px;
 
@@ -81,12 +83,12 @@ const PortfolioContainer = styled.div`
                                     /* padding:20px 25px; */
                                     height: 60px;
                                     background-color: #333;
-                                    margin-top:50px;
+                                    margin-top:25px;
                                     border-radius: 50px;
                                     cursor: pointer;
                                     
                                     a{
-                                        color:#fff;
+                                        color:#ffffff;
                                         font-size:20px;
                                         padding:100px;
                                     }
@@ -98,6 +100,7 @@ const PortfolioContainer = styled.div`
                 p{
                     margin-top:10px;
                     font-size:18px;
+                    color:#ffffff;
                 }
             }
         }
@@ -105,62 +108,31 @@ const PortfolioContainer = styled.div`
 `;
 
 const Portfolio = memo(() => {
+    const {portfolio} = dataset;
+
     return (
         <PortfolioContainer>
             <div className='contentWrap'>
                 <ul className='contentInner'>
-                    <li className='item active'>
-                        <div className='black'>
-                            <h2>빽다방 클론코딩</h2>
-                            <ul>
-                            <li><span>사용 언어:</span> Next.js</li>
-                                <li><span>작업 기간:</span> 2023.1.4 ~ 2.5</li>
-                                <li><span>작업 기여도:</span> 100%</li>
-                                <li><a href='#'>작업물 보러가기</a></li>
-                            </ul>
-                        </div>
-                        <img src='/img/sampleImg2.jpg' />
-                    <p>빽다방 클론코딩 [사용언어: Next.js]</p>
-                    </li>
-                    <li className='item active'>
-                        <div className='black'>
-                            <h2>빽다방 클론코딩</h2>
-                            <ul>
-                            <li><span>사용 언어:</span> Next.js</li>
-                                <li><span>작업 기간:</span> 2023.1.4 ~ 2.5</li>
-                                <li><span>작업 기여도:</span> 100%</li>
-                                <li><a href='#'>작업물 보러가기</a></li>
-                            </ul>
-                        </div>
-                        <img src='/img/sampleImg2.jpg' />
-                    <p>빽다방 클론코딩 [사용언어: Next.js]</p>
-                    </li>
-                    <li className='item'>
-                        <div className='black'>
-                            <h2>빽다방 클론코딩</h2>
-                            <ul>
-                            <li><span>사용 언어:</span> Next.js</li>
-                                <li><span>작업 기간:</span> 2023.1.4 ~ 2.5</li>
-                                <li><span>작업 기여도:</span> 100%</li>
-                                <li><a href='#'>작업물 보러가기</a></li>
-                            </ul>
-                        </div>
-                        <img src='/img/sampleImg2.jpg' />
-                    <p>빽다방 클론코딩 [사용언어: Next.js]</p>
-                    </li>
-                    <li className='item'>
-                        <div className='black'>
-                            <h2>빽다방 클론코딩</h2>
-                            <ul>
-                            <li><span>사용 언어:</span> Next.js</li>
-                                <li><span>작업 기간:</span> 2023.1.4 ~ 2.5</li>
-                                <li><span>작업 기여도:</span> 100%</li>
-                                <li><a href='#'>작업물 보러가기</a></li>
-                            </ul>
-                        </div>
-                        <img src='/img/sampleImg2.jpg' />
-                    <p>빽다방 클론코딩 [사용언어: Next.js]</p>
-                    </li>
+                    {portfolio && portfolio.map((v, i) =>{
+                        return(
+                            <li className='item active' key={v.id}>
+                                <div className='black'>
+                                    <h2>{v.title}</h2>
+                                    <ul>
+                                        <li><span>사용 언어:</span> {v.useLangEng}</li>
+                                        <li><span>작업 기간:</span> {v.period}</li>
+                                        <li><span>기여도:</span> {v.contributon}%</li>
+                                        <li><span>반응형 지원:</span> {(v.responsive === true) ? ("지원함") : ("지원안함")}</li>
+                                        <li><a href={v.url} target='_blank'>작업물 보러가기</a></li>
+                                    </ul>
+                                </div>
+                                <img src={v.titImg} />
+                                <p>{v.title} [사용언어: {v.useLangEng}]</p>
+                            </li>
+                        );
+                        
+                    })}
                 </ul>
             </div>
         </PortfolioContainer>

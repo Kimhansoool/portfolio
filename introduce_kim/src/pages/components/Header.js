@@ -1,5 +1,9 @@
 import React, {memo} from 'react';
 import styled from 'styled-components';
+import {Link, Routes, Route} from 'react-router-dom';
+
+import Main from '../Main';
+import Introduce from '../Main/Introduce';
 
 const HeaderContainer = styled.div`
     position: fixed;
@@ -60,7 +64,7 @@ const Header = memo(() => {
         <nav className='headerInner'>
             <h3 className='logo'>KIMHANS<span className='point'>O</span>L</h3>
             <ul className='navContainer'>
-                <li className='navItem'><a href='#' className='link active'>MAIN</a></li>
+                <li className='navItem'><a href='#' className='link'>MAIN</a></li>
                 <li className='navItem'><a href='#' className='link'>ABOUT</a></li>
                 <li className='navItem'><a href='#' className='link'>WORK</a></li>
                 <li className='navItem'><a href='#' className='link'>SNS</a></li>

@@ -1,5 +1,6 @@
 import React, {memo, useCallback} from 'react';
 import styled from 'styled-components';
+import dataset from '../../dataset';
 
 const IntroduceContainer = styled.div`
     color:#fff !important;
@@ -201,13 +202,16 @@ const Introduce = memo(() => {
 
     const onHiddenOut = useCallback((e) =>{
         const current = e.currentTarget;
-        current.innerHTML = "자기소개 더보기 ▼";
+        current.innerHTML = "자기소개 더보기 ▼ (마우스를 올려보세요)";
         const on = document.querySelector('.introduceHidden');
         console.log(on);
 
         on.style.maxHeight = '0px';
-
     }, []);
+
+    const {seeMore} = dataset;
+    const {introduce} = dataset;
+    // console.log(introduce.hashTag);
 
     return (
         <IntroduceContainer>
@@ -215,57 +219,49 @@ const Introduce = memo(() => {
                 <h1 className='title'>안녕하세요.&nbsp;<span className='point'>다재다능한</span>&nbsp;프론트엔드 개발자 김한솔입니다.</h1>
                 <div className='hashTagWrap'>
                     <ul className='hashTagInner'>
-                        <li className='tagItem'>김한솔</li>
-                        <li className='tagItem'>kimhs7858@gmail.com</li>
-                        <li className='tagItem'>#근면성실</li>
-                        <li className='tagItem'>#열정있는</li>
-                        <li className='tagItem'>#소통_잘하는</li>
+                        {introduce.map((v, i) =>{
+                            return(
+                                (v.hashTag.length > 0) && (v.hashTag.map((j ,k) =>{
+                                    return(
+                                        <li key={k} className='tagItem'>{j.title}</li>
+                                    );
+                                }))
+                            );
+                        })}
                     </ul>
                 </div>
                 <div className='introduceWrap'>
-                    <p className='title' onMouseOver={onHiddenOver} onMouseOut={onHiddenOut}>자기소개 더보기 ▼</p>
+                    <p className='title' onMouseOver={onHiddenOver} onMouseOut={onHiddenOut}>자기소개 더보기 ▼ (마우스를 올려보세요)</p>
                     <div className='introduceHidden'>
                         <ul className='hiddenWrap'>
-                            <li className='hiddenItem'>
-                                <h4>제목이 들어갈 자리입니다.</h4>
-                                <p>
-                                국회가 재적의원 과반수의 찬성으로 계엄의 해제를 요구한 때에는 대통령은 이를 해제하여야 한다. 대한민국의 경제질서는 개인과 기업의 경제상의 자유와 창의를 존중함을 기본으로 한다. 국가는 국민 모두의 생산 및 생활의 기반이 되는 국토의 효율적이고 균형있는 이용·개발과 
-                                </p>
-                            </li>
-                            <li className='hiddenItem'>
-                                <h4>제목이 들어갈 자리입니다.</h4>
-                                <p>
-                                국회가 재적의원 과반수의 찬성으로 계엄의 해제를 요구한 때에는 대통령은 이를 해제하여야 한다. 대한민국의 경제질서는 개인과 기업의 경제상의 자유와 창의를 존중함을 기본으로 한다.
-                                </p>
-                            </li>
-                            <li className='hiddenItem'>
-                                <h4>제목이 들어갈 자리입니다.</h4>
-                                <p>
-                                국회가 재적의원 과반수의 찬성으로 계엄의 해제를 요구한 때에는 대통령은 이를 해제하여야 한다. 대한민국의 경제질서는 개인과 기업의 경제상의 자유와 창의를 존중함을 기본으로 한다. 국가는 국민 모두의 생산 및 생활의 기반이 되는 국토의 효율적이고 균형있는 이용·개발과 보전을 위하여 법률이 정하는 바에 의하여 그에 관한 필요한 제한과 의무를 과할 수 있다. 군인 또는 군무원이 아닌 국민은 대한민국의 영역안에서는 중대한 군사상 기밀·초병·초소·유독음식물공급·포로·군용물에 관한 죄중 법률이 정한 경우와 비상계엄이 선포된 경우를 제외하고는 군사법원의 재판을 받지 아니한다.
-                                </p>
-                            </li>
+                            {seeMore && seeMore.map((v, i) =>{
+                                return(
+                                    <li key={v.id} className='hiddenItem'>
+                                        <h4>{v.title}</h4>
+                                        <p>{v.text}</p>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
                     <div className='skillWrap'>
                         <div className='frontendSkill'>
                             <h1 className='title'>저는 이런 툴을 다룰 수 있어요. (Frontend Skill)</h1>
                             <ul className='skillInner'>
-                                <li className='skillItem'>
-                                    <h4>HTML/CSS</h4>
-                                    <p>86%</p>
-                                </li>
-                                <li className='skillItem'>
-                                    <h4>HTML/CSS</h4>
-                                    <p>86%</p>
-                                </li>
-                                <li className='skillItem'>
-                                    <h4>HTML/CSS</h4>
-                                    <p>86%</p>
-                                </li>
-                                <li className='skillItem'>
-                                    <h4>HTML/CSS</h4>
-                                    <p>86%</p>
-                                </li>
+                                {introduce && introduce.map((v, i) =>{
+                                    return(
+                                        (v.frontendSkill.length > 0 && (
+                                            v.frontendSkill.map((j, k) =>{
+                                                return(
+                                                    <li className='skillItem' key={k}>
+                                                        <h4>{j.title}</h4>
+                                                        <p>{j.percent}%</p>
+                                                    </li>
+                                                );
+                                            })
+                                        ))
+                                    );
+                                })}
                             </ul>
                         </div>
                         <div className='etcSkill'>
@@ -279,19 +275,17 @@ const Introduce = memo(() => {
                         <div className='experienceWrap'>
                             <h1 className='title'>경험 (experience)</h1>
                             <ul className='experienceInner'>
-                                <li className='exItem'>
-                                    <p><strong>2020</strong>학력학력학력학력</p>
-                                </li>
-                                <li className='exItem'>
-                                    <p><strong>2020</strong>학력학력학력학력</p>
-                                </li>
-                                <li className='exItem'>
-                                    <p><strong>2020</strong>학력학력학력학력</p>
-                                </li>
-                                <li className='exItem'>
-                                    <p><strong>2020</strong>학력학력학력학력</p>
-                                </li>
-
+                                {introduce && introduce.map((v, i) =>{
+                                    return(
+                                        (v.experience.length > 0) && (v.experience.map((j, k) =>{
+                                            return(
+                                                <li key={k} className='exItem'>
+                                                    <p>{j.title}</p>
+                                                </li>
+                                            );
+                                        }))
+                                    );
+                                })}
                             </ul>
                         </div>
                     </div>

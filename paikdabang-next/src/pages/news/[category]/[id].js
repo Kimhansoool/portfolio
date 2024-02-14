@@ -28,18 +28,32 @@ const NewsContentContainer = styled.div`
             border-top:1px solid #0e347e;
             border-bottom:1px solid #0e347e;
 
+            ${mq.maxWidth('lg')`
+                padding:35px 40px;
+            `}
+
             .titleInner{
                 display:flex;
                 align-items:center;
                 justify-content:space-between;
+                flex-wrap:wrap;
 
                 .title{
                     display:flex;
+
+                    ${mq.maxWidth('lg')`
+                        width:100%;
+                        margin-bottom:12px;
+                    `}
 
                     .group{
                         font-size:24px;
                         color:#919191;
                         font-weight:600;
+
+                        ${mq.maxWidth('md')`
+                            font-size:18px;
+                        `}
                     }
 
                     h2{
@@ -47,6 +61,10 @@ const NewsContentContainer = styled.div`
                         color:#071F60;
                         font-weight:500;
                         margin-left:8px;
+
+                        ${mq.maxWidth('md')`
+                            font-size:18px;
+                        `}
                     }
                 }
 

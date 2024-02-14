@@ -300,10 +300,10 @@ const Header = memo(() => {
       </div>
       <ul className='moNavWrap'>
         <li className='moNavItem'><Link href='#' className='moNavLink'>빽다방</Link></li>
-        <li className='moNavItem'><Link href='#' className='moNavLink'>메뉴</Link></li>
-        <li className='moNavItem'><Link href='#' className='moNavLink'>소식</Link></li>
-        <li className='moNavItem'><Link href='#' className='moNavLink'>커뮤니티</Link></li>
-        <li className='moNavItem'><Link href='#' className='moNavLink'>매장안내</Link></li>
+        <li className='moNavItem'><Link href='/menu/menu_new' className='moNavLink'>메뉴</Link></li>
+        <li className='moNavItem'><Link href='/news/all' className='moNavLink'>소식</Link></li>
+        <li className='moNavItem'><Link href='/community/coffeeClass' className='moNavLink'>커뮤니티</Link></li>
+        <li className='moNavItem'><Link href='/store' className='moNavLink'>매장안내</Link></li>
         <li className='moNavItem'><Link href='#' className='moNavLink'>창업안내</Link></li>
         <li className='moNavItem'><Link href='#' className='moNavLink'>고객의 소리</Link></li>
       </ul>

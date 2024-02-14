@@ -32,6 +32,10 @@ const IndexContainer = styled.div`
                     padding:18px 15px;
                     color:#071F60;
                     font-weight:500;
+
+                    ${mq.maxWidth('sm')`
+                        font-size:15px;
+                    `}
                 }
             }
 
@@ -44,9 +48,43 @@ const IndexContainer = styled.div`
 
                         td{
                             color:#fff;
+                            line-height:1.3;
+
+                            ${mq.maxWidth('lg')`
+                                padding:28px 26px; 
+                                font-size:15px;
+                            `}
+
+                            ${mq.maxWidth('md')`
+                                font-size:13px;
+                                padding:24px 20px; 
+                            `}
+
+                            ${mq.maxWidth('sm')`
+                                font-size:12px;
+                                padding:20px 20px; 
+                            `}
 
                             .conLink{
                                 color:#fff;
+
+                                ${mq.maxWidth('lg')`
+                                    width:300px;
+                                    display:inline-block;
+                                    
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                `}
+
+                                ${mq.maxWidth('md')`
+                                    font-size:14px;
+                                `}
+
+                                ${mq.maxWidth('sm')`
+                                    width:230px;
+                                    font-size:12px;
+                                `}
                             }
                         }
                     }
@@ -55,6 +93,23 @@ const IndexContainer = styled.div`
                         padding:28px 30px; 
                         text-align:center;
                         color:#333333;
+                        line-height:1.3;
+                        vertical-align:middle;
+
+                        ${mq.maxWidth('lg')`
+                            padding:28px 26px; 
+                            font-size:15px;
+                        `}
+
+                        ${mq.maxWidth('md')`
+                            font-size:13px;
+                            padding:24px 20px; 
+                        `}
+
+                        ${mq.maxWidth('sm')`
+                            font-size:12px;
+                            padding:20px 20px; 
+                        `}
 
                         &:nth-child(3){
                             text-align:left;
@@ -62,6 +117,24 @@ const IndexContainer = styled.div`
 
                         .conLink{
                             color:#333333;
+
+                            ${mq.maxWidth('lg')`
+                                width:300px;
+                                display:inline-block;
+                                
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden;
+                            `}
+
+                            ${mq.maxWidth('md')`
+                                font-size:14px;
+                            `}
+
+                            ${mq.maxWidth('sm')`
+                                width:230px;
+                                font-size:12px;
+                            `}
                         }
 
                     }
@@ -155,38 +228,7 @@ const index = memo(() => {
                         </tr>
                         );
                     })}
-                        {/* {(category === "all") ? data && data.map((v, i) =>{
-                            return(
-                            <tr key={i}>
-                                <td>{v.num}</td>
-                                <td>{v.group}</td>
-                                <td><Link href={`/news/${category}/${v.id}`} className='conLink'>{v.title}</Link></td>
-                                <td>{v.regi_date}</td>
-                                <td>{v.view}</td>
-                            </tr>
-                            );
-                        }) : (category === filterData) ? filterData.map((v, i) =>{
-                            return(
-                            <tr key={i}>
-                                <td>{v.num}</td>
-                                <td>{v.group}</td>
-                                <td><Link href={`/news/${category}/${v.id}`} className='conLink'>{v.title}</Link></td>
-                                <td>{v.regi_date}</td>
-                                <td>{v.view}</td>
-                            </tr>
-                            );
-                        })} */}
-                        {/* filterData && filterData.map((v, i) =>{
-                            return(
-                            <tr key={i}>
-                                <td>{v.num}</td>
-                                <td>{v.group}</td>
-                                <td><Link href={`/news/${category}/${v.id}`} className='conLink'>{v.title}</Link></td>
-                                <td>{v.regi_date}</td>
-                                <td>{v.view}</td>
-                            </tr>
-                            );
-                        }) */}
+
                     </tbody>
                 </table>
             </div>

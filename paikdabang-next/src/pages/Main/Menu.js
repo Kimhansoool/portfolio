@@ -211,7 +211,7 @@ const Menu = memo(() => {
                                 <div className='divider'></div>
                                 <p>{v.text}</p>
                             </div>
-                            <MoreBtn href='#' />
+                            <MoreBtn href={v.url} />
                         </div>
                     </div>
                 </section>

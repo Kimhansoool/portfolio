@@ -298,7 +298,7 @@ const BottomContent = memo(() => {
                     <h1 className='title'>TASTY<br />ICE CREAM / DESSERT</h1>
                     <div className='divider'></div>
                     <p>달콤한 아이스크림부터 든든한 브레드까지!</p>
-                    <MoreBtn href='#' />
+                    <MoreBtn href='/menu/menu_dessert' />
                 </div>
             </div>
         </section>

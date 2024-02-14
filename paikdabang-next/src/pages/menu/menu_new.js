@@ -38,6 +38,10 @@ const MenuNewContainer = styled.div`
         padding-top:150px;
         background-position: center;
 
+        ${mq.maxWidth('md')`
+            padding-top:70px;
+        `}
+
         .titleInner{
             width:100%;
             height:150px;
@@ -66,6 +70,11 @@ const MenuNewContainer = styled.div`
             margin-top:100px;
             padding:0 20px;
 
+            ${mq.maxWidth('md')`
+                flex-wrap:wrap;
+                margin-top:0;
+            `}
+
             li{
                 display: flex;
                 align-items: center;
@@ -78,6 +87,10 @@ const MenuNewContainer = styled.div`
 
                 ${mq.maxWidth('xl')`
                     font-size:14px;
+                `}
+
+                ${mq.maxWidth('md')`
+                    width:100%;
                 `}
 
                 &:first-child{
@@ -95,6 +108,14 @@ const MenuNewContainer = styled.div`
                     display: block;
                     padding:20px 20px;
                     font-size:16px;
+
+                    ${mq.maxWidth('xl')`
+                        font-size:14px;
+                    `}
+
+                    ${mq.maxWidth('md')`
+                        font-size:16px;
+                    `}
                 }
             }
         }

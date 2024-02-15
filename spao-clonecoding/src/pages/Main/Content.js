@@ -194,8 +194,30 @@ const ContentContainer = styled.div`
 
     .banner{
         display: flex;
+        justify-content: center;
         width:100%;
-        margin: 130px auto 120px;
+        margin: 130px auto;
+        height: 250px;
+
+        .bannerWrap{
+            width:100%;
+            background-color: #ff0;
+            
+
+            &.banner01{
+                background-image: url("img/banner01.webp");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+
+            &.banner02{
+                background-image: url("img/banner02.webp");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+        }
     }
 `;
 
@@ -291,7 +313,7 @@ const Content = memo(() => {
         const current = e.currentTarget;
 
         const href = current.getAttribute('href');
-        // console.log(href);
+        console.log(href);
 
         setTabIndex((currentValue) =>{
             return link.findIndex(element => `#${element.id}` === href);
@@ -370,8 +392,12 @@ const Content = memo(() => {
         </ul>
       </div>
       <div className='banner'>
-        <a href='#'><img src='img/banner01.webp' /></a>
-        <a href='#'><img src='img/banner02.webp' /></a>
+        <div className='bannerWrap banner01'>
+            <a href='#'></a>
+        </div>
+        <div className='bannerWrap banner02'>
+            <a href='#'></a>
+        </div>
       </div>
     </ContentContainer>
   );

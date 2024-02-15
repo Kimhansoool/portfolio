@@ -1,10 +1,7 @@
-import React, {memo} from 'react';
+import React, {memo, useEffect} from 'react';
 import styled from 'styled-components';
 // import {Link, Routes, Route} from 'react-router-dom';
-import { Link } from 'react-scroll';
-
-import Main from '../Main';
-import Introduce from '../Main/Introduce';
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 const HeaderContainer = styled.div`
     position: fixed;
@@ -50,9 +47,9 @@ const HeaderContainer = styled.div`
                     font-size:18px;
                     color:#fff;
 
-                    &.active{
+                    /* &.active{
                         color:#F9A931;
-                    }
+                    } */
                 }
             }
         }
@@ -60,15 +57,24 @@ const HeaderContainer = styled.div`
 `;
 
 const Header = memo(() => {
+
+    const scrollToTop = () => {
+        scroll.scrollToTop();
+    };
+
+    const handleSetActive = (to) => {
+        console.log(to);
+    };
+
   return (
     <HeaderContainer>
         <nav className='headerInner'>
             <h3 className='logo'>KIMHANS<span className='point'>O</span>L</h3>
             <ul className='navContainer'>
-                <li className='navItem'><Link to='#' className='link' spy={true} smooth={true}>MAIN</Link></li>
+                <li className='navItem'><Link to='/' className='link' onClick={scrollToTop}>MAIN</Link></li>
                 <li className='navItem'><Link to='introduce' className='link' spy={true} smooth={true}>ABOUT</Link></li>
-                <li className='navItem'><a href='#' className='link'>WORK</a></li>
-                <li className='navItem'><a href='#' className='link'>SNS</a></li>
+                <li className='navItem'><Link to='portfolio' className='link' spy={true} smooth={true}>WORK</Link></li>
+                <li className='navItem'><Link to='sns' className='link' spy={true} smooth={true}>SNS</Link></li>
             </ul>
         </nav>
     </HeaderContainer>

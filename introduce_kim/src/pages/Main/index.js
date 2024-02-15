@@ -1,8 +1,7 @@
-import React, {memo, useEffect, useState} from 'react';
+import React, {memo} from 'react';
 import styled from 'styled-components';
 
-import { render } from 'react-dom';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import { Element } from 'react-scroll';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -28,9 +27,9 @@ const index = memo(() => {
     <IndexContainer>
         <Header />
         <MainBanner />
-        <Introduce id='introduce' />
-        <Portfolio id='portfolio' />
-        <Sns />
+        <Element name='introduce'><Introduce /></Element>
+        <Element name='portfolio'><Portfolio /></Element>
+        <Element name='sns'><Sns /></Element>
         <Footer />
     </IndexContainer>
   );

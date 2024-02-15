@@ -6,8 +6,8 @@ const PortfolioContainer = styled.div`
     background-color: #333333;
     color:#fff !important;
     width:100%;
-    padding:100px 0;
-    /* height: 100vh; */
+    padding:150px 0;
+    height: 100vh;
 
     .contentWrap{
         max-width:1200px;

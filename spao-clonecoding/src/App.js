@@ -15,7 +15,7 @@ const App = memo(() => {
     <AppContainer>
       <Header />
       <Routes>
-        <Route path='*' exact={true} element={<Main />} /> 
+        <Route path='/' exact={true} element={<Main />} /> 
         <Route path='/index.html' element={<Main />} /> 
       </Routes>
       <Footer />

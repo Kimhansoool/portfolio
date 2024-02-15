@@ -10,11 +10,6 @@ export const getList = createAsyncThunk("NewsSlice/getList", async (payload, { r
 
     const myParams = {};
 
-    if (payload?.id) {
-        // /api/news/N16
-        API_URL = `${API_URL}/${payload.id}`;
-    }
-
     if (payload?.category && payload?.category != "all") {
         // /api/news?category=OOO
         myParams.category = payload.category;
@@ -37,6 +32,23 @@ export const getList = createAsyncThunk("NewsSlice/getList", async (payload, { r
     return result;
 });
 
-const NewsSlice = getDefaultSlice("MenuSlice", [getList]);
+export const getItem = createAsyncThunk("NewsSlice/getItem", async (payload, { rejectWithValue }) => {
+    let result = null;
+
+    console.group("getItem");
+    console.log(`${payload.id}`);
+    console.groupEnd();
+
+    try {
+        const response = await axios.get(`${API_URL}/${payload.id}`);
+        result = response.data;
+    } catch (err) {
+        result = rejectWithValue(err.response);
+    }
+
+    return result;
+});
+
+const NewsSlice = getDefaultSlice("MenuSlice", [getList, getItem]);
 
 export default NewsSlice.reducer;

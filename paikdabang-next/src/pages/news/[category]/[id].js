@@ -7,7 +7,7 @@ import NewsHeader from '@/components/NewsHeader';
 
 // 리덕스 관련 모듈
 import { useSelector, useDispatch } from 'react-redux';
-import { getList } from '@/slices/NewsSlice';
+import { getItem } from '@/slices/NewsSlice';
 
 const NewsContentContainer = styled.div`
     margin-top:120px;
@@ -121,7 +121,7 @@ const Id = memo(() => {
 
     useEffect(() =>{
         if(id){
-            dispatch(getList({id: id}));
+            dispatch(getItem({id: id}));
         }
     }, [id]);
 

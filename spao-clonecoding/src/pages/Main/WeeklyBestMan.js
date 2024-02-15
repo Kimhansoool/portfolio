@@ -9,11 +9,8 @@ const HoverMenu = styled.div`
     bottom:-160px;
     right:0;
     width:360px;
-    /* height:160px; */
     background-color: #fff;
-    /* padding:6px 20px; */
     overflow: auto;
-    /* border:1px solid #eeeeee; */
     box-sizing: border-box;
     border:1px solid #eeeeee;
     padding:6px 20px;

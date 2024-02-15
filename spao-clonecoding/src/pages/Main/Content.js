@@ -197,25 +197,30 @@ const ContentContainer = styled.div`
         justify-content: center;
         width:100%;
         margin: 130px auto;
-        height: 250px;
+        height: 200px;
 
         .bannerWrap{
             width:100%;
-            background-color: #ff0;
             
 
             &.banner01{
                 background-image: url("img/banner01.webp");
                 background-repeat: no-repeat;
-                background-size: cover;
+                background-size: 100%;
                 background-position: center;
             }
 
             &.banner02{
                 background-image: url("img/banner02.webp");
                 background-repeat: no-repeat;
-                background-size: cover;
+                background-size: 100%;
                 background-position: center;
+            }
+
+            .link{
+                display: block;
+                width:100%;
+                height: 100%;
             }
         }
     }
@@ -393,10 +398,10 @@ const Content = memo(() => {
       </div>
       <div className='banner'>
         <div className='bannerWrap banner01'>
-            <a href='#'></a>
+            <a href='#' className='link'></a>
         </div>
         <div className='bannerWrap banner02'>
-            <a href='#'></a>
+            <a href='#' className='link'></a>
         </div>
       </div>
     </ContentContainer>

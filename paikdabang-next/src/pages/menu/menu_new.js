@@ -37,6 +37,9 @@ const MenuNewContainer = styled.div`
         height:500px;
         padding-top:150px;
         background-position: center;
+        background-image:url("/img/menu_sec_newBg.jpg");
+        background-repeat:no-repeat;
+        background-size:cover;
 
         ${mq.maxWidth('md')`
             padding-top:70px;
@@ -323,7 +326,7 @@ const MenuNew = memo(() => {
             <Head>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css" />
             </Head>  
-            <div className='titleContainer' style={{backgroundImage: "url(/img/menu_sec_newBg.jpg)"}}>
+            <div className='titleContainer'>
                 <div className='titleInner'>
                     <h3 className='mainTitle'>신메뉴</h3>
                     <hr className='divider' />

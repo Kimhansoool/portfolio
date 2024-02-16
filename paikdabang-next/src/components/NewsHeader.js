@@ -8,7 +8,7 @@ const NewsHeaderContainer = styled.div`
         width:100%;
         height:500px;
         padding-top:150px;
-        background-image: url("/img/commuity_sec_coffeeClassBg.jpg");
+        background-image: url("/img/news_sec_Bg.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;

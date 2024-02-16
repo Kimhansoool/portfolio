@@ -173,7 +173,6 @@ const MenuContainer = styled.div`
                         font-size:18px;
                         font-family: 'Noto Sans KR', sans-serif;
                         font-weight: 600;
-                        /* margin-bottom:100px; */
 
                         ${mq.maxWidth('xl')`
                             display:none;

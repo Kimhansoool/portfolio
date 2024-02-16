@@ -19,6 +19,8 @@ const PaiksMenu = styled.div`
         height:500px;
         padding-top:150px;
         background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
 
         ${mq.maxWidth('md')`
             padding-top:70px;

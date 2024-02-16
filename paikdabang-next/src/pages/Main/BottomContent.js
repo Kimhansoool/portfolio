@@ -126,7 +126,6 @@ const BottomContentContainer = styled.div`
             .storeFindSubmit{
                 position: relative;
                 width:320px;
-                /* background-color: #00f; */
 
                 ${mq.maxWidth('lg')`
                     width:88%;

@@ -12,3 +12,18 @@ document.addEventListener("scroll",(e)=>{
         header.classList.remove('on');
     }
 });
+
+document.addEventListener("click", (e) =>{
+    const btn = document.querySelector('.btn_menu');
+    // console.log(btn);
+    const moMenu = document.querySelector('.toggle_menu');
+    console.log(moMenu);
+
+    if(moMenu.style.display === "block"){
+        moMenu.style.display = "none";
+    } else{
+        moMenu.style.display = "block";
+    }
+    
+
+});

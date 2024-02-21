@@ -20,7 +20,7 @@
     /* padding:0 4rem; */
     width:calc(100% - 7.5rem);
     margin:0 auto;
-    height:112px;
+    height:74px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -156,7 +156,7 @@
     /* width:1400px; */
     margin:0 auto;
     text-align:center;
-    padding-top:112px;
+    padding-top:230px;
 }
 .main_section #wrap img{
     width:30rem;
@@ -826,12 +826,13 @@
     }
     .header .toggle_menu{
         /* toggle btn */
-        display:none;
+        /* display: block; */
         width:100%;
         height: 100vh;
         background:url(../images/bg_banner.jpg) no-repeat center center;
         background-size:cover ;
         position: absolute;
+        z-index:9999999999999999999;
         top:0;
         left:0;
     }

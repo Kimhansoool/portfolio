@@ -253,7 +253,7 @@ const PaiksMenu = styled.div`
 `;
 
 const Category = memo(() => {
-    const [countIndex, setCountIndex] = useState(1);
+    const [countIndex, setCountIndex] = useState(0);
 
     const router = useRouter();
     const {category} = router.query;

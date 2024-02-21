@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useEffect} from 'react';
+import React, {memo, useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
@@ -253,6 +253,8 @@ const PaiksMenu = styled.div`
 `;
 
 const Category = memo(() => {
+    const [countIndex, setCountIndex] = useState(1);
+
     const router = useRouter();
     const {category} = router.query;
     console.log(category);
@@ -268,43 +270,31 @@ const Category = memo(() => {
         }
     }, [category]);
 
-    const onTabClick = useCallback((e) =>{
-        const current = e.currentTarget;
-        console.log(current);
-        const TabLi = document.querySelectorAll('.Tabinner');
-
-        TabLi.forEach((v, i) =>{
-            v.classList.remove("on");
-        });
-        current.classList.add("on");
-    }, []);
-
-    // const onInfoClick = useCallback((e) =>{
+    // const onTabClick = useCallback((e) =>{
     //     const current = e.currentTarget;
-    //     // console.log(current);
-    //     const on = document.querySelectorAll('.MenuWrap .on');
-    //     // console.log(on);
+    //     console.log(current);
+    //     const TabLi = document.querySelectorAll('.Tabinner');
 
-    //     on.forEach((v, i)=>{
-    //         v.style.display = "none";
+    //     TabLi.forEach((v, i) =>{
+    //         v.classList.remove("on");
     //     });
-    //     console.log("###########");
+    //     current.classList.add("on");
 
-    //     if (current.firstChild.style.display == "none") {
-    //         current.firstChild.style.display = "block";
-    //     }
     // }, []);
+
+    const handleOnClick = (e, k) =>{
+        const arr = [];
+        arr.push(k);
+
+        setCountIndex(k);
+        console.log(e.currentTarget);
+        window.localStorage.setItem("current", JSON.stringify(arr));
+    };
 
     const onInfoClick = useCallback((e) =>{
         const current = e.currentTarget;
         const on = document.querySelectorAll('.MenuWrap .on');
         console.log(on);
-
-        // on.forEach((v, i) =>{
-        //     v.style.display = "none";
-        // })
-
-        //console.log(current.style.display);
         
         current.style.opacity = 1 - current.style.opacity;
     }, []);
@@ -322,7 +312,7 @@ const Category = memo(() => {
                         <ul className='mainTab'>
                         {v.tab.map((j, k) =>{
                             return(
-                                <li className='Tabinner' onClick={onTabClick} key={k}>
+                                <li className={`Tabinner ${countIndex === k && 'on'}`} onClick={e => handleOnClick(e, k)} key={k}>
                                     <Link href={j.url} className='titleLink'>{j.title}</Link>
                                 </li>
                             );
